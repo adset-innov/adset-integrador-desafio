@@ -1,0 +1,88 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+    
+<div style="padding: 10px 100px;" class="d-flex align-items-center justify-content-between w-100 border-bottom">
+    <div class="d-flex gap-4">
+        <div class="d-flex align-items-center flex-column">
+            <h5 class="text-secondary text-sm">110 veículos</h5>
+            <span class="text-primary font-weight-bold">Total</span>
+        </div>
+        <span class="fs-1 fw-lighter" style="color: #CECFCF;">/</span>
+        <div class="d-flex align-items-center flex-column">
+            <h5 class="text-secondary text-sm">080 veículos</h5>
+            <span class="text-success font-weight-bold">com fotos</span>
+        </div>
+        <span class="fs-1 fw-lighter" style="color: #CECFCF;">/</span>
+        <div class="d-flex align-items-center flex-column">
+            <h5 class="text-secondary text-sm">030 veículos</h5>
+            <span class="text-danger font-weight-bold">sem fotos</span>
+        </div>
+        <span class="fs-1 fw-lighter" style="color: #CECFCF;">|</span>
+        <div class="d-flex align-items-center flex-column">
+            <h5 class="text-secondary text-sm">Exportar estoque</h5>
+            <button class="bg-transparent border-0">
+                <img src="~/excel.png" alt="Export to Excel" width="40px">
+            </button>
+        </div>
+        <span class="fs-1 fw-lighter" style="color: #CECFCF;">|</span>
+        <div class="d-flex align-items-center">
+            <button class="bg-transparent border-0">
+                <img src="~/car.png" alt="Add new car" width="40px">
+            </button>
+        </div>
+        <span class="fs-1 fw-lighter" style="color: #CECFCF;">|</span>
+    </div>
+    <button style="background-color: #F29400;" class="px-5 py-2 border-0 rounded text-white fw-bold">Atualizar</button>
+</div>
+<div style="height: 80px;" class="bg-white d-flex align-items-center justify-content-center rounded-bottom mx-3 border gap-5">
+    <div class="d-flex flex-column">
+        <label for="placa">Placa</label>
+        <input style="background-color: #e7e7e7;" class="rounded border p-1" id="placa" type="text">
+    </div>
+    <div class="d-flex flex-column">
+        <label for="modelo">Modelo</label>
+        <select style="background-color: #e7e7e7;" class="rounded border p-1" name="modelo" id="mmodelo">
+            <option value="">Todos</option>
+        </select>
+    </div>
+    <div class="d-flex gap-2">
+        <div class="d-flex flex-column">
+            <label for="anoMin">Ano Min</label>
+            <input style="background-color: #e7e7e7;" class="rounded border p-1" type="date" id="anoMin">
+        </div>
+        <div class="d-flex flex-column">
+            <label for="anoMin">Ano Max</label>
+            <input style="background-color: #e7e7e7;" class="rounded border p-1" id="anoMax" type="date">
+        </div>
+    </div>
+    <div class="d-flex flex-column">
+        <label for="preco">Preço</label>
+        <select style="background-color: #e7e7e7;" class="rounded border p-1" name="preco" id="preco">
+            <option value="todos">Todos</option>
+        </select>
+    </div>
+    <div class="d-flex flex-column">
+        <label for="foto">Fotos</label>
+        <select style="background-color: #e7e7e7;" class="rounded border p-1" name="fotos" id="fotos">
+            <option value="todos">Todos</option>
+        </select>
+    </div>
+    <div class="d-flex flex-column">
+        <label for="opcional">Opcionais</label>
+        <select style="background-color: #e7e7e7;" class="rounded border p-1" name="opcional" id="opcional">
+            <option value="todos">Todos</option>
+        </select>
+    </div>
+    <div class="d-flex flex-column">
+        <label for="cor">Cor</label>
+        <select style="background-color: #e7e7e7;" class="rounded border p-1" name="cor" id="cor">
+            <option value="todos">Todos</option>
+        </select>
+    </div>
+</div>
+<div class="d-flex align-items-center justify-content-center">
+    <button style="background-color: #40A52B;" class="rounded-bottom px-5 py-2 border-0 text-white fw-bol">Buscar</button>
+</div>
