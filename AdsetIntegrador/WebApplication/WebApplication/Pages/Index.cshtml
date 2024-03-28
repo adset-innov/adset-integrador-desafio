@@ -1,0 +1,611 @@
+﻿@page
+@using ClassLibrary
+@model IndexModel
+
+@{
+    ViewData["Title"] = "Lista de Carros";
+
+    var csvContent = "data:text/csv;charset=utf-8,";
+}
+
+<div style="padding: 10px 100px;" class="d-flex align-items-center justify-content-between w-100 border-bottom flex-wrap">
+    <div class="d-flex flex-wrap gap-4">
+        <div class="d-flex align-items-center flex-column flex-wrap">
+            <h5 class="text-secondary text-sm">@Model.TotalCarsCount veículos</h5>
+            <span class="text-primary font-weight-bold">Total</span>
+        </div>
+        <span class="fs-1 fw-lighter" style="color: #CECFCF;">/</span>
+        <div class="d-flex align-items-center flex-column">
+            <h5 class="text-secondary text-sm">@Model.CarsWithPhotosCount veículos</h5>
+            <span class="text-success font-weight-bold">com fotos</span>
+        </div>
+        <span class="fs-1 fw-lighter" style="color: #CECFCF;">/</span>
+        <div class="d-flex align-items-center flex-column">
+            <h5 class="text-secondary text-sm">@Model.CarsWithoutPhotosCount veículos</h5>
+            <span class="text-danger font-weight-bold">sem fotos</span>
+        </div>
+        <span class="fs-1 fw-lighter" style="color: #CECFCF;">|</span>
+        <div class="d-flex align-items-center flex-column">
+            <h5 class="text-secondary text-sm">Exportar estoque</h5>
+            <button class="bg-transparent border-0" onclick="exportToExcel()">
+                <img src="~/excel.png" alt="Exportar para o Excel" width="40px">
+            </button>
+        </div>
+        <span class="fs-1 fw-lighter" style="color: #CECFCF;">|</span>
+        <div class="d-flex align-items-center">
+            <button class="bg-transparent border-0" data-bs-toggle="modal" data-bs-target="#addCarModal">
+                <img src="~/car.png" alt="Adicionar novo carro" width="40px">
+            </button>
+        </div>
+        <span class="fs-1 fw-lighter" style="color: #CECFCF;">|</span>
+    </div>
+    <button style="background-color: #F29400;" class="px-5 py-2 border-0 rounded text-white fw-bold" onclick="location.reload()">Atualizar</button>
+</div>
+<div class="bg-white d-flex align-items-center justify-content-center rounded-bottom mx-3 border gap-5 flex-wrap py-5">
+    <div class="d-flex flex-column flex-wrap">
+        <label for="placa">Placa</label>
+        <input id="placa" style="background-color: #e7e7e7;" class="rounded border p-1" type="text">
+    </div>
+    <div class="d-flex flex-column flex-wrap">
+        <label for="modelo">Modelo</label>
+        <select id="modelo" style="background-color: #e7e7e7;" class="rounded border p-1">
+            <option value="">Todos</option>
+        </select>
+    </div>
+    <div class="d-flex gap-2 flex-wrap">
+        <div class="d-flex flex-column">
+            <label>Ano Min</label>
+            <input id="anoMin" style="background-color: #e7e7e7;" class="rounded border p-1" type="date">
+        </div>
+        <div class="d-flex flex-column flex-wrap">
+            <label>Ano Max</label>
+            <input id="anoMax" style="background-color: #e7e7e7;" class="rounded border p-1" type="date">
+        </div>
+    </div>
+    <div class="d-flex flex-column flex-wrap">
+        <label for="preco">Preço</label>
+        <select id="preco" style="background-color: #e7e7e7;" class="rounded border p-1">
+            <option value="todos">Todos</option>
+        </select>
+    </div>
+    <div class="d-flex flex-column flex-wrap">
+        <label for="fotos">Fotos</label>
+        <select id="fotos" style="background-color: #e7e7e7;" class="rounded border p-1">
+            <option value="todos">Todos</option>
+        </select>
+    </div>
+    <div class="d-flex flex-column flex-wrap">
+        <label for="opcionais">Opcionais</label>
+        <select id="opcionais" style="background-color: #e7e7e7;" class="rounded border p-1">
+            <option value="todos">Todos</option>
+        </select>
+    </div>
+    <div class="d-flex flex-column flex-wrap">
+        <label for="cor">Cor</label>
+        <select id="cor" style="background-color: #e7e7e7;" class="rounded border p-1">
+            <option value="todos">Todos</option>
+        </select>
+    </div>
+</div>
+<div class="d-flex align-items-center justify-content-center flex-wrap">
+    <button style="background-color: #40A52B;" class="rounded-bottom px-5 py-2 border-0 text-white fw-bol" onclick="searchCars()">Buscar</button>
+</div>
+
+
+<div class="d-flex gap-5 flex-wrap">
+    <div class="mx-3 mt-5" style="width: 1000px;">
+        <div class="d-flex gap-5">
+            <span class="fw-bold">Marca/Modelo</span>
+            <span class="fw-bold">Ano</span>
+            <span class="fw-bold">Preço</span>
+            <span class="fw-bold">Fotos</span>
+            <select class="form-select w-auto ms-auto" id="pageSizeSelector" onchange="changePageSize()">
+                <option value="100">Exibir 100</option>
+                <option value="50">Exibir 50</option>
+                <option value="10">Exibir 10</option>
+            </select>
+        </div>
+        <div class="d-flex flex-column gap-5 flex-wrap" id="carListContainer">
+            @foreach (var car in Model.Cars)
+            {
+                <div class="d-flex flex-wrap">
+                    <button class="btn btn-danger" onclick="deleteCar('@car.Id')">
+                        <img width="20" src="~/delete-icon.png" alt="Alternate Text" />
+                    </button>
+                    @if (car.Fotos.Count > 0)
+                    {
+                        <img src="@Url.Action("GetImage", "Car", new { id = car.Id })" alt="Car Image" style="max-width: 220px; max-height: 150px;">
+                    }
+                    else
+                    {
+                        <span>Esse veiculo não contém imagens!</span>
+                    }
+                    <div class="d-flex flex-column flex-wrap">
+                        <span class="bg-white px-4 py-1 rounded fs-6 fw-bold text-secondary">@car.Marca @car.Modelo | @car.Ano</span>
+                        <span class="mt-4">Placa - <strong class="text-success">@car.Placa</strong></span>
+                        <span>Km - <strong class="text-success">@car.Km</strong></span>
+                        <span>Cor - <strong class="text-success">@car.Cor</strong></span>
+                    </div>
+                    <div class="d-flex flex-column flex-wrap">
+                        <div class="ms-auto mt-auto">
+                            <div class="d-flex align-items-center flex-wrap">
+                                <button class="d-flex flex-column align-items-center bg-transparent border-0 flex-wrap" data-bs-toggle="modal" data-bs-target="#editCarModal" onclick="openEditModal('@car.Id')">
+                                    <img width="30" src="~/edit.png" alt="Imagem de editar" />
+                                    <strong class="text-success">Editar</strong>
+                                </button>
+                                <button class="d-flex flex-column align-items-center bg-transparent border-0">
+                                    <img width="30" src="~/camera.png" alt="Imagem de camera" />
+                                    <strong class="text-success">
+                                        @(car.Fotos.Count < 10 ? "0" + car.Fotos.Count : car.Fotos.Count)
+                                    </strong>
+                                </button>
+                                <button class="d-flex flex-column align-items-center bg-transparent border-0">
+                                    <img width="30" src="~/car.png" alt="Imagem de Carro para opcionais" />
+                                    <strong class="text-success">Opcionais</strong>
+                                </button>
+                            </div>
+                            <span class="text-success fw-normal mt-1">@car.Preco.ToString("C")</span>
+                        </div>
+                    </div>
+                    <div class="ms-auto bg-white p-4 rounded mt-4 fw-bold d-flex align-items-center justify-content-center">
+                        @car.Pacote
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="addCarModal" tabindex="-1" aria-labelledby="addCarModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addCarModalLabel">Adicionar Novo Carro</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="addCarForm">
+                    <div class="mb-3">
+                        <label for="createMarca" class="form-label">Marca</label>
+                        <input type="text" class="form-control" id="createMarca" name="createMarca">
+                        <label for="createModelo" class="form-label">Modelo</label>
+                        <input type="text" class="form-control" id="createModelo" name="createModelo">
+                        <label for="createPreco" class="form-label">Preço</label>
+                        <input type="text" class="form-control" id="createPreco" name="createPreco">
+                        <label for="createCor" class="form-label">Cor</label>
+                        <input type="text" class="form-control" id="createCor" name="createCor">
+                        <label for="createKm" class="form-label">Kilometragem</label>
+                        <input type="text" class="form-control" id="createKm" name="createKm">
+                        <label for="createAno" class="form-label">Ano</label>
+                        <input type="text" class="form-control" id="createAno" name="createAno">
+                        <label for="createPlaca" class="form-label">Placa</label>
+                        <input type="text" class="form-control" id="createPlaca" name="createPlaca">
+                        <label for="createOpcionais" class="form-label">Opcionais</label>
+                        <select class="form-select" id="createOpcionais" name="createOpcionais" multiple>
+                            <option value="Ar Condicionado">Ar Condicionado</option>
+                            <option value="Alarme">Alarme</option>
+                            <option value="Airbag">Airbag</option>
+                            <option value="Airbag">Airbag</option>
+                            <option value="Trava Eletrica">Trava Eletrica</option>
+                            <option value="Vidro Eletrico">Vidro Elétrico</option>
+                        </select>
+                        <label for="createFotos" class="form-label">Fotos</label>
+                        <input type="file" class="form-control" id="createFotos" name="createFotos" multiple>
+                        <div class="d-flex gap-4 justify-content-center">
+                            <div class="bg-white p-4 rounded d-flex flex-column align-items-start">
+                                <img width="100" src="~/icarros-logo.png" alt="Logo iCarros" />
+                                <label class="mt-2">Diamante Feirão</label>
+                                <div class="d-flex gap-2">
+                                    <input type="checkbox" name="createPacotes" value="iCarros - Diamante Feirão" id="createPacotes" />
+                                    <span><strong class="text-danger fw-normal">010</strong> - <strong class="text-success fw-normal">008</strong></span>
+                                </div>
+                                <label class="mt-2">Diamante</label>
+                                <div class="d-flex gap-2">
+                                    <input type="checkbox" name="createPacotes" value="iCarros - Diamante" id="createPacotes" />
+                                    <span><strong class="text-danger fw-normal">030</strong> - <strong class="text-success fw-normal">025</strong></span>
+                                </div>
+                                <label class="mt-2">Platinum</label>
+                                <div class="d-flex gap-2">
+                                    <input type="checkbox" name="createPacotes" value="iCarros - Platinum" id="createPacotes" />
+                                    <span><strong class="text-danger fw-normal">040</strong> - <strong class="text-success fw-normal">010</strong></span>
+                                </div>
+                            </div>
+                            <div class="bg-white p-4 rounded d-flex flex-column align-items-start">
+                                <img width="100" src="~/webmotors-logo.png" alt="Logo WebMotors" />
+                                <label class="mt-2">Básico</label>
+                                <div class="d-flex gap-2">
+                                    <input type="checkbox" name="createPacotes" value="Web Motors - Básico" id="createPacotes" />
+                                    <span><strong class="text-danger fw-normal">010</strong> - <strong class="text-success fw-normal">008</strong></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" onclick="saveCar()">Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="editCarModal" tabindex="-1" aria-labelledby="editCarModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editCarModalLabel">Editar Carro</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="editCarForm">
+                    <div class="mb-3">
+                        <input type="hidden" id="carId" name="carId" />
+                        <label for="editMarca" class="form-label">Marca</label>
+                        <input type="text" class="form-control" id="editMarca" name="editMarca">
+                        <label for="editModelo" class="form-label">Modelo</label>
+                        <input type="text" class="form-control" id="editModelo" name="editModelo">
+                        <label for="editPreco" class="form-label">Preço</label>
+                        <input type="text" class="form-control" id="editPreco" name="editPreco">
+                        <label for="editCor" class="form-label">Cor</label>
+                        <input type="text" class="form-control" id="editCor" name="editCor">
+                        <label for="editKm" class="form-label">Kilometragem</label>
+                        <input type="text" class="form-control" id="editKm" name="editKm">
+                        <label for="editAno" class="form-label">Ano</label>
+                        <input type="text" class="form-control" id="editAno" name="editAno">
+                        <label for="editPlaca" class="form-label">Placa</label>
+                        <input type="text" class="form-control" id="editPlaca" name="editPlaca">
+                        <label for="editOpcionais" class="form-label">Opcionais</label>
+                        <select class="form-select" id="editOpcionais" name="editOpcionais" multiple>
+                            <option value="Ar Condicionado">Ar Condicionado</option>
+                            <option value="Alarme">Alarme</option>
+                            <option value="Airbag">Airbag</option>
+                            <option value="Airbag">Airbag</option>
+                            <option value="Trava Eletrica">Trava Eletrica</option>
+                            <option value="Vidro Eletrico">Vidro Elétrico</option>
+                        </select>
+                        <label for="editFotos" class="form-label">Fotos</label>
+                        <input type="file" class="form-control" id="editFotos" name="editFotos" multiple>
+                        <div class="d-flex gap-4 justify-content-center">
+                            <div class="bg-white p-4 rounded d-flex flex-column align-items-start">
+                                <img width="100" src="~/icarros-logo.png" alt="Logo iCarros" />
+                                <label class="mt-2">Diamante Feirão</label>
+                                <div class="d-flex gap-2">
+                                    <input type="checkbox" name="editPacotes" value="iCarros - Diamante Feirão" id="editPacotes" />
+                                    <span><strong class="text-danger fw-normal">010</strong> - <strong class="text-success fw-normal">008</strong></span>
+                                </div>
+                                <label class="mt-2">Diamante</label>
+                                <div class="d-flex gap-2">
+                                    <input type="checkbox" name="editPacotes" value="iCarros - Diamante" id="editPacotes" />
+                                    <span><strong class="text-danger fw-normal">030</strong> - <strong class="text-success fw-normal">025</strong></span>
+                                </div>
+                                <label class="mt-2">Platinum</label>
+                                <div class="d-flex gap-2">
+                                    <input type="checkbox" name="editPacotes" value="iCarros - Platinum" id="editPacotes" />
+                                    <span><strong class="text-danger fw-normal">040</strong> - <strong class="text-success fw-normal">010</strong></span>
+                                </div>
+                            </div>
+                            <div class="bg-white p-4 rounded d-flex flex-column align-items-start">
+                                <img width="100" src="~/webmotors-logo.png" alt="Logo WebMotors" />
+                                <label class="mt-2">Básico</label>
+                                <div class="d-flex gap-2">
+                                    <input type="checkbox" name="editPacotes" value="Web Motors - Básico" id="editPacotes" />
+                                    <span><strong class="text-danger fw-normal">010</strong> - <strong class="text-success fw-normal">008</strong></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button onclick="editCar(document.getElementById('carId').value)" type="button" class="btn btn-primary">Salvar Alterações</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    function changePageSize() {
+        var selectedValue = document.getElementById("pageSizeSelector").value;
+        window.location.href = "/?pageSize=" + selectedValue;
+    }
+
+    function saveCar() {
+        var selecionados = [];
+        var select = document.getElementById("createOpcionais");
+        for (var i = 0; i < select.options.length; i++) {
+            if (select.options[i].selected) {
+                selecionados.push(select.options[i].value);
+            }
+        }
+
+        var formData = new FormData();
+        formData.append("Marca", document.getElementById("createMarca").value);
+        formData.append("Modelo", document.getElementById("createModelo").value);
+        formData.append("Ano", document.getElementById("createAno").value);
+        formData.append("Placa", document.getElementById("createPlaca").value);
+        formData.append("Km", document.getElementById("createKm").value);
+        formData.append("Cor", document.getElementById("createCor").value);
+        formData.append("Preco", document.getElementById("createPreco").value);
+        formData.append("Pacote", document.getElementById("createPacotes").value);
+        formData.append("Opcionais", JSON.stringify(selecionados));
+
+        var fotosInput = document.getElementById("createFotos");
+        for (var i = 0; i < fotosInput.files?.length; i++) {
+            formData.append("Fotos", fotosInput.files[i]);
+        }
+
+
+
+        fetch("/api/car", {
+            method: "POST",
+            body: formData,
+        })
+            .then(response => {
+                if (response.ok) {
+                    $('#addCarModal').modal('hide');
+                    location.reload();
+                } else {
+                    console.error("Erro ao adicionar carro");
+                }
+            })
+            .catch(error => {
+                console.error("Erro ao adicionar carro:", error);
+            });
+    }
+
+    function openEditModal(carId) {
+        document.getElementById("carId").value = carId;
+
+        var editCarModal = new bootstrap.Modal(document.getElementById('editCarModal'));
+        editCarModal.show();
+    }
+
+    function editCar(carId) {
+        var selecionados = [];
+        var select = document.getElementById("editOpcionais");
+        for (var i = 0; i < select.options.length; i++) {
+            if (select.options[i].selected) {
+                selecionados.push(select.options[i].value);
+            }
+        }
+
+        var formData = new FormData();
+        formData.append("Marca", document.getElementById("editMarca").value);
+        formData.append("Modelo", document.getElementById("editModelo").value);
+        formData.append("Ano", document.getElementById("editAno").value);
+        formData.append("Placa", document.getElementById("editPlaca").value);
+        formData.append("Km", document.getElementById("editKm").value);
+        formData.append("Cor", document.getElementById("editCor").value);
+        formData.append("Preco", document.getElementById("editPreco").value);
+        formData.append("Pacote", document.getElementById("editPacotes").value);
+        formData.append("Opcionais", JSON.stringify(selecionados));
+
+        var fotosInput = document.getElementById("editFotos");
+        for (var i = 0; i < fotosInput.files?.length; i++) {
+            formData.append("Fotos", fotosInput.files[i]);
+        }
+
+        fetch("/api/car/" + carId, {
+            method: "PATCH",
+            body: formData,
+        })
+            .then(response => {
+                if (response.ok) {
+                    $('#editCarModal').modal('hide');
+                    location.reload();
+                } else {
+                    console.error("Erro ao editar carro");
+                }
+            })
+            .catch(error => {
+                console.error("Erro ao editar carro:", error);
+            });
+    }
+
+    function searchCars() {
+        var placa = document.getElementById("placa").value;
+        var modelo = document.getElementById("modelo").value;
+        var anoMin = document.getElementById("anoMin").value;
+        var anoMax = document.getElementById("anoMax").value;
+        var preco = document.getElementById("preco").value;
+        var fotos = document.getElementById("fotos").value;
+        var opcionais = document.getElementById("opcionais").value;
+        var cor = document.getElementById("cor").value;
+
+        var url = `/api/Car/Search?placa=${placa}&modelo=${modelo}&anoMin=${anoMin}&anoMax=${anoMax}&preco=${preco}&fotos=${fotos}&opcionais=${opcionais}&cor=${cor}`;
+
+        console.log("URL da requisição:", url);
+
+        fetch(url)
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error('Erro ao buscar carros');
+                }
+            })
+            .then(data => {
+                console.log("Dados filtrados recebidos:", data); 
+                updateCarList(data);
+            })
+            .catch(error => {
+                console.error('Erro:', error);
+            });
+    }
+
+    function updateCarList(filteredCars) {
+        var carListContainer = document.getElementById("carListContainer");
+        carListContainer.innerHTML = ""; 
+
+        filteredCars.forEach(car => {
+            var carElement = createCarElement(car); 
+            carListContainer.appendChild(carElement);
+        });
+    }
+
+    function createCarElement(car) {
+        var carElement = document.createElement("div");
+        carElement.classList.add("d-flex");
+
+        var deleteButton = document.createElement("button");
+        deleteButton.classList.add("btn", "btn-danger");
+        deleteButton.onclick = function () {
+            deleteCar(car.id);
+        };
+
+        var deleteIcon = document.createElement("img");
+        deleteIcon.width = "20";
+        deleteIcon.src = "delete-icon.png";
+        deleteIcon.alt = "Alternate Text";
+
+        deleteButton.appendChild(deleteIcon);
+        carElement.appendChild(deleteButton);
+
+        var carImageContainer = document.createElement("div");
+        carImageContainer.classList.add("car-image-container");
+
+        if (car.Fotos && car.Fotos.length > 0) {
+            var carImage = document.createElement("img");
+            var imageUrl = '@Url.Action("GetImage", "Car")?id=' + car.Id;
+            carImage.src = imageUrl;
+            carImage.alt = "Car Image";
+            carImage.style.maxWidth = "220px";
+            carImage.style.maxHeight = "150px";
+            console.log(carImage);
+            carImageContainer.appendChild(carImage);
+        } else {
+            var noImageText = document.createElement("span");
+            noImageText.textContent = "Ooops, parece que a imagem não renderizou :/";
+            noImageText.style.padding = "0 10px";
+            carImageContainer.appendChild(noImageText);
+        }
+        carElement.appendChild(carImageContainer);
+
+        var carInfoContainer = document.createElement("div");
+        carInfoContainer.classList.add("d-flex", "flex-column");
+
+        var carModel = document.createElement("span");
+        carModel.classList.add("bg-white", "px-4", "py-1", "rounded", "fs-6", "fw-bold", "text-secondary");
+        carModel.textContent = car.marca && car.modelo && car.ano ? `${car.marca} ${car.modelo} | ${car.ano}` : "Dados do veículo indisponíveis";
+        carInfoContainer.appendChild(carModel);
+
+        var carPlaca = document.createElement("span");
+        carPlaca.textContent = car.placa ? `Placa - ${car.placa}` : "Placa - Dados indisponíveis";
+        var carKm = document.createElement("span");
+        carKm.textContent = car.km ? `Km - ${car.km}` : "Km - Dados indisponíveis";
+        var carCor = document.createElement("span");
+        carCor.textContent = car.cor ? `Cor - ${car.cor}` : "Cor - Dados indisponíveis";
+
+        carInfoContainer.appendChild(carPlaca);
+        carInfoContainer.appendChild(carKm);
+        carInfoContainer.appendChild(carCor);
+        carElement.appendChild(carInfoContainer);
+
+        var carActionsContainer = document.createElement("div");
+        carActionsContainer.classList.add("d-flex", "flex-column");
+        carActionsContainer.style.marginLeft = "auto";
+
+        var editButton = createActionButton("edit.png", "Editar");
+        console.log(car)
+        var cameraButton = createActionButton("camera.png", car.fotos ? car.fotos.length < 10 ? "0" + car.fotos.length : car.fotos.length : "0", "Imagem de camera");
+        var optionalsButton = createActionButton("car.png", "Opcionais");
+
+        carActionsContainer.appendChild(editButton);
+        carActionsContainer.appendChild(cameraButton);
+        carActionsContainer.appendChild(optionalsButton);
+
+        var carPrice = document.createElement("span");
+        carPrice.classList.add("text-success", "fw-normal", "mt-1");
+        carPrice.textContent = car.preco ? car.preco : "Preço - Dados indisponíveis";
+
+        carActionsContainer.appendChild(carPrice);
+
+        carElement.appendChild(carActionsContainer);
+
+        var pacoteContainer = document.createElement("div");
+        pacoteContainer.classList.add("ms-auto", "bg-white", "p-4", "rounded", "mt-4", "fw-bold", "d-flex", "align-items-center", "justify-content-center");
+        pacoteContainer.textContent = car.pacote ? car.pacote : "Pacote - Dados indisponíveis";
+        carElement.appendChild(pacoteContainer);
+
+        return carElement;
+    }
+
+    function createActionButton(iconSrc, buttonText, altText) {
+        var button = document.createElement("button");
+        button.classList.add("d-flex", "flex-column", "align-items-center", "bg-transparent", "border-0");
+
+        var icon = document.createElement("img");
+        icon.width = "30";
+        icon.src = `${iconSrc}`;
+        icon.alt = altText || "";
+
+        var strongText = document.createElement("strong");
+        strongText.classList.add("text-success");
+        strongText.textContent = buttonText;
+
+        button.appendChild(icon);
+        button.appendChild(strongText);
+
+        return button;
+    }
+
+    function exportToExcel() {
+        fetch("/api/car")
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error('Erro ao buscar carros');
+                }
+            })
+            .then(data => {
+                var csvContent = "Marca,Modelo,Ano,Placa,Km,Cor,Preço,Fotos,Opcionais\n";
+                data.forEach(car => {
+                    var marca = car.marca.replace(/,/g, "");
+                    var modelo = car.modelo.replace(/,/g, "");
+                    var ano = car.ano;
+                    var placa = car.placa;
+                    var km = car.km;
+                    var cor = car.cor;
+                    var preco = car.preco;
+                    var fotos = car.fotos.length;
+                    var opcionais = car.opcionais.join(",");
+
+                    csvContent += marca + "," + modelo + "," + ano + "," + placa + "," + km + "," + cor + "," + preco + "," + fotos + "," + opcionais + "\n";
+                });
+
+                var encodedUri = encodeURI("data:text/csv;charset=utf-8," + csvContent);
+                var link = document.createElement("a");
+                link.setAttribute("href", encodedUri);
+                link.setAttribute("download", "estoque.csv");
+                document.body.appendChild(link);
+
+                link.click();
+            })
+            .catch(error => {
+                console.error('Erro:', error);
+            });
+    }
+
+    function deleteCar(carId) {
+        if (confirm("Tem certeza que deseja deletar este carro?")) {
+            fetch(`/api/car/${carId}`, {
+                method: "DELETE",
+            })
+                .then(response => {
+                    if (response.ok) {
+                        location.reload();
+                    } else {
+                        console.error("Erro ao deletar o carro");
+                    }
+                })
+                .catch(error => {
+                    console.error("Erro ao deletar o carro:", error);
+                });
+        }
+    }
+</script>
