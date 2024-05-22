@@ -7,7 +7,7 @@
         public DateTime DateCreated { get; set; }
         public DateTime DateUpdated { get; set; }
 
-        public void AddProcesso()
+        public void Add()
         {
             this.Id = Guid.NewGuid();
             this.IsActive = true;
@@ -15,7 +15,7 @@
             this.DateUpdated = DateTime.Now;
         }
 
-        public void DeleteProcesso()
+        public void Delete()
         {
             this.IsActive = false;
             this.DateUpdated = DateTime.Now;
