@@ -4,6 +4,7 @@ namespace ADSET.Application.DTOs.Responses
 {
     public class VeiculoResponse
     {
+        public Guid Id { get; set; }
         public string? NomeMarca { get; set; }
         public string? NomeModelo { get; set; }
         public int Ano { get; set; }

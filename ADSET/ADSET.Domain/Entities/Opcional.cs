@@ -9,13 +9,13 @@ namespace ADSET.Domain.Entities
         { }
 
         [SetsRequiredMembers]
-        public Opcional(string name)
+        public Opcional(string nome)
         {
-            this.Name = name;
+            this.Nome = nome;
             this.Add();
         }
 
-        public required string Name { get; set; }
+        public required string Nome { get; set; }
 
         public virtual Collection<VeiculoOpcional>? VeiculoOpcionais { get; set; }
     }

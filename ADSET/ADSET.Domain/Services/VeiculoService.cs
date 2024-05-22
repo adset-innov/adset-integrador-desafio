@@ -10,13 +10,37 @@ namespace ADSET.Domain.Services
     public class VeiculoService : IVeiculoService
     {
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IModeloService _modeloService;
+        private readonly IOpcionalService _opcionalService;
 
-        public VeiculoService(IUnitOfWork unitOfWork)
-            => _unitOfWork = unitOfWork;
-
-        public Task<Veiculo> CreateAsync(Veiculo veiculo)
+        public VeiculoService(IUnitOfWork unitOfWork, IModeloService modeloService, IOpcionalService opcionalService)
         {
-            throw new NotImplementedException();
+            _modeloService = modeloService;
+            _unitOfWork = unitOfWork;
+            _opcionalService = opcionalService;
+        }
+
+
+        public async Task<Veiculo> CreateAsync(Veiculo veiculo, List<Guid>? opcionais)
+        {
+            var modelo = await _modeloService.GetById(veiculo.ModeloId);
+
+            if (modelo == null)
+                throw new Exception("Erro ao inserir o veiculo");
+
+            if(!modelo.MarcaId.Equals(veiculo.MarcaId))
+                throw new Exception("Erro ao inserir o veiculo");
+
+            if(opcionais != null && opcionais.Count > 0)
+            {
+                veiculo.VeiculoOpcionais = opcionais.Select(o => new VeiculoOpcional(o)).ToList();
+            }
+
+            var response = await _unitOfWork.VeiculoRepository.CreateAsync(veiculo);
+
+            await _unitOfWork.CommitAsync();
+
+            return response;
         }
 
         public Task<bool> DeleteAsync(Guid id)

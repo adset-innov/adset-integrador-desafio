@@ -1,8 +1,316 @@
-﻿@{
+﻿@model IndexViewModel;
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<section class="bg-light">
+    <div class="row">
+        <div class="col-6">
+            <div class="row">
+                <div class="col-auto">
+                    <div class="card bg-light">
+                        <div class="card-body text-center">
+                            <span class="text-secondary">110 Veiculos</span> <br />
+                            <span class="text-primary fw-bold">Total</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="card bg-light">
+                        <div class="card-body text-center">
+                            <span class="text-secondary">080 Veiculos</span> <br />
+                            <span class="text-success fw-bold">com fotos</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="card bg-light">
+                        <div class="card-body text-center">
+                            <span class="text-secondary">110 Veiculos</span> <br />
+                            <span class="text-danger fw-bold">sem fotos</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="row">
+                <div class="col-1">
+                    <a class="m-3" asp-area="" asp-controller="Home" asp-action="Cadastrar">
+                        <img src="~/img/Cadastrar.png" alt="" height="75">
+                    </a>
+                </div>
+                <div class="col-auto">
+
+                </div>
+                <div class="col-1">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="bg-light p-1">
+    <form>
+        <ul class="nav bg-white text-center rounded-bottom-1">
+            <li class="nav-item">
+                <div class="m-1">
+                    <label for="placa" class="form-label">Placa</label>
+                    <input type="text" class="form-control" id="placa">
+
+                </div>
+            </li>
+            <li class="nav-item">
+                <div class="m-1">
+                    <label for="marca" class="form-label">Marca</label>
+                    <select class="form-select" id="anoMin">
+                        <option value="0" selected>Todos</option>
+                        @foreach (var item in Model.Marcas)
+                        {
+                            <option value="@item.Id" selected="@item.Selected">@item.Nome</option>
+                        }
+                    </select>
+                </div>
+            </li>
+            <li class="nav-item">
+                <div class="m-1">
+                    <label for="modelo" class="form-label">Modelo</label>
+                    <input type="text" class="form-control" id="modelo">
+                </div>
+            </li>
+            <li class="nav-item">
+                <div class="m-1">
+                    <label class="form-label" for="anoMin">Ano Min</label>
+                    <label class="form-label" for="anoMax">Ano Max</label>
+                    <div class="input-group">
+                        <select class="form-select" id="anoMin">
+                            <option value="0" selected>Todos</option>
+                            <option value="2000">2000</option>
+                            <option value="2001">2001</option>
+                            <option value="2002">2002</option>
+                            <option value="2003">2003</option>
+                            <option value="2004">2004</option>
+                            <option value="2005">2005</option>
+                            <option value="2006">2006</option>
+                            <option value="2007">2007</option>
+                            <option value="2008">2008</option>
+                            <option value="2009">2009</option>
+                            <option value="2010">2010</option>
+                            <option value="2011">2011</option>
+                            <option value="2012">2012</option>
+                            <option value="2013">2013</option>
+                            <option value="2014">2014</option>
+                            <option value="2015">2015</option>
+                            <option value="2016">2016</option>
+                            <option value="2017">2017</option>
+                            <option value="2018">2018</option>
+                            <option value="2019">2019</option>
+                            <option value="2020">2020</option>
+                            <option value="2021">2021</option>
+                            <option value="2022">2022</option>
+                            <option value="2023">2023</option>
+                            <option value="2024">2024</option>
+                        </select>
+                        <select class="form-select" id="anoMax">
+                            <option value="0" selected>Todos</option>
+                            <option value="2000">2000</option>
+                            <option value="2001">2001</option>
+                            <option value="2002">2002</option>
+                            <option value="2003">2003</option>
+                            <option value="2004">2004</option>
+                            <option value="2005">2005</option>
+                            <option value="2006">2006</option>
+                            <option value="2007">2007</option>
+                            <option value="2008">2008</option>
+                            <option value="2009">2009</option>
+                            <option value="2010">2010</option>
+                            <option value="2011">2011</option>
+                            <option value="2012">2012</option>
+                            <option value="2013">2013</option>
+                            <option value="2014">2014</option>
+                            <option value="2015">2015</option>
+                            <option value="2016">2016</option>
+                            <option value="2017">2017</option>
+                            <option value="2018">2018</option>
+                            <option value="2019">2019</option>
+                            <option value="2020">2020</option>
+                            <option value="2021">2021</option>
+                            <option value="2022">2022</option>
+                            <option value="2023">2023</option>
+                            <option value="2024">2024</option>
+                        </select>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item">
+                <div class="m-1">
+                    <label class="form-label" for="preco">Preço</label>
+                    <select class="form-select" id="preco">
+                        <option value="0" selected>Todos</option>
+                        <option value="2000">2000</option>
+                        <option value="2001">2001</option>
+                        <option value="2002">2002</option>
+                    </select>
+                </div>
+            </li>
+            <li class="nav-item">
+                <div class="m-1">
+                    <label class="form-label" for="foto">Foto</label>
+                    <select class="form-select" id="foto">
+                        <option selected>Todos</option>
+                        <option value="0">Com foto</option>
+                        <option value="1">Sem Foto</option>
+                    </select>
+                </div>
+            </li>
+            <li class="nav-item">
+                <div class="m-1">
+                    <label class="form-label" for="opcionais">Opcionais</label>
+                    <select class="form-select" id="opcionais">
+                        <option selected>Todos</option>
+                        @foreach (var item in Model.Opcionais)
+                        {
+                            <option value="@item.Id" selected="@item.Selected">@item.Nome</option>
+                        }
+                    </select>
+                </div>
+            </li>
+            <li class="nav-item">
+                <div class="m-1">
+                    <label class="form-label" for="cor">Cor</label>
+                    <select class="form-select" id="cor">
+                        <option selected>Todos</option>
+                        @foreach (var item in Model.Cores)
+                        {
+                            <option value="@item.Nome" selected="@item.Selected">@item.Nome</option>
+                        }
+                    </select>
+                </div>
+            </li>
+            <li class="nav-item">
+                <button type="reset" class="btn btn-light mt-3"><i class="fa-solid fa-trash" style="color: #ef0606;"></i></button
+            </li>
+        </ul>
+        <div class="row align-items-center text-center">
+            <div class="col">
+                <button type="submit" class="btn btn-success rounded-bottom btn-lg"><i class="fa-solid fa-magnifying-glass fa-flip-horizontal" style="color: #ffffff;"></i> Buscar</button>
+            </div>
+        </div>
+    </form>
+</section>
+<section  class="bg-light">
+    <div class="row pt-5">
+        <div class="col-8">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col" class="border-end">Marca/Modelo</th>
+                    <th scope="col" class="border-end">Ano</th>
+                    <th scope="col" class="border-end">Preço</th>
+                    <th scope="col" class="border-end">Fotos</th>
+                </tr>
+                </thead>
+            </table>
+        </div>
+        <div class="col-4">
+
+        </div>
+    </div>
+</section>
+<section class="bg-white">
+    @foreach (var veiculo in Model.Veiculos.Dados)
+    {
+        var text = $"{veiculo.NomeMarca} {veiculo.NomeModelo} | {veiculo.Ano}";
+        <div class="row pt-1" id="@veiculo.Id">
+            <div class="col-8">
+                <div class="row">
+                    <div class="col-1">
+                        <button class="btn btn-light" style="height: 90%;"><i class="fa-solid fa-trash" style="color: #ef0606;" aria-hidden="true"></i></button>
+                    </div>
+                    <div class="col-11">
+                        <div class="card mb-3 border-0 bg-light">
+                            <div class="row g-0 ">
+                                <div class="col-md-4">
+                                    <img src="~/img/sem-foto.jpg" class="img-fluid rounded-start" alt="...">
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card-body">
+                                        <h5 class="card-title bg-white text-black fw-bold">@Html.DisplayFor(modelItem => text)</h5>
+                                        <p class="card-text">
+                                            <span>Placa - <span class="text-success">@Html.DisplayFor(modelItem => veiculo.Placa)</span></span><br />
+                                            <span>Km - <span class="text-success">@Html.DisplayFor(modelItem => veiculo.Km)</span></span><br/>
+                                            <span>Cor - <span class="text-success">@Html.DisplayFor(modelItem => veiculo.Cor)</span></span>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-4 align-self-end">
+                                    <div class="row">
+                                        <div class="col-12"></div>
+                                        <div class="col-12">
+                                            <ul class="nav text-center w-100 justify-content-center">
+                                                <li class="nav-item"  >
+                                                    <div class="m-2">
+                                                        <button type="button" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar Veículo">
+                                                            <i class="fa-solid fa-pen-to-square" style="color: #ffffff;" ></i>
+                                                        </button>
+                                                    </div>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <div class="m-2">
+                                                        <span class="text-success">
+                                                            <i class="fa-solid fa-camera" style="color: #525252;"></i><br />
+                                                            @Html.DisplayFor(modelItem => veiculo.CountFoto)
+                                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <div class="m-2">
+                                                        <span class="text-success">
+                                                            <i class="fa-solid fa-car"  style="color: #525252;"></i><br />
+                                                            Opcionais
+                                                        </span>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-12 bg-white text-center">
+                                            <span class="text-success fs-5">R$ @Html.DisplayFor(modelItem => veiculo.Preco)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                       </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+
+            </div>
+        </div>        
+    }
+</section>
+@{
+    var prevDisabled = Model.Veiculos.PaginaAtual <= 1 ? "disabled" : "";
+    var nextDisabled = Model.Veiculos.PaginaAtual >= Model.Veiculos.TotalPaginas ? "disabled" : "";
+}
+
+<section class="bg-white">
+    <div class="row">
+        <div class="col-12">
+            <nav>
+                <ul class="pagination justify-content-center">
+                    <li class="page-item @prevDisabled">
+                        <a class="page-link">Previous</a>
+                    </li>
+                    @for (int i = 1; i <= Model.Veiculos.TotalPaginas + 1; i++)
+                    {
+                        <li class="page-item"><a class="page-link" asp-action="Index" asp-route-pageNumber="@i">@i</a></li>
+                    }
+                    <li class="page-item @nextDisabled">
+                        <a class="page-link" href="#">Next</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>

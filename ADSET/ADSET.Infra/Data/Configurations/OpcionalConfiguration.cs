@@ -12,7 +12,7 @@ namespace ADSET.Infra.Data.Configurations
 
             builder.HasKey(o => o.Id);
 
-            builder.Property(o => o.Name)
+            builder.Property(o => o.Nome)
                 .IsRequired()
                 .HasMaxLength(100);
 

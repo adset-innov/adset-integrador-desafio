@@ -21,7 +21,7 @@ namespace ADSET.Infra.Data.Configurations
 
             builder.Property(v => v.Placa)
                 .IsRequired()
-                .HasMaxLength(6);
+                .HasMaxLength(7);
 
             builder.Property(v => v.Km)
                 .HasDefaultValue(0)

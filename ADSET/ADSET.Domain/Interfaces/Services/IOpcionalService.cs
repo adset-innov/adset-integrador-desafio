@@ -6,5 +6,6 @@ namespace ADSET.Domain.Interfaces.Services
     {
         Task<List<Opcional>> GetAllAsync();
         Task<Opcional> GetById(Guid id);
+        Task<bool> VeirfyExistsListId(List<Guid> ids);
     }
 }

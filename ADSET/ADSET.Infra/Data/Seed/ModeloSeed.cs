@@ -4,9 +4,8 @@ namespace ADSET.Infra.Data.Seed
 {
     public class ModeloSeed
     {
-        public static List<Modelo> CreateSeedFord()
+        public static List<Modelo> CreateSeedFord(Marca marca)
         {
-            var marca = new Marca("Ford");
             return new List<Modelo>()
             {
                 new("Ka", marca),
@@ -19,9 +18,8 @@ namespace ADSET.Infra.Data.Seed
             };
         }
 
-        public static List<Modelo> CreateSeedFiat()
+        public static List<Modelo> CreateSeedFiat(Marca marca)
         {
-            var marca = new Marca("Fiat");
             return new List<Modelo>()
             {
                 new("Uno", marca),
@@ -35,9 +33,8 @@ namespace ADSET.Infra.Data.Seed
             };
         }
 
-        public static List<Modelo> CreateSeedGMC()
+        public static List<Modelo> CreateSeedGMC(Marca marca)
         {
-            var marca = new Marca("GMC/Chevrolet");
             return new List<Modelo>()
             {
                 new("S10", marca),
@@ -51,9 +48,8 @@ namespace ADSET.Infra.Data.Seed
             };
         }
 
-        public static List<Modelo> CreateSeedToyota()
+        public static List<Modelo> CreateSeedToyota(Marca marca)
         {
-            var marca = new Marca("Toyota");
             return new List<Modelo>()
             {
                 new("Corolla", marca),

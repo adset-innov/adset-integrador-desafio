@@ -22,8 +22,8 @@ namespace ADSET.Infra.Repositories
         public async Task<List<string>> GetAllColorsQuery()
         {
             return await _context.Veiculos
-                .DistinctBy(v => v.Cor)
                 .Select(v => v.Cor)
+                .Distinct()
                 .ToListAsync();
         }
 

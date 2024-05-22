@@ -5,6 +5,13 @@
         public VeiculoOpcional()
         { }
 
+        public VeiculoOpcional(Guid opcionalId)
+        {
+            this.OpcionalId = opcionalId;
+
+            this.Add();
+        }
+
         public VeiculoOpcional(Guid veiculoId, Guid opcionalId)
         {
             this.VeiculoId = veiculoId;

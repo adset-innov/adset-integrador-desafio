@@ -8,7 +8,7 @@ namespace ADSET.Application.Validators
         public FilterPaginationRequestValitador()
         {
             RuleFor(x => x.QtdPerPage)
-                .GreaterThan(10)
+                .GreaterThan(9)
                 .LessThan(100)
                 .NotNull()
                 .NotEmpty()

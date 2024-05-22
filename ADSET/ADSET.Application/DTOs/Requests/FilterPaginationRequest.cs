@@ -6,6 +6,15 @@ namespace ADSET.Application.DTOs.Request
 {
     public class FilterPaginationRequest
     {
+        public FilterPaginationRequest()
+        {}
+
+        public FilterPaginationRequest(int paginaAtual, int qtdPerPage)
+        {
+            this.PaginaAtual = paginaAtual;
+            this.QtdPerPage = qtdPerPage;
+        }
+
         public string? Placa { get; set; }
         public Guid? MarcaId { get; set; }
         public Guid? ModeloId { get; set; }

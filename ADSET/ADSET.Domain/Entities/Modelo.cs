@@ -11,8 +11,8 @@ namespace ADSET.Domain.Entities
         public Modelo(string nome, Marca marca)
         {
             this.Nome = nome;
-            this.Marca = marca;
             this.MarcaId = marca.Id;
+            this.Add();
         }
 
         public required string Nome { get; set; }

@@ -16,6 +16,7 @@ namespace ADSET.Domain.Entities
             this.Placa = placa;
             this.Cor = cor;
             this.Preco = preco;
+            this.Add();
         }
 
         public required Guid MarcaId { get; set; }
