@@ -1,0 +1,197 @@
+﻿@* @model IEnumerable<AdSetDesafio.Infrastructure.ViewModel.VeiculoViewModel> *@
+
+<div class="container conteudo-geral">
+    <div class="retangulo-cinza-claro"></div>
+    <div class="container filtros">
+        <div class="row container totalizadores exportar cadastrar salvar" style="padding: 10px 0px 0px 0px;">
+            <div class="totalizador">
+                <span class="cinza-claro titulo-totalizador">110 veículos</span>
+                <b style="color: #1583bd;">Total</b>
+            </div>
+            <div class="separator"></div>
+            <div class="totalizador">
+                <span class="cinza-claro  titulo-totalizador">80 veículos</span>
+                <b style="color: #3fa42a;">Com Fotos</b>
+            </div>
+            <div class="separator"></div>
+            <div class="totalizador">
+                <span class="cinza-claro  titulo-totalizador">30 veículos</span>
+                <b style="color: #de0019;">Sem Fotos</b>
+            </div>
+            <div class="exportarEstoque cinza-claro">
+                <span> Exportar Estoque</span>
+                <img src="~/Images/botao-exportar.png" style="height:40px;" />
+            </div>
+            <div class="cadastrarVeiculo">
+                <img src="~/Images/cadastrar-veiculo.png" style="height:70px;" />
+            </div>
+            <div class="salvarBotao">
+                <img src="~/Images/botao-salvar.png" style="height:70px;" />
+            </div>
+        </div>
+        <div class="row col-12 container-consultar">
+            <div class="filtros-consulta">
+                <div class="col-1">
+                    <label class="label-inputs" for="Placa">Placa</label>
+                    <input class="campos-texto" type="text" />
+                </div>
+                <div class="col-1">
+                    <label class="label-inputs" for="Placa">Marca</label>
+                    <input class="campos-texto" type="text" />
+                </div>
+                <div class="col-2">
+                    <label class="label-inputs" for="Placa">Modelo</label>
+                    <input class="campos-texto" type="text" />
+                </div>
+                <div class="col-1">
+                    <label class="label-inputs" for="AnoMin">Ano Min</label>
+                    <select class="campos-select">
+                        <option value="Todos">Todos</option>
+                        <option value="2024">2024</option>
+                        <option value="2023">2023</option>
+                        <option value="2022">2022</option>
+                        <option value="2021">2021</option>
+                        <option value="2020">2020</option>
+                        <option value="2019">2019</option>
+                        <option value="2018">2018</option>
+                        <option value="2017">2017</option>
+                        <option value="2016">2016</option>
+                        <option value="2015">2015</option>
+                        <option value="2014">2014</option>
+                        <option value="2013">2013</option>
+                        <option value="2012">2012</option>
+                        <option value="2003">2011</option>
+                        <option value="2002">2010</option>
+                        <option value="2001">2009</option>
+                        <option value="2000">2008</option>
+                        <option value="2003">2007</option>
+                        <option value="2002">2006</option>
+                        <option value="2001">2005</option>
+                        <option value="2000">2004</option>
+                        <option value="2003">2003</option>
+                        <option value="2002">2002</option>
+                        <option value="2001">2001</option>
+                        <option value="2000">2000</option>
+                    </select>
+                </div>
+                <div class="col-1">
+                    <label class="label-inputs" for="AnoMax">Ano Max</label>
+                    <select class="campos-select">
+                        <option value="Todos">Todos</option>
+                        <option value="2024">2024</option>
+                        <option value="2023">2023</option>
+                        <option value="2022">2022</option>
+                        <option value="2021">2021</option>
+                        <option value="2020">2020</option>
+                        <option value="2019">2019</option>
+                        <option value="2018">2018</option>
+                        <option value="2017">2017</option>
+                        <option value="2016">2016</option>
+                        <option value="2015">2015</option>
+                        <option value="2014">2014</option>
+                        <option value="2013">2013</option>
+                        <option value="2012">2012</option>
+                        <option value="2003">2011</option>
+                        <option value="2002">2010</option>
+                        <option value="2001">2009</option>
+                        <option value="2000">2008</option>
+                        <option value="2003">2007</option>
+                        <option value="2002">2006</option>
+                        <option value="2001">2005</option>
+                        <option value="2000">2004</option>
+                        <option value="2003">2003</option>
+                        <option value="2002">2002</option>
+                        <option value="2001">2001</option>
+                        <option value="2000">2000</option>
+                    </select>
+                </div>
+                <div class="col-1">
+                    <label class="label-inputs" for="Preco">Preco</label>
+                    <select class="campos-select">
+                        <option value="0"></option>
+                        <option value="1">10mil a 50mil</option>
+                        <option value="2">50mil a 90mil</option>
+                        <option value="3">90mil ou mais</option>
+                    </select>
+                </div>
+                <div class="col-2">
+                    <label class="label-inputs" for="Fotos">Fotos</label>
+                    <select class="campos-select">
+                        <option value="0"></option>
+                        <option value="1">Com fotos</option>
+                        <option value="2">Sem Fotos</option>
+                    </select>
+                </div>
+                <div class="col-1">
+                    <label class="label-inputs" for="Opcionais">Opcionais</label>
+                    <input class="campos-texto" type="text" />
+                </div>
+                <div class="col-1">
+                    <label class="label-inputs" for="Cor">Cor</label>
+                    <select class="campos-select">
+                        <option value="0"></option>
+                        <option value="Branco">Branco</option>
+                        <option value="Preto">Preto</option>
+                        <option value="Prata">Prata</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container paginacao">
+        <div class="wrapper">
+            <div class="panel panel-default panel-custom panel-protocolo">
+                <div class="row panel panel-default ibox-content m-0 border-0 p-0" style="line-height: 35px;">
+                    <div class="sk-spinner sk-spinner-double-bounce">
+                        <div class="sk-double-bounce1"></div>
+                        <div class="sk-double-bounce2"></div>
+                    </div>
+                    <table class="tabletext-start" id="table" style="display: inline-block; width: 50%;">
+                        <thead style="">
+                            <tr>
+                                <th class="text-start" style="width: 140px; padding-right: 0px; border-right: 1px solid #bfbfbf;">
+                                    Marca / Modelo
+                                </th>
+                                <th class="text-start" style="width: 47px; border-right: 1px solid #bfbfbf;">
+                                    Ano
+                                </th>
+                                <th class="text-start" style="width: 60px; border-right: 1px solid #bfbfbf;">
+                                    Preço
+                                </th>
+                                <th class="text-start" style="border-right: 1px solid #bfbfbf; width: 60px;">
+                                    Fotos
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableVeiculo" class="text-start">
+                        </tbody>
+                    </table>
+                    <div class="pagination__count" style="display: inline-block; width: 50%;">
+                        <select class="form-select pagination-count__select" id="itemsCount" aria-label="Exibir" style="margin-left: 300px; width: 130px; border-radius: 15px 0px 0px 15px; padding: 5px 28px; border: 1px solid #bfbfbf;">
+                            <option value="8" selected="">Exibir 8</option>
+                            <option value="10">Exibir 10</option>
+                            <option value="15">Exibir 15</option>
+                            <option value="20">Exibir 20</option>
+                            <option value="50">Exibir 50</option>
+                            <option value="100">Exibir 100</option>
+                        </select>
+                    </div>
+                    <div class="navigation">
+                        <div class="pagination__wrapper">
+
+                            <div class="pagination-navigation">
+                                <span class="pagination-navigation__status" id="statusPagination">?-? de ?</span>
+                                <button class="btn btn-link" type="button" id="previous" aria-expanded="false">
+                                    <i class="bi bi-chevron-left"></i>
+                                </button>
+                                <button class="btn btn-link me-5" type="button" id="next" aria-expanded="false">
+                                    <i class="bi bi-chevron-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AdSetDesafio.Adapters.XLSX\AdSetDesafio.Adapters.XLSX.csproj" />
+    <ProjectReference Include="..\AdSetDesafio.Domain.Common\AdSetDesafio.Domain.Common.csproj" />
+    <ProjectReference Include="..\AdSetDesafio.Domain\AdSetDesafio.Domain.csproj" />
+    <ProjectReference Include="..\AdSetDesafio.Infrastructure.ViewModel\AdSetDesafio.Infrastructure.ViewModel.csproj" />
+    <ProjectReference Include="..\AdSetDesafio.Infrastructure\AdSetDesafio.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>

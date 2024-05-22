@@ -1,0 +1,386 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\lpc13\\Source\\Repos\\adset-integrador-desafio\\adSetDesafio\\AdSetDesafio.Domain\\AdSetDesafio.Domain.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\lpc13\\Source\\Repos\\adset-integrador-desafio\\adSetDesafio\\AdSetDesafio.Adapters.XLSX\\AdSetDesafio.Adapters.XLSX.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\lpc13\\Source\\Repos\\adset-integrador-desafio\\adSetDesafio\\AdSetDesafio.Adapters.XLSX\\AdSetDesafio.Adapters.XLSX.csproj",
+        "projectName": "AdSetDesafio.Adapters.XLSX",
+        "projectPath": "C:\\Users\\lpc13\\Source\\Repos\\adset-integrador-desafio\\adSetDesafio\\AdSetDesafio.Adapters.XLSX\\AdSetDesafio.Adapters.XLSX.csproj",
+        "packagesPath": "C:\\Users\\lpc13\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\lpc13\\source\\repos\\adset-integrador-desafio\\adSetDesafio\\AdSetDesafio.Adapters.XLSX\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\lpc13\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://pkgs.dev.azure.com/Solutis/_packaging/SabespNuget/nuget/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\Users\\lpc13\\Source\\Repos\\adset-integrador-desafio\\adSetDesafio\\AdSetDesafio.Domain.Common\\AdSetDesafio.Domain.Common.csproj": {
+                "projectPath": "C:\\Users\\lpc13\\Source\\Repos\\adset-integrador-desafio\\adSetDesafio\\AdSetDesafio.Domain.Common\\AdSetDesafio.Domain.Common.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "EPPlus": {
+              "target": "Package",
+              "version": "[5.8.5, )"
+            },
+            "ExcelDataReader": {
+              "target": "Package",
+              "version": "[3.6.0, )"
+            },
+            "ExcelDataReader.DataSet": {
+              "target": "Package",
+              "version": "[3.6.0, )"
+            },
+            "ExcelDataReader.Mapping": {
+              "target": "Package",
+              "version": "[2.2.2, )"
+            },
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\lpc13\\Source\\Repos\\adset-integrador-desafio\\adSetDesafio\\AdSetDesafio.Domain.Common\\AdSetDesafio.Domain.Common.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\lpc13\\Source\\Repos\\adset-integrador-desafio\\adSetDesafio\\AdSetDesafio.Domain.Common\\AdSetDesafio.Domain.Common.csproj",
+        "projectName": "AdSetDesafio.Domain.Common",
+        "projectPath": "C:\\Users\\lpc13\\Source\\Repos\\adset-integrador-desafio\\adSetDesafio\\AdSetDesafio.Domain.Common\\AdSetDesafio.Domain.Common.csproj",
+        "packagesPath": "C:\\Users\\lpc13\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\lpc13\\Source\\Repos\\adset-integrador-desafio\\adSetDesafio\\AdSetDesafio.Domain.Common\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\lpc13\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://pkgs.dev.azure.com/Solutis/_packaging/SabespNuget/nuget/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\Users\\lpc13\\Source\\Repos\\adset-integrador-desafio\\adSetDesafio\\AdSetDesafio.Infrastructure\\AdSetDesafio.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\lpc13\\Source\\Repos\\adset-integrador-desafio\\adSetDesafio\\AdSetDesafio.Infrastructure\\AdSetDesafio.Infrastructure.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[10.3.6, )"
+            },
+            "MediatR": {
+              "target": "Package",
+              "version": "[10.0.1, )"
+            },
+            "MediatR.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[10.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\lpc13\\Source\\Repos\\adset-integrador-desafio\\adSetDesafio\\AdSetDesafio.Domain\\AdSetDesafio.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\lpc13\\Source\\Repos\\adset-integrador-desafio\\adSetDesafio\\AdSetDesafio.Domain\\AdSetDesafio.Domain.csproj",
+        "projectName": "AdSetDesafio.Domain",
+        "projectPath": "C:\\Users\\lpc13\\Source\\Repos\\adset-integrador-desafio\\adSetDesafio\\AdSetDesafio.Domain\\AdSetDesafio.Domain.csproj",
+        "packagesPath": "C:\\Users\\lpc13\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\lpc13\\Source\\Repos\\adset-integrador-desafio\\adSetDesafio\\AdSetDesafio.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\lpc13\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://pkgs.dev.azure.com/Solutis/_packaging/SabespNuget/nuget/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\Users\\lpc13\\Source\\Repos\\adset-integrador-desafio\\adSetDesafio\\AdSetDesafio.Adapters.XLSX\\AdSetDesafio.Adapters.XLSX.csproj": {
+                "projectPath": "C:\\Users\\lpc13\\Source\\Repos\\adset-integrador-desafio\\adSetDesafio\\AdSetDesafio.Adapters.XLSX\\AdSetDesafio.Adapters.XLSX.csproj"
+              },
+              "C:\\Users\\lpc13\\Source\\Repos\\adset-integrador-desafio\\adSetDesafio\\AdSetDesafio.Infrastructure.ViewModel\\AdSetDesafio.Infrastructure.ViewModel.csproj": {
+                "projectPath": "C:\\Users\\lpc13\\Source\\Repos\\adset-integrador-desafio\\adSetDesafio\\AdSetDesafio.Infrastructure.ViewModel\\AdSetDesafio.Infrastructure.ViewModel.csproj"
+              },
+              "C:\\Users\\lpc13\\Source\\Repos\\adset-integrador-desafio\\adSetDesafio\\AdSetDesafio.Infrastructure\\AdSetDesafio.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\lpc13\\Source\\Repos\\adset-integrador-desafio\\adSetDesafio\\AdSetDesafio.Infrastructure\\AdSetDesafio.Infrastructure.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\lpc13\\Source\\Repos\\adset-integrador-desafio\\adSetDesafio\\AdSetDesafio.Infrastructure.ViewModel\\AdSetDesafio.Infrastructure.ViewModel.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\lpc13\\Source\\Repos\\adset-integrador-desafio\\adSetDesafio\\AdSetDesafio.Infrastructure.ViewModel\\AdSetDesafio.Infrastructure.ViewModel.csproj",
+        "projectName": "AdSetDesafio.Infrastructure.ViewModel",
+        "projectPath": "C:\\Users\\lpc13\\Source\\Repos\\adset-integrador-desafio\\adSetDesafio\\AdSetDesafio.Infrastructure.ViewModel\\AdSetDesafio.Infrastructure.ViewModel.csproj",
+        "packagesPath": "C:\\Users\\lpc13\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\lpc13\\Source\\Repos\\adset-integrador-desafio\\adSetDesafio\\AdSetDesafio.Infrastructure.ViewModel\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\lpc13\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://pkgs.dev.azure.com/Solutis/_packaging/SabespNuget/nuget/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\Users\\lpc13\\Source\\Repos\\adset-integrador-desafio\\adSetDesafio\\AdSetDesafio.Domain.Common\\AdSetDesafio.Domain.Common.csproj": {
+                "projectPath": "C:\\Users\\lpc13\\Source\\Repos\\adset-integrador-desafio\\adSetDesafio\\AdSetDesafio.Domain.Common\\AdSetDesafio.Domain.Common.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.AspNet.Mvc": {
+              "target": "Package",
+              "version": "[5.3.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\lpc13\\Source\\Repos\\adset-integrador-desafio\\adSetDesafio\\AdSetDesafio.Infrastructure\\AdSetDesafio.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\lpc13\\Source\\Repos\\adset-integrador-desafio\\adSetDesafio\\AdSetDesafio.Infrastructure\\AdSetDesafio.Infrastructure.csproj",
+        "projectName": "AdSetDesafio.Infrastructure",
+        "projectPath": "C:\\Users\\lpc13\\Source\\Repos\\adset-integrador-desafio\\adSetDesafio\\AdSetDesafio.Infrastructure\\AdSetDesafio.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\lpc13\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\lpc13\\Source\\Repos\\adset-integrador-desafio\\adSetDesafio\\AdSetDesafio.Infrastructure\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\lpc13\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://pkgs.dev.azure.com/Solutis/_packaging/SabespNuget/nuget/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[11.0.0, )"
+            },
+            "Microsoft.AspNetCore.Mvc.ViewFeatures": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.Extensions.DependencyInjection.Abstractions": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

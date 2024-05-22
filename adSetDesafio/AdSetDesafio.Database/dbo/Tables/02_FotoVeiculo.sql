@@ -1,0 +1,21 @@
+﻿CREATE TABLE [dbo].[FotoVeiculo](
+    [Id][int] IDENTITY(1, 1) NOT NULL,
+    [IdVeiculo][int] NOT NULL,
+    [IdGuid][uniqueidentifier] NOT NULL,
+    [Arquivo][varbinary](max) NOT NULL,
+    [Nome][nvarchar](150) NOT NULL,
+ CONSTRAINT[PK_FotoVeiculo] PRIMARY KEY CLUSTERED
+(
+    [Id] ASC
+)WITH(PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON[PRIMARY]
+) ON[PRIMARY] TEXTIMAGE_ON[PRIMARY]
+GO
+
+ALTER TABLE [dbo].[FotoVeiculo] WITH CHECK ADD CONSTRAINT [FK_FotoVeiculo_Veiculo] FOREIGN KEY([IdVeiculo])
+REFERENCES[dbo].[Veiculo]([Id])
+ON DELETE CASCADE
+GO
+
+ALTER TABLE [dbo].[FotoVeiculo] CHECK CONSTRAINT[FK_FotoVeiculo_Veiculo]
+GO
+

@@ -1,0 +1,16 @@
+C:\Users\lpc13\source\repos\adset-integrador-desafio\adSetDesafio\AdSetDesafio.Domain.Common\bin\Debug\net8.0\AdSetDesafio.Domain.Common.deps.json
+C:\Users\lpc13\source\repos\adset-integrador-desafio\adSetDesafio\AdSetDesafio.Domain.Common\bin\Debug\net8.0\AdSetDesafio.Domain.Common.dll
+C:\Users\lpc13\source\repos\adset-integrador-desafio\adSetDesafio\AdSetDesafio.Domain.Common\bin\Debug\net8.0\AdSetDesafio.Domain.Common.pdb
+C:\Users\lpc13\source\repos\adset-integrador-desafio\adSetDesafio\AdSetDesafio.Domain.Common\bin\Debug\net8.0\AdSetDesafio.Infrastructure.dll
+C:\Users\lpc13\source\repos\adset-integrador-desafio\adSetDesafio\AdSetDesafio.Domain.Common\bin\Debug\net8.0\AdSetDesafio.Infrastructure.pdb
+C:\Users\lpc13\source\repos\adset-integrador-desafio\adSetDesafio\AdSetDesafio.Domain.Common\obj\Debug\net8.0\AdSetDesafio.Domain.Common.csproj.AssemblyReference.cache
+C:\Users\lpc13\source\repos\adset-integrador-desafio\adSetDesafio\AdSetDesafio.Domain.Common\obj\Debug\net8.0\AdSetDesafio.Domain.Common.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lpc13\source\repos\adset-integrador-desafio\adSetDesafio\AdSetDesafio.Domain.Common\obj\Debug\net8.0\AdSetDesafio.Domain.Common.AssemblyInfoInputs.cache
+C:\Users\lpc13\source\repos\adset-integrador-desafio\adSetDesafio\AdSetDesafio.Domain.Common\obj\Debug\net8.0\AdSetDesafio.Domain.Common.AssemblyInfo.cs
+C:\Users\lpc13\source\repos\adset-integrador-desafio\adSetDesafio\AdSetDesafio.Domain.Common\obj\Debug\net8.0\AdSetDesafio.Domain.Common.csproj.CoreCompileInputs.cache
+C:\Users\lpc13\source\repos\adset-integrador-desafio\adSetDesafio\AdSetDesafio.Domain.Common\obj\Debug\net8.0\AdSetDesafio.Domain.Common.sourcelink.json
+C:\Users\lpc13\source\repos\adset-integrador-desafio\adSetDesafio\AdSetDesafio.Domain.Common\obj\Debug\net8.0\AdSetDesafio.Domain.Common.csproj.CopyComplete
+C:\Users\lpc13\source\repos\adset-integrador-desafio\adSetDesafio\AdSetDesafio.Domain.Common\obj\Debug\net8.0\AdSetDesafio.Domain.Common.dll
+C:\Users\lpc13\source\repos\adset-integrador-desafio\adSetDesafio\AdSetDesafio.Domain.Common\obj\Debug\net8.0\refint\AdSetDesafio.Domain.Common.dll
+C:\Users\lpc13\source\repos\adset-integrador-desafio\adSetDesafio\AdSetDesafio.Domain.Common\obj\Debug\net8.0\AdSetDesafio.Domain.Common.pdb
+C:\Users\lpc13\source\repos\adset-integrador-desafio\adSetDesafio\AdSetDesafio.Domain.Common\obj\Debug\net8.0\ref\AdSetDesafio.Domain.Common.dll

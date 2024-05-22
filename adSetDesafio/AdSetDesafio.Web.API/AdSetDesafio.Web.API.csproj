@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <InvariantGlobalization>true</InvariantGlobalization>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.FeatureManagement.AspNetCore" Version="2.4.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AdSetDesafio.Adapters.XLSX\AdSetDesafio.Adapters.XLSX.csproj" />
+    <ProjectReference Include="..\AdSetDesafio.Domain.Common\AdSetDesafio.Domain.Common.csproj" />
+    <ProjectReference Include="..\AdSetDesafio.Domain\AdSetDesafio.Domain.csproj" />
+    <ProjectReference Include="..\AdSetDesafio.Infrastructure.AutoMapper\AdSetDesafio.Infrastructure.AutoMapper.csproj" />
+    <ProjectReference Include="..\AdSetDesafio.Infrastructure.Sql\AdSetDesafio.Infrastructure.Sql.csproj" />
+    <ProjectReference Include="..\AdSetDesafio.Infrastructure.ViewModel\AdSetDesafio.Infrastructure.ViewModel.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,127 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.navbar.navbar-expand-sm.navbar-toggleable-sm.navbar-light.border-bottom.box-shadow {
+    background-color: #e7e7e7 !important;
+    padding: 0;
+}
+
+.container.conteudo-geral {
+    margin: 0;
+    padding: 0;
+    max-width: 100% !important;
+}
+
+.container.filtros {
+    background-color: #e7e7e7;
+    padding: 5px 5px 50px 120px;
+    max-width: 100% !important;
+    border-bottom: 1px solid #bfbfbf !important;
+}
+
+.campos-texto {
+    background-color: #f6f6f6;
+    border-radius: 10px;
+    border-color: #bfbfbf;
+    margin: 0px 10px;
+}
+
+.container.paginacao {
+    background-color: #e7e7e7;
+    padding: 0px 0px 0px 120px;
+    max-width: 100% !important;
+}
+
+.separator {
+    width: 1%;
+    height: 1px;
+    background-color: #bfbfbf;
+    transform: rotate(120deg);
+    margin: 25px 0px 0px 0px;
+    padding: 0px 25px;
+}
+
+.totalizador {
+    width: 10%;
+    text-align: center;
+
+}
+
+.exportarEstoque {
+    width: 15%;
+    text-align: center;
+    border-left: 1px solid #bfbfbf;
+    border-right: 1px solid #bfbfbf;
+    font-size: 19px;
+}
+
+.cadastrarVeiculo {
+    width: 25%;
+    margin-left: 20px;
+}
+
+.salvarBotao {
+    width: 15%;
+}
+
+.retangulo-cinza-claro {
+    background-color: #f6f6f6;
+    height: 80%;
+    float: left;
+    width: 100px;
+    position: fixed;
+    margin: 5px;
+}
+
+.cinza-claro {
+    color: #7c7c7c;
+}
+
+.titulo-totalizador {
+    font-size: 19px;
+}
+
+.filtros-consulta {
+    background-color: white;
+    height: 100px;
+    width: 1230px;
+    margin-left: 0px;
+    border: 1px solid #bfbfbf;
+    border-radius: 0px 0px 20px 20px;
+    display: inline-flex;
+}
+
+.row.col-12.container-consultar {
+    background-color: #e7e7e7;
+    padding: 5px 5px 50px 5px;
+    max-width: 100% !important;
+}
+    /*
+    cinza-escuro-fundo: #e7e7e7;
+    cinza-claro-campos: #f6f6f6;#bfbfbf
+    azul: #1583bd;
+    palavras-filtros:#3b3c3d;
+    palavras totalizadores: #3b3c3d;
+    verde: #3fa42a;
+    vermelho: #de0019;
+*/
