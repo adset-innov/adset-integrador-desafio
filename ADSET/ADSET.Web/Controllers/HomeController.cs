@@ -32,9 +32,9 @@ namespace ADSET.Web.Controllers
 
         [HttpGet]
         [ActionName("Index")]
-        public async Task<IActionResult> Index(string? placa, Guid? marca, Guid? modelo, int? anoMin, int? anoMax, decimal? preco, bool? foto, string? cor, int? paginaAtual, int? qtdPerPage)
+        public async Task<IActionResult> Index(string? placa, Guid? marca, Guid? modelo, int? anoMin, int? anoMax, string? preco, bool? foto, Guid? opcional, string? cor, int? paginaAtual, int? qtdPerPage)
         {
-            var request = new FilterVeiculoRequest(placa, marca, modelo, anoMin, anoMax, preco, foto, cor, paginaAtual, qtdPerPage);
+            var request = new FilterVeiculoRequest(placa, marca, modelo, anoMin, anoMax, preco, foto, cor, opcional, paginaAtual, qtdPerPage);
 
             var data = new IndexViewModel();
 
@@ -42,7 +42,7 @@ namespace ADSET.Web.Controllers
             var cores = await _veiculoAppService.GetAllColors();
             var marcas = await _marcaAppService.GetAllAsync();
 
-            data.Opcionais = opcionais.Select(o => new DTOs.Responses.OpcionalResponse(o.Id, o.Nome, false)).ToList();
+            data.Opcionais = opcionais.Select(o => new DTOs.Responses.OpcionalResponse(o.Id, o.Nome, (o.Id == opcional))).ToList();
             data.Cores = cores.Select(c => new CorResponse(c, (c == cor))).ToList();
             data.Marcas = marcas.Select(m =>
                 new DTOs.Responses.MarcaResponse(m.Id, m.Nome, (m.Id == marca),
@@ -52,7 +52,7 @@ namespace ADSET.Web.Controllers
 
             data.QtdVeiculos = _veiculoAppService.GetCount();
             data.Veiculos = _veiculoAppService.GetByFilter(request.Mapping());
-
+            ViewData["FilterVeiculoRequest"] = request;
             return View(data);
         }
 

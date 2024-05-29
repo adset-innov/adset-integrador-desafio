@@ -4,7 +4,7 @@ namespace ADSET.Web.DTOs.Requests
 {
     public class FilterVeiculoRequest
     {
-        public FilterVeiculoRequest(string? placa, Guid? marca, Guid? modelo, int? anoMin, int? anoMax, decimal? preco, bool? foto, string? cor, int? paginaAtual = 1, int? qtdPerPage = 10)
+        public FilterVeiculoRequest(string? placa, Guid? marca, Guid? modelo, int? anoMin, int? anoMax, string? preco, bool? foto, string? cor, Guid? opcional, int? paginaAtual = 1, int? qtdPerPage = 10)
         {
             Placa = placa ?? null;
             MarcaId = marca ?? null;
@@ -16,6 +16,7 @@ namespace ADSET.Web.DTOs.Requests
             Cor = cor ?? null;
             PaginaAtual = paginaAtual ?? 1;
             QtdPerPage = qtdPerPage ?? 10;
+            OpcionalId = opcional;
         }
 
         public Guid? MarcaId { get; set; }
@@ -25,9 +26,10 @@ namespace ADSET.Web.DTOs.Requests
         public string? Placa { get; set; }
         public bool? Foto { get; set; }
         public string? Cor { get; set; }
-        public decimal? Preco { get; set; }
+        public string? Preco { get; set; }
         public int PaginaAtual { get; set; }
         public int QtdPerPage { get; set; }
+        public Guid? OpcionalId { get; set; }
 
         public FilterPaginationRequest Mapping()
         {
@@ -41,6 +43,7 @@ namespace ADSET.Web.DTOs.Requests
                 Foto = Foto,
                 Cor = Cor,
                 Preco = Preco,
+                OpcionalId = OpcionalId,
                 PaginaAtual = PaginaAtual,
                 QtdPerPage = QtdPerPage
             };

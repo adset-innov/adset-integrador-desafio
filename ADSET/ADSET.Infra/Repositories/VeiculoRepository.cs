@@ -45,9 +45,13 @@ namespace ADSET.Infra.Repositories
                 .Filter(!String.IsNullOrEmpty(request.Cor), v => v.Cor.Equals(request.Cor))
                 .Filter(request.AnoMin.HasValue, v => v.Ano >= request.AnoMin)
                 .Filter(request.AnoMax.HasValue, v => v.Ano <= request.AnoMax)
+                .Filter(request.Preco == "preco1", v => v.Preco >= 10000 && v.Preco < 50000)
+                .Filter(request.Preco == "preco2", v => v.Preco >= 50000 && v.Preco < 90000)
+                .Filter(request.Preco == "preco3", v => v.Preco >= 90000)
                 .Filter(request.Foto.HasValue, v => v.HaveFoto.Equals(request.Foto))
                 .Filter(request.MarcaId.HasValue, v => v.MarcaId.Equals(request.MarcaId))
                 .Filter(request.ModeloId.HasValue, v => v.ModeloId.Equals(request.ModeloId))
+                .Filter(request.OpcionalId.HasValue, v => v.VeiculoOpcionais.Where(vo => vo.OpcionalId == request.OpcionalId).Any())
                 .AsQueryable();
         }
 

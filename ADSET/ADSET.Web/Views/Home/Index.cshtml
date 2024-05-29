@@ -1,9 +1,11 @@
 ﻿@using ADSET.Application.DTOs.Enums
 @using System.Text.Json
+@using ADSET.Web.DTOs.Requests
 @model IndexViewModel;
 
 @{
     ViewData["Title"] = "Home Page";
+    var filterVeiculoRequest = ViewData["FilterVeiculoRequest"] as FilterVeiculoRequest;
 }
 
 <section class="bg-light shadow-sm" style="height: 90px;align-content: center;">
@@ -80,7 +82,7 @@
         <div class="row pb-3 pt-3 bg-white text-center rounded-border-form fs-7">
             <div class="col">
                 <label for="placa">Placa</label>
-                <input type="text" class="form-control form-control-sm" id="placa" name="placa">
+                <input type="text" class="form-control form-control-sm" id="placa" name="placa" value="@filterVeiculoRequest.Placa">
             </div>
             <div class="col">
                 <label for="marca">Marca</label>
@@ -113,14 +115,16 @@
                         <option value="" selected>Todos</option>
                         @for (int i = 2000; i <= 2024; i++)
                         {
-                            <option value="@i">@i</option>
+                            var selected = filterVeiculoRequest.AnoMin == i;
+                            <option value="@i" selected="@selected">@i</option>
                         }
                     </select>
                     <select class="form-select form-select-sm" id="anoMax" name="anoMax">
                         <option value="" selected>Todos</option>
                         @for (int i = 2000; i <= 2024; i++)
                         {
-                            <option value="@i">@i</option>
+                            var selected = filterVeiculoRequest.AnoMax == i;
+                            <option value="@i" selected="@selected">@i</option>
                         }
                     </select>
                 </div>
@@ -129,22 +133,31 @@
                 <label for="preco">Preço</label>
                 <select class="form-select form-select-sm" id="preco" name="preco">
                     <option value="" selected>Todos</option>
-                    <option value="2000">2000</option>
-                    <option value="2001">2001</option>
-                    <option value="2002">2002</option>
+                    @{
+                        var preco1 = (filterVeiculoRequest.Preco == "preco1");
+                        var preco2 = (filterVeiculoRequest.Preco == "preco2");
+                        var preco3 = (filterVeiculoRequest.Preco == "preco3");
+                    }
+                    <option value="preco1" selected="@preco1">10mil a 50mil</option>
+                    <option value="preco2" selected="@preco2">50mil a 90mil</option>
+                    <option value="preco3" selected="@preco3">+90mil</option>
                 </select>
             </div>
             <div class="col">
                 <label for="foto">Foto</label>
                 <select class="form-select form-select-sm" id="foto" name="foto">
                     <option value="" selected>Todos</option>
-                    <option value="true">Com foto</option>
-                    <option value="false">Sem Foto</option>
+                    @{
+                        var CFoto = filterVeiculoRequest.Foto;
+                        var SFoto = filterVeiculoRequest.Foto == false;
+                    }
+                    <option value="true" selected="@CFoto">Com foto</option>
+                    <option value="false" selected="@SFoto">Sem Foto</option>
                 </select>
             </div>
             <div class="col">
-                <label for="opcionais">Opcionais</label>
-                <select class="form-select form-select-sm" id="" name="opcionais">
+                <label for="opcional">Opcionais</label>
+                <select class="form-select form-select-sm" id="opcional" name="opcional">
                     <option value="" selected>Todos</option>
                     @foreach (var item in Model.Opcionais)
                     {
@@ -163,7 +176,7 @@
                 </select>
             </div>
             <div class="col-auto" style="align-content: center;">
-                <button type="reset" class="btn btn-light rounded-circle"><i class="fa-solid fa-eraser" style="color: #ef0606;"></i></button>
+                <a asp-controller="Home" asp-action="Index" type="reset" class="btn btn-light rounded-circle"><i class="fa-solid fa-eraser" style="color: #ef0606;"></i></a>
             </div>
         </div>
         <div class="row align-items-center text-center">
@@ -191,10 +204,42 @@
                     <table class="table" style="margin:0px;">
                         <thead>
                         <tr>
-                            <th scope="col" class="border-end">Marca/Modelo</th>
-                            <th scope="col" class="border-end">Ano</th>
-                            <th scope="col" class="border-end">Preço</th>
-                            <th scope="col" class="border-end">Fotos</th>
+                            <th scope="col" class="border-end">
+                                <div class="table-orderning-clean" style="align-content: center;">
+                                    Marca/Modelo
+                                    <div class="ordening ms-1">
+                                        <button type="reset" class="btn caret up-dark mb-1"></i></button>
+                                        <button type="reset" class="btn caret down-dark mt-1"></i></button>
+                                    </div>
+                                </div>
+                            </th>
+                            <th scope="col" class="border-end">
+                                <div class="table-orderning-clean" style="align-content: center;">
+                                    Ano
+                                    <div class="ordening ms-1">
+                                        <button type="reset" class="btn caret up-dark mb-1"></i></button>
+                                        <button type="reset" class="btn caret down-dark mt-1"></i></button>
+                                    </div>
+                                </div>
+                            </th>
+                            <th scope="col" class="border-end">
+                                <div class="table-orderning-clean" style="align-content: center;">
+                                    Preço
+                                    <div class="ordening ms-1">
+                                        <button type="reset" class="btn caret up-dark mb-1"></i></button>
+                                        <button type="reset" class="btn caret down-dark mt-1"></i></button>
+                                    </div>
+                                </div>
+                            </th>
+                            <th scope="col" class="border-end">
+                                <div class="table-orderning-clean" style="align-content: center;">
+                                    Fotos
+                                    <div class="ordening ms-1">
+                                        <button type="reset" class="btn caret up-dark mb-1"></i></button>
+                                        <button type="reset" class="btn caret down-dark mt-1"></i></button>
+                                    </div>
+                                </div>
+                            </th>
                         </tr>
                         </thead>
                     </table>
@@ -400,27 +445,80 @@
             <nav>
                 <ul class="pagination justify-content-center">
                     <li class="page-item @prevDisabled">
-                        <a class="page-link" aria-label="First" asp-action="Index" asp-route-paginaAtual="1">
+                        <a class="page-link" aria-label="First" asp-action="Index" asp-route-paginaAtual="1"
+                           asp-route-placa="@filterVeiculoRequest.Placa"
+                           asp-route-marca="@filterVeiculoRequest.MarcaId"
+                           asp-route-modelo="@filterVeiculoRequest.ModeloId"
+                           asp-route-anoMin="@filterVeiculoRequest.AnoMin"
+                           asp-route-anoMax="@filterVeiculoRequest.AnoMax"
+                           asp-route-preco="@filterVeiculoRequest.Preco"
+                           asp-route-foto="@filterVeiculoRequest.Foto"
+                           asp-route-cor="@filterVeiculoRequest.Cor"
+                           asp-route-qtdPerPage="@filterVeiculoRequest.QtdPerPage"
+                           asp-route-opcional="@filterVeiculoRequest.OpcionalId">
                             <i class="fa-solid fa-angles-left"></i>
                         </a>
                     </li>
                     <li class="page-item @prevDisabled">
-                        <a class="page-link" aria-label="Previous" asp-action="Index" asp-route-paginaAtual="@prevPage">
+                        <a class="page-link" aria-label="Previous" asp-action="Index" 
+                        asp-route-paginaAtual="@prevPage"
+                        asp-route-placa="@filterVeiculoRequest.Placa"
+                        asp-route-marca="@filterVeiculoRequest.MarcaId"
+                        asp-route-modelo="@filterVeiculoRequest.ModeloId"
+                        asp-route-anoMin="@filterVeiculoRequest.AnoMin"
+                        asp-route-anoMax="@filterVeiculoRequest.AnoMax"
+                        asp-route-preco="@filterVeiculoRequest.Preco"
+                        asp-route-foto="@filterVeiculoRequest.Foto"
+                        asp-route-cor="@filterVeiculoRequest.Cor"
+                        asp-route-qtdPerPage="@filterVeiculoRequest.QtdPerPage"
+                        asp-route-opcional="@filterVeiculoRequest.OpcionalId">
                             <i class="fa-solid fa-chevron-left"></i>
                         </a>
                     </li>
                     @for (int i = 1; i <= Model.Veiculos.TotalPaginas; i++)
                     {
                         var active = Model.Veiculos.PaginaAtual == i ? "active" : "";
-                        <li class="page-item @active"><a class="page-link" asp-action="Index" asp-route-paginaAtual="@i">@i</a></li>
+                        <li class="page-item @active"><a class="page-link" asp-action="Index"
+                            asp-route-paginaAtual="@i"
+                            asp-route-placa="@filterVeiculoRequest.Placa"
+                            asp-route-marca="@filterVeiculoRequest.MarcaId"
+                            asp-route-modelo="@filterVeiculoRequest.ModeloId"
+                            asp-route-anoMin="@filterVeiculoRequest.AnoMin"
+                            asp-route-anoMax="@filterVeiculoRequest.AnoMax"
+                            asp-route-preco="@filterVeiculoRequest.Preco"
+                            asp-route-foto="@filterVeiculoRequest.Foto"
+                            asp-route-cor="@filterVeiculoRequest.Cor"
+                            asp-route-qtdPerPage="@filterVeiculoRequest.QtdPerPage"
+                            asp-route-opcional="@filterVeiculoRequest.OpcionalId">@i</a>
+                        </li>
                     }
                     <li class="page-item @nextDisabled">
-                        <a class="page-link"  aria-label="Next" asp-action="Index" asp-route-paginaAtual="@nextPage">
+                        <a class="page-link" aria-label="Next" asp-action="Index" asp-route-paginaAtual="@nextPage"
+                           asp-route-placa="@filterVeiculoRequest.Placa"
+                           asp-route-marca="@filterVeiculoRequest.MarcaId"
+                           asp-route-modelo="@filterVeiculoRequest.ModeloId"
+                           asp-route-anoMin="@filterVeiculoRequest.AnoMin"
+                           asp-route-anoMax="@filterVeiculoRequest.AnoMax"
+                           asp-route-preco="@filterVeiculoRequest.Preco"
+                           asp-route-foto="@filterVeiculoRequest.Foto"
+                           asp-route-cor="@filterVeiculoRequest.Cor"
+                           asp-route-qtdPerPage="@filterVeiculoRequest.QtdPerPage"
+                           asp-route-opcional="@filterVeiculoRequest.OpcionalId">
                             <i class="fa-solid fa-chevron-right"></i>
                         </a>
                     </li>
                     <li class="page-item @lastDisabled">
-                        <a class="page-link" aria-label="Last" asp-action="Index" asp-route-paginaAtual="@(Model.Veiculos.TotalPaginas + 1)">
+                        <a class="page-link" aria-label="Last" asp-action="Index" asp-route-paginaAtual="@(Model.Veiculos.TotalPaginas + 1)"
+                           asp-route-placa="@filterVeiculoRequest.Placa"
+                           asp-route-marca="@filterVeiculoRequest.MarcaId"
+                           asp-route-modelo="@filterVeiculoRequest.ModeloId"
+                           asp-route-anoMin="@filterVeiculoRequest.AnoMin"
+                           asp-route-anoMax="@filterVeiculoRequest.AnoMax"
+                           asp-route-preco="@filterVeiculoRequest.Preco"
+                           asp-route-foto="@filterVeiculoRequest.Foto"
+                           asp-route-cor="@filterVeiculoRequest.Cor"
+                           asp-route-qtdPerPage="@filterVeiculoRequest.QtdPerPage"
+                           asp-route-opcional="@filterVeiculoRequest.OpcionalId">
                             <i class="fa-solid fa-angles-right"></i>
                         </a>
                     </li>

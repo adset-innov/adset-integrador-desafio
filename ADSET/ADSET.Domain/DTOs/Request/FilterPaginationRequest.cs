@@ -9,9 +9,10 @@ namespace ADSET.Domain.DTOs.Request
         public Guid? ModeloId { get; set; }
         public int? AnoMin { get; set; }
         public int? AnoMax { get; set; }
-        public decimal? Preco { get; set; }
+        public string? Preco { get; set; }
         public bool? Foto { get; set; }
         public string? Cor { get; set; }
+        public Guid? OpcionalId { get; set; }
 
         public List<Ordenacao>? OrderByAsc { get; set; }
         public List<Ordenacao>? OrderByDesc { get; set; }
