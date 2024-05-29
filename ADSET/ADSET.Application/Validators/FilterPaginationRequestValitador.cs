@@ -1,4 +1,4 @@
-﻿using ADSET.Application.DTOs.Request;
+﻿using ADSET.Application.DTOs.Requests;
 using FluentValidation;
 
 namespace ADSET.Application.Validators

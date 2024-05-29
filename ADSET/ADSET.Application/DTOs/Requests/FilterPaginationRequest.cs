@@ -2,7 +2,7 @@
 using ADSET.Application.Validators;
 using FluentValidation;
 
-namespace ADSET.Application.DTOs.Request
+namespace ADSET.Application.DTOs.Requests
 {
     public class FilterPaginationRequest
     {
@@ -14,6 +14,7 @@ namespace ADSET.Application.DTOs.Request
             this.PaginaAtual = paginaAtual;
             this.QtdPerPage = qtdPerPage;
         }
+
 
         public string? Placa { get; set; }
         public Guid? MarcaId { get; set; }

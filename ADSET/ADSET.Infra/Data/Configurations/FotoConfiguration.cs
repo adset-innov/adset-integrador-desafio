@@ -14,7 +14,11 @@ namespace ADSET.Infra.Data.Configurations
 
             builder.Property(f => f.Caminho)
             .IsRequired()
-            .HasMaxLength(100);
+            .HasMaxLength(2500);
+
+            builder.Property(f => f.Nome)
+            .IsRequired()
+            .HasMaxLength(80);
 
             builder.Property(f => f.IsActive).HasDefaultValue(true);
 

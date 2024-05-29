@@ -1,11 +1,14 @@
-using ADSET.Domain;
 using ADSET.Application;
+using ADSET.Domain;
+using ADSET.Domain.Options;
 using ADSET.Infra;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.Configure<AwsOptions>(options => builder.Configuration.GetSection(nameof(AwsOptions)).Bind(options));
 
 builder.Services.AddDomain();
 builder.Services.AddApplication();

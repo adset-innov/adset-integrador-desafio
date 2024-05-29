@@ -15,6 +15,7 @@ namespace ADSET.Application
             services.AddTransient<IMarcaAppService, MarcaAppService>();
             services.AddTransient<IOpcionalAppService, OpcionalAppService>();
             services.AddTransient<IVeiculoAppService, VeiculoAppService>();
+            services.AddTransient<IPacoteAppService, PacoteAppService>();
 
             return services;
         }

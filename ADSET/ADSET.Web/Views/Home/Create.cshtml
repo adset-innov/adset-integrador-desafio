@@ -1,5 +1,93 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@using ADSET.Application.DTOs.Enums
+@using System.Text.Json
+@model CreateViewModel;
+
 @{
+    ViewData["Title"] = "Criar Veiculo";
 }
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <form method="post">
+                    <div class="mb-3">
+                        <label for="marca">Marca</label>
+                        <select class="form-select form-select-sm" id="marca" name="marcaId" onchange="selectedMarca(@JsonSerializer.Serialize(Model.Marcas))">
+                            <option>Selecione</option>
+                            @foreach (var item in Model.Marcas)
+                            {
+                                <option value="@item.Id" selected="@item.Selected">@item.Nome</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="modelo">Modelo</label>
+                        <select class="form-select form-select-sm" id="modelo" name="modeloId">
+                            <option>Selecione</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="ano">Ano</label>
+                        <select class="form-select form-select-sm" id="ano" name="ano">
+                            @for (int i = 2000; i <= 2024; i++)
+                            {
+                                <option value="@i">@i</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="cor">Cor</label>
+                        <input type="text" class="form-control form-control-sm" id="cor" name="cor">
+                    </div>
+                    <div class="mb-3">
+                        <label for="placa">Placa</label>
+                        <input type="text" class="form-control form-control-sm" id="placa" name="placa">
+                    </div>
+                    <div class="mb-3">
+                        <label for="km">Km</label>
+                        <input type="number" class="form-control form-control-sm" id="km" name="km">
+                    </div>
+                    <div class="mb-3">
+                        <label for="preco">Preco</label>
+                        <input type="number" class="form-control form-control-sm" id="preco" name="preco">
+                    </div>
+                    <div class="mb-3">
+                        <label>Opcionais</label>
+                        <div class="row">
+                            @foreach (var opcional in Model.Opcionais)
+                            {
+                                <div class="col-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="@opcional.Id" name="opcionais[]" id="opcional-@opcional.Id">
+                                        <label class="form-check-label" for="opcional-@opcional.Id">@opcional.Nome</label>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <a asp-controller="Home" asp-action="Index" class="btn btn-light">Voltar</a>
+                        </div>
+                        <div class="col-6">
+                            <button type="submit" class="btn btn-success float-end">Cadastrar</button>
+                            <button type="reset" class="btn btn-warning float-end me-3">Limpar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</section>
+<script>
+    function selectedMarca(marca) {
+        let select = $("#marca").val();
+        $("#modelo").empty();
+        $("#modelo").append('<option value="" selected>Selecione</option>')
+        marca.find(m => m.Id === select).Modelos.forEach(function (modelo) {
+            $("#modelo").append('<option value="' + modelo.Id + '">' + modelo.Nome + '</option>')
+        });
+    }
+</script>

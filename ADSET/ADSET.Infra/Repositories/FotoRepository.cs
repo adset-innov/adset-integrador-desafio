@@ -32,5 +32,11 @@ namespace ADSET.Infra.Repositories
         {
             _context.Fotos.Remove(foto);
         }
+
+        public async Task CreateListAsync(List<Foto> fotos)
+        {
+            await _context.Fotos.AddRangeAsync(fotos);
+            return;
+        }
     }
 }

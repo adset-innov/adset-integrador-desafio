@@ -1,7 +1,6 @@
 ﻿using ADSET.Domain.DTOs.Request;
 using ADSET.Domain.DTOs.Response;
 using ADSET.Domain.Entities;
-using ADSET.Domain.Enums;
 using ADSET.Domain.Interfaces;
 using ADSET.Domain.Interfaces.Services;
 
@@ -11,13 +10,11 @@ namespace ADSET.Domain.Services
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IModeloService _modeloService;
-        private readonly IOpcionalService _opcionalService;
 
-        public VeiculoService(IUnitOfWork unitOfWork, IModeloService modeloService, IOpcionalService opcionalService)
+        public VeiculoService(IUnitOfWork unitOfWork, IModeloService modeloService)
         {
             _modeloService = modeloService;
             _unitOfWork = unitOfWork;
-            _opcionalService = opcionalService;
         }
 
 
@@ -43,43 +40,43 @@ namespace ADSET.Domain.Services
             return response;
         }
 
-        public Task<bool> DeleteAsync(Guid id)
+        public async Task<bool> DeleteAsync(Guid id)
         {
-            throw new NotImplementedException();
+            var veiculo = await GetByIdAsync(id);
+
+            if (veiculo == null)
+                throw new Exception("Erro ao inserir o veiculo");
+
+            _unitOfWork.VeiculoRepository.Delete(veiculo);
+
+            return await _unitOfWork.CommitAsync();
         }
 
-        public Task<Veiculo> GetByIdAsync(Guid id)
+        public async Task<Veiculo> GetByIdAsync(Guid id)
         {
-            throw new NotImplementedException();
+            var modelo = await _unitOfWork.VeiculoRepository.GetById(id);
+
+            if (modelo == null)
+                throw new Exception($"Veiculo com o ID: {id} não foi encontrado");
+
+            return modelo;
         }
 
         public VeiculoPaginatedResponse GetListAsync(FilterPaginationRequest request)
         {
             var response = new VeiculoPaginatedResponse();
 
-            var query = _unitOfWork.VeiculoRepository.GetQuery();
-
-            if (!String.IsNullOrEmpty(request.Placa))
-                query.Where(v => v.Placa == request.Placa);
-            if (!String.IsNullOrEmpty(request.Cor))
-                query.Where(v => v.Cor == request.Cor);
-            if (request.AnoMin != null || request.AnoMin < 2000)
-                query.Where(v => v.Ano >= request.AnoMin);
-            if (request.AnoMax != null || request.AnoMax < 2000)
-                query.Where(v => v.Ano <= request.AnoMax);
-            if (request.Foto != null)
-                query.Where(v => v.HaveFoto == request.Foto);
-            if (request.MarcaId != null)
-                query.Where(v => v.MarcaId == request.MarcaId);
-            if (request.ModeloId != null)
-                query.Where(v => v.ModeloId == request.ModeloId);
-
             response.QtdPerPage = request.QtdPerPage;
             response.PaginaAtual = request.PaginaAtual;
-            response.TotalDados = query.Count();
+            response.TotalDados = _unitOfWork.VeiculoRepository
+                .Filter(request)
+                .ToList()
+                .Count();
+
+            var query = _unitOfWork.VeiculoRepository.Filter(request);
 
             if ((request.OrderByAsc != null && request.OrderByAsc.Count > 0) || (request.OrderByDesc != null && request.OrderByDesc.Count > 0))
-                query = OrdeningQuery(query, request.OrderByAsc, request.OrderByDesc);
+                query = _unitOfWork.VeiculoRepository.OrdeningQuery(query, request.OrderByAsc, request.OrderByDesc);
 
             response.Dados = query
                 .Skip((request.PaginaAtual - 1) * request.QtdPerPage)
@@ -89,49 +86,94 @@ namespace ADSET.Domain.Services
             return response;
         }
 
-        private IQueryable<Veiculo> OrdeningQuery(IQueryable<Veiculo> query, List<Ordenacao>? orderByAsc, List<Ordenacao>? orderByDesc)
+        public async Task<Veiculo> UpdateAsync(Veiculo veiculo, List<Guid>? opcionais)
         {
-            if (orderByAsc != null && orderByAsc.Count > 0)
-            {
-                if (orderByAsc.Contains(Ordenacao.Ano))
-                    query.OrderBy(v => v.Ano);
-                if (orderByAsc.Contains(Ordenacao.Preco))
-                    query.OrderBy(v => v.Preco);
-                if (orderByAsc.Contains(Ordenacao.MarcaModelo))
-                {
-                    query.OrderBy(v => v.Marca.Nome);
-                    query.OrderBy(v => v.Modelo.Nome);
-                }
-                if (orderByAsc.Contains(Ordenacao.Fotos))
-                    query.OrderBy(v => v.Fotos.Count());
-            }
-            if (orderByDesc != null && orderByDesc.Count > 0)
-            {
-                if (orderByDesc.Contains(Ordenacao.Ano))
-                    query.OrderByDescending(v => v.Ano);
-                if (orderByDesc.Contains(Ordenacao.Preco))
-                    query.OrderByDescending(v => v.Preco);
-                if (orderByDesc.Contains(Ordenacao.MarcaModelo))
-                {
-                    query.OrderByDescending(v => v.Marca.Nome);
-                    query.OrderByDescending(v => v.Modelo.Nome);
-                }
-                if (orderByDesc.Contains(Ordenacao.Fotos))
-                    query.OrderByDescending(v => v.Fotos.Count());
-            }
-            
-            return query;
-        }
+            var veiculoOld = await _unitOfWork.VeiculoRepository.GetByIdAsync(veiculo.Id);
+            var veiculoOpcionais = await _unitOfWork.VeiculoRepository.GetVeiculoOpcionalList(veiculo.Id);
 
-        public Task<Veiculo> UpdateAsync(Veiculo veiculo)
-        {
-            throw new NotImplementedException();
+            if (veiculoOld == null)
+                throw new Exception("Erro ao inserir o veiculo");
+
+            var modelo = await _modeloService.GetById(veiculo.ModeloId);
+
+            if (modelo == null)
+                throw new Exception("Erro ao inserir o veiculo");
+
+            if (!modelo.MarcaId.Equals(veiculo.MarcaId))
+                throw new Exception("Erro ao inserir o veiculo");
+            
+            
+            if (opcionais != null && opcionais.Count > 0)
+            {
+                if (veiculoOpcionais.Count() == 0)
+                {
+                    var veiculoOpcionaisCreate = opcionais.Select(o => new VeiculoOpcional(veiculo.Id, o)).ToList();
+                    await _unitOfWork.VeiculoRepository.CreateVeiculoOpcionalList(veiculoOpcionaisCreate);
+                }
+                else
+                {
+                    var veiculoOpcionaisCreate = opcionais.Where(o => !veiculoOpcionais.Where(vo => vo.OpcionalId == o).Any())
+                        .Select(o => new VeiculoOpcional(veiculoOld.Id, o)).ToList();
+
+                    if (veiculoOpcionaisCreate.Count > 0)
+                        await _unitOfWork.VeiculoRepository.CreateVeiculoOpcionalList(veiculoOpcionaisCreate);
+
+                    var veiculoOpcionaisDelete = veiculoOpcionais.Where(vo => !opcionais.Where(o => vo.OpcionalId == o).Any()).Select(vo =>
+                    {
+                        vo.Delete();
+                        return vo;
+                    }).ToList();
+
+                    if(veiculoOpcionaisDelete.Count > 0)
+                        _unitOfWork.VeiculoRepository.UpdateVeiculoOpcionalList(veiculoOpcionaisDelete);
+                }
+            }
+            else
+            {
+                if (veiculoOpcionais.Count() > 0)
+                {
+                    var veiculoOpcionaisDelete = veiculoOpcionais.Select(vo => { vo.Delete(); return vo; } ).ToList();
+                    _unitOfWork.VeiculoRepository.UpdateVeiculoOpcionalList(veiculoOpcionaisDelete);
+                }
+            }
+
+            veiculoOld.UpdateVeiculo(veiculo);
+
+            var response = _unitOfWork.VeiculoRepository.Update(veiculoOld);
+
+            await _unitOfWork.CommitAsync();
+
+            return response;
         }
 
         public async Task<List<string>> GetAllColors()
         {
             return await _unitOfWork.VeiculoRepository
                 .GetAllColorsQuery();
+        }
+
+        public VeiculoCountResponse GetCount()
+        {
+            return _unitOfWork.VeiculoRepository.GetCount();
+        }
+
+        public async Task<Veiculo> UpdateHaveFotoAsync(Veiculo veiculo, bool haveFoto)
+        {
+            veiculo.UpdateHaveFoto(haveFoto);
+
+            var response = _unitOfWork.VeiculoRepository.Update(veiculo);
+
+            await _unitOfWork.CommitAsync();
+
+            return response;
+        }
+
+        public List<Veiculo> GetAllIds(List<Guid> ids)
+        {
+            return _unitOfWork.VeiculoRepository
+                .GetQuery()
+                .Where(v => ids.Contains(v.Id))
+                .ToList();
         }
     }
 }

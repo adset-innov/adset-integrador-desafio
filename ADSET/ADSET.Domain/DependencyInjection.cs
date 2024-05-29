@@ -13,6 +13,7 @@ namespace ADSET.Domain
             services.AddScoped<IOpcionalService, OpcionalService>();
             services.AddScoped<IMarcaService, MarcaService>();
             services.AddScoped<IModeloService, ModeloService>();
+            services.AddScoped<IPacoteService, PacoteService>();
 
             return services;
         }

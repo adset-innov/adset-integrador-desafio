@@ -30,13 +30,13 @@ namespace ADSET.Infra.Migrations
 
                     b.Property<string>("Caminho")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasMaxLength(2500)
+                        .HasColumnType("nvarchar(2500)");
 
                     b.Property<DateTime>("DateCreated")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(761));
+                        .HasDefaultValue(new DateTime(2024, 5, 28, 12, 41, 45, 126, DateTimeKind.Local).AddTicks(7001));
 
                     b.Property<DateTime>("DateUpdated")
                         .HasColumnType("datetime2");
@@ -45,6 +45,11 @@ namespace ADSET.Infra.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bit")
                         .HasDefaultValue(true);
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasMaxLength(80)
+                        .HasColumnType("nvarchar(80)");
 
                     b.Property<Guid>("VeiculoId")
                         .HasColumnType("uniqueidentifier");
@@ -65,7 +70,7 @@ namespace ADSET.Infra.Migrations
                     b.Property<DateTime>("DateCreated")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 5, 22, 17, 46, 9, 98, DateTimeKind.Local).AddTicks(9811));
+                        .HasDefaultValue(new DateTime(2024, 5, 28, 12, 41, 45, 126, DateTimeKind.Local).AddTicks(5946));
 
                     b.Property<DateTime>("DateUpdated")
                         .HasColumnType("datetime2");
@@ -87,33 +92,33 @@ namespace ADSET.Infra.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("e5013aa0-8e78-403d-a0aa-19cc3678d353"),
-                            DateCreated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7425),
-                            DateUpdated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7425),
+                            Id = new Guid("a634ecd8-2b13-480e-bdc1-acd3f3c3012a"),
+                            DateCreated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5494),
+                            DateUpdated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5494),
                             IsActive = true,
                             Nome = "Fiat"
                         },
                         new
                         {
-                            Id = new Guid("284399f5-c9a1-4c6e-a475-2214c2cba0d2"),
-                            DateCreated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7430),
-                            DateUpdated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7430),
+                            Id = new Guid("e9bfb97e-5df8-4df8-99ac-8eedaaebbd9d"),
+                            DateCreated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5497),
+                            DateUpdated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5497),
                             IsActive = true,
                             Nome = "Ford"
                         },
                         new
                         {
-                            Id = new Guid("0525e486-1afc-4a3d-9237-3782f0c15adc"),
-                            DateCreated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7431),
-                            DateUpdated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7432),
+                            Id = new Guid("528ce54b-a3ef-4fe7-a2b8-13e2d035c96b"),
+                            DateCreated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5498),
+                            DateUpdated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5498),
                             IsActive = true,
                             Nome = "GMC/Chevrolet"
                         },
                         new
                         {
-                            Id = new Guid("4ed86015-3fdd-4132-a08a-6a0f8d77c136"),
-                            DateCreated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7433),
-                            DateUpdated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7433),
+                            Id = new Guid("744d644b-5007-4194-bd27-7213e004d1c1"),
+                            DateCreated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5501),
+                            DateUpdated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5502),
                             IsActive = true,
                             Nome = "Toyota"
                         });
@@ -128,7 +133,7 @@ namespace ADSET.Infra.Migrations
                     b.Property<DateTime>("DateCreated")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 5, 22, 17, 46, 9, 98, DateTimeKind.Local).AddTicks(8020));
+                        .HasDefaultValue(new DateTime(2024, 5, 28, 12, 41, 45, 126, DateTimeKind.Local).AddTicks(4038));
 
                     b.Property<DateTime>("DateUpdated")
                         .HasColumnType("datetime2");
@@ -155,281 +160,281 @@ namespace ADSET.Infra.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("35d033b2-ac66-4af1-af03-dd2991621f48"),
-                            DateCreated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7439),
-                            DateUpdated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7440),
+                            Id = new Guid("631e9a01-834e-490f-ab99-bb7c32658a3c"),
+                            DateCreated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5507),
+                            DateUpdated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5508),
                             IsActive = true,
-                            MarcaId = new Guid("e5013aa0-8e78-403d-a0aa-19cc3678d353"),
+                            MarcaId = new Guid("a634ecd8-2b13-480e-bdc1-acd3f3c3012a"),
                             Nome = "Uno"
                         },
                         new
                         {
-                            Id = new Guid("25204173-5066-4ba1-950e-82397ecf99d9"),
-                            DateCreated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7443),
-                            DateUpdated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7443),
+                            Id = new Guid("049f28d8-2570-43c6-8bba-2e20218a7853"),
+                            DateCreated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5510),
+                            DateUpdated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5511),
                             IsActive = true,
-                            MarcaId = new Guid("e5013aa0-8e78-403d-a0aa-19cc3678d353"),
+                            MarcaId = new Guid("a634ecd8-2b13-480e-bdc1-acd3f3c3012a"),
                             Nome = "Toro"
                         },
                         new
                         {
-                            Id = new Guid("133ed150-087d-407a-9606-f91e7ca4a677"),
-                            DateCreated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7444),
-                            DateUpdated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7444),
+                            Id = new Guid("afed83be-023a-47df-bf51-a098a86247d0"),
+                            DateCreated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5512),
+                            DateUpdated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5512),
                             IsActive = true,
-                            MarcaId = new Guid("e5013aa0-8e78-403d-a0aa-19cc3678d353"),
+                            MarcaId = new Guid("a634ecd8-2b13-480e-bdc1-acd3f3c3012a"),
                             Nome = "147"
                         },
                         new
                         {
-                            Id = new Guid("0263304b-8d53-4e20-9347-11078b2ae8ac"),
-                            DateCreated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7446),
-                            DateUpdated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7446),
+                            Id = new Guid("e2b007f8-bf64-4638-bb20-0c2a602cdd3c"),
+                            DateCreated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5514),
+                            DateUpdated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5514),
                             IsActive = true,
-                            MarcaId = new Guid("e5013aa0-8e78-403d-a0aa-19cc3678d353"),
+                            MarcaId = new Guid("a634ecd8-2b13-480e-bdc1-acd3f3c3012a"),
                             Nome = "500"
                         },
                         new
                         {
-                            Id = new Guid("cae40ea7-3d14-436f-8942-7d91425e4536"),
-                            DateCreated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7447),
-                            DateUpdated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7447),
+                            Id = new Guid("d31f94e9-8c96-422e-8da7-39fd0e271411"),
+                            DateCreated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5515),
+                            DateUpdated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5515),
                             IsActive = true,
-                            MarcaId = new Guid("e5013aa0-8e78-403d-a0aa-19cc3678d353"),
+                            MarcaId = new Guid("a634ecd8-2b13-480e-bdc1-acd3f3c3012a"),
                             Nome = "Bravo"
                         },
                         new
                         {
-                            Id = new Guid("b153c00c-a6c7-47f2-81f0-2aa4f8af2184"),
-                            DateCreated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7450),
-                            DateUpdated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7451),
+                            Id = new Guid("16d8b4fa-47bd-4a1d-9fcf-f79a2e50720b"),
+                            DateCreated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5517),
+                            DateUpdated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5517),
                             IsActive = true,
-                            MarcaId = new Guid("e5013aa0-8e78-403d-a0aa-19cc3678d353"),
+                            MarcaId = new Guid("a634ecd8-2b13-480e-bdc1-acd3f3c3012a"),
                             Nome = "Strada"
                         },
                         new
                         {
-                            Id = new Guid("351c0836-30e1-4f59-a0be-0ff7d13e6d1d"),
-                            DateCreated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7452),
-                            DateUpdated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7452),
+                            Id = new Guid("7e800676-b814-4f88-a767-bd663d21fa36"),
+                            DateCreated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5518),
+                            DateUpdated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5519),
                             IsActive = true,
-                            MarcaId = new Guid("e5013aa0-8e78-403d-a0aa-19cc3678d353"),
+                            MarcaId = new Guid("a634ecd8-2b13-480e-bdc1-acd3f3c3012a"),
                             Nome = "Marea"
                         },
                         new
                         {
-                            Id = new Guid("8ed910d3-2dc7-4137-9462-bca9ac954b60"),
-                            DateCreated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7453),
-                            DateUpdated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7454),
+                            Id = new Guid("ee29b99b-004f-4133-9f75-1d4a75470930"),
+                            DateCreated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5521),
+                            DateUpdated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5521),
                             IsActive = true,
-                            MarcaId = new Guid("e5013aa0-8e78-403d-a0aa-19cc3678d353"),
+                            MarcaId = new Guid("a634ecd8-2b13-480e-bdc1-acd3f3c3012a"),
                             Nome = "Tempra"
                         },
                         new
                         {
-                            Id = new Guid("71870142-2205-422b-8c2a-f4508c4bcd33"),
-                            DateCreated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7456),
-                            DateUpdated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7456),
+                            Id = new Guid("f6a46ab0-9ce2-4e2b-ab2e-85fd9b487a65"),
+                            DateCreated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5523),
+                            DateUpdated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5523),
                             IsActive = true,
-                            MarcaId = new Guid("284399f5-c9a1-4c6e-a475-2214c2cba0d2"),
+                            MarcaId = new Guid("e9bfb97e-5df8-4df8-99ac-8eedaaebbd9d"),
                             Nome = "Ka"
                         },
                         new
                         {
-                            Id = new Guid("25f04d9d-4cd2-4acd-a440-ebea4e4b391d"),
-                            DateCreated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7457),
-                            DateUpdated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7458),
+                            Id = new Guid("af2ebeed-ea30-49be-bb23-aff4fab68d55"),
+                            DateCreated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5525),
+                            DateUpdated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5525),
                             IsActive = true,
-                            MarcaId = new Guid("284399f5-c9a1-4c6e-a475-2214c2cba0d2"),
+                            MarcaId = new Guid("e9bfb97e-5df8-4df8-99ac-8eedaaebbd9d"),
                             Nome = "Mustang"
                         },
                         new
                         {
-                            Id = new Guid("885315fd-a9bf-406a-b5c6-8272e40d9fe3"),
-                            DateCreated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7459),
-                            DateUpdated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7459),
+                            Id = new Guid("64a3b342-64d9-4225-8d99-e6c04433513c"),
+                            DateCreated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5526),
+                            DateUpdated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5527),
                             IsActive = true,
-                            MarcaId = new Guid("284399f5-c9a1-4c6e-a475-2214c2cba0d2"),
+                            MarcaId = new Guid("e9bfb97e-5df8-4df8-99ac-8eedaaebbd9d"),
                             Nome = "Range"
                         },
                         new
                         {
-                            Id = new Guid("39fc282a-90b8-4bea-b42e-41dc5e793367"),
-                            DateCreated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7460),
-                            DateUpdated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7460),
+                            Id = new Guid("dc143caf-9ac1-4031-9b65-c5f09c61ad43"),
+                            DateCreated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5528),
+                            DateUpdated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5528),
                             IsActive = true,
-                            MarcaId = new Guid("284399f5-c9a1-4c6e-a475-2214c2cba0d2"),
+                            MarcaId = new Guid("e9bfb97e-5df8-4df8-99ac-8eedaaebbd9d"),
                             Nome = "Belina"
                         },
                         new
                         {
-                            Id = new Guid("31b36c71-0254-4be3-a63c-43b26c59831f"),
-                            DateCreated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7461),
-                            DateUpdated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7462),
+                            Id = new Guid("1ba9b05e-eb5a-4def-bbcd-088c0599559a"),
+                            DateCreated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5529),
+                            DateUpdated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5530),
                             IsActive = true,
-                            MarcaId = new Guid("284399f5-c9a1-4c6e-a475-2214c2cba0d2"),
+                            MarcaId = new Guid("e9bfb97e-5df8-4df8-99ac-8eedaaebbd9d"),
                             Nome = "Del Rey"
                         },
                         new
                         {
-                            Id = new Guid("c8c0d2ce-3459-4df5-bc0e-6fc7d9d3754f"),
-                            DateCreated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7464),
-                            DateUpdated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7465),
+                            Id = new Guid("8d379b92-9284-4a8d-b52c-cba6e237e9fb"),
+                            DateCreated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5531),
+                            DateUpdated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5532),
                             IsActive = true,
-                            MarcaId = new Guid("284399f5-c9a1-4c6e-a475-2214c2cba0d2"),
+                            MarcaId = new Guid("e9bfb97e-5df8-4df8-99ac-8eedaaebbd9d"),
                             Nome = "Verona"
                         },
                         new
                         {
-                            Id = new Guid("5aa778a8-4a52-460f-899e-1b5a20156762"),
-                            DateCreated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7466),
-                            DateUpdated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7466),
+                            Id = new Guid("1d550fd7-b22f-4a81-ac8b-609541d12dcb"),
+                            DateCreated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5533),
+                            DateUpdated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5533),
                             IsActive = true,
-                            MarcaId = new Guid("284399f5-c9a1-4c6e-a475-2214c2cba0d2"),
+                            MarcaId = new Guid("e9bfb97e-5df8-4df8-99ac-8eedaaebbd9d"),
                             Nome = "Pampa"
                         },
                         new
                         {
-                            Id = new Guid("95872650-b285-4100-ae76-ee2e315ab566"),
-                            DateCreated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7470),
-                            DateUpdated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7470),
+                            Id = new Guid("1c5f20cd-3c40-400c-9be1-2461776fe647"),
+                            DateCreated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5539),
+                            DateUpdated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5540),
                             IsActive = true,
-                            MarcaId = new Guid("0525e486-1afc-4a3d-9237-3782f0c15adc"),
+                            MarcaId = new Guid("528ce54b-a3ef-4fe7-a2b8-13e2d035c96b"),
                             Nome = "S10"
                         },
                         new
                         {
-                            Id = new Guid("d7aaa453-216d-409c-899f-1f3ef583e7d5"),
-                            DateCreated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7472),
-                            DateUpdated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7472),
+                            Id = new Guid("847c48cf-b683-4955-ad51-42eb7a577b50"),
+                            DateCreated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5541),
+                            DateUpdated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5541),
                             IsActive = true,
-                            MarcaId = new Guid("0525e486-1afc-4a3d-9237-3782f0c15adc"),
+                            MarcaId = new Guid("528ce54b-a3ef-4fe7-a2b8-13e2d035c96b"),
                             Nome = "C10"
                         },
                         new
                         {
-                            Id = new Guid("ad9420f5-7a8e-4bb1-80ed-8aa3b23ec56e"),
-                            DateCreated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7474),
-                            DateUpdated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7474),
+                            Id = new Guid("bcdad1a2-2679-4eb9-8829-60b9947b5915"),
+                            DateCreated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5542),
+                            DateUpdated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5543),
                             IsActive = true,
-                            MarcaId = new Guid("0525e486-1afc-4a3d-9237-3782f0c15adc"),
+                            MarcaId = new Guid("528ce54b-a3ef-4fe7-a2b8-13e2d035c96b"),
                             Nome = "Camaro"
                         },
                         new
                         {
-                            Id = new Guid("5799fd92-34fe-45ec-8005-03f0c479ea63"),
-                            DateCreated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7475),
-                            DateUpdated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7475),
+                            Id = new Guid("80e14412-67d7-406c-84b0-d7522e3d03eb"),
+                            DateCreated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5544),
+                            DateUpdated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5544),
                             IsActive = true,
-                            MarcaId = new Guid("0525e486-1afc-4a3d-9237-3782f0c15adc"),
+                            MarcaId = new Guid("528ce54b-a3ef-4fe7-a2b8-13e2d035c96b"),
                             Nome = "Blaze"
                         },
                         new
                         {
-                            Id = new Guid("f5cc4b13-8f87-4ca8-aef6-f0a252326e86"),
-                            DateCreated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7476),
-                            DateUpdated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7477),
+                            Id = new Guid("272abf82-ea3d-455e-9dd2-5c258048f60a"),
+                            DateCreated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5546),
+                            DateUpdated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5546),
                             IsActive = true,
-                            MarcaId = new Guid("0525e486-1afc-4a3d-9237-3782f0c15adc"),
+                            MarcaId = new Guid("528ce54b-a3ef-4fe7-a2b8-13e2d035c96b"),
                             Nome = "Agile"
                         },
                         new
                         {
-                            Id = new Guid("2cfde1f1-ec7e-4102-8480-2fe371b6c42c"),
-                            DateCreated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7478),
-                            DateUpdated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7479),
+                            Id = new Guid("98291e2f-8ac3-4fc2-af67-bf967e54e904"),
+                            DateCreated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5548),
+                            DateUpdated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5548),
                             IsActive = true,
-                            MarcaId = new Guid("0525e486-1afc-4a3d-9237-3782f0c15adc"),
+                            MarcaId = new Guid("528ce54b-a3ef-4fe7-a2b8-13e2d035c96b"),
                             Nome = "Onix"
                         },
                         new
                         {
-                            Id = new Guid("b427468a-c091-44f4-a245-dd5df450e6d0"),
-                            DateCreated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7481),
-                            DateUpdated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7481),
+                            Id = new Guid("42edd37e-4f4c-4558-9cc5-4ad04da013f6"),
+                            DateCreated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5549),
+                            DateUpdated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5549),
                             IsActive = true,
-                            MarcaId = new Guid("0525e486-1afc-4a3d-9237-3782f0c15adc"),
+                            MarcaId = new Guid("528ce54b-a3ef-4fe7-a2b8-13e2d035c96b"),
                             Nome = "Silverado"
                         },
                         new
                         {
-                            Id = new Guid("f5180371-7eba-4989-9068-be4581d2a511"),
-                            DateCreated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7482),
-                            DateUpdated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7483),
+                            Id = new Guid("87d5c3e8-6f02-4531-a8b5-3caced2b2dc1"),
+                            DateCreated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5550),
+                            DateUpdated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5551),
                             IsActive = true,
-                            MarcaId = new Guid("0525e486-1afc-4a3d-9237-3782f0c15adc"),
+                            MarcaId = new Guid("528ce54b-a3ef-4fe7-a2b8-13e2d035c96b"),
                             Nome = "Caravan"
                         },
                         new
                         {
-                            Id = new Guid("9ba94021-230a-4053-a6ab-80bc6bd986d0"),
-                            DateCreated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7486),
-                            DateUpdated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7486),
+                            Id = new Guid("8a9f847d-bb05-4276-ba9d-dbdb89e4512b"),
+                            DateCreated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5555),
+                            DateUpdated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5556),
                             IsActive = true,
-                            MarcaId = new Guid("4ed86015-3fdd-4132-a08a-6a0f8d77c136"),
+                            MarcaId = new Guid("744d644b-5007-4194-bd27-7213e004d1c1"),
                             Nome = "Corolla"
                         },
                         new
                         {
-                            Id = new Guid("1204b932-4dcf-4478-822f-97885cb35352"),
-                            DateCreated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7488),
-                            DateUpdated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7489),
+                            Id = new Guid("8fe0a606-7b2e-4417-ab30-0f3d683ab03d"),
+                            DateCreated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5557),
+                            DateUpdated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5557),
                             IsActive = true,
-                            MarcaId = new Guid("4ed86015-3fdd-4132-a08a-6a0f8d77c136"),
+                            MarcaId = new Guid("744d644b-5007-4194-bd27-7213e004d1c1"),
                             Nome = "Hilux"
                         },
                         new
                         {
-                            Id = new Guid("e3156a9f-56cf-4728-ac6c-1cefad127cd2"),
-                            DateCreated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7490),
-                            DateUpdated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7490),
+                            Id = new Guid("bb1cdea8-d04a-4ac1-9223-a6ad8c4c5b7c"),
+                            DateCreated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5558),
+                            DateUpdated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5559),
                             IsActive = true,
-                            MarcaId = new Guid("4ed86015-3fdd-4132-a08a-6a0f8d77c136"),
+                            MarcaId = new Guid("744d644b-5007-4194-bd27-7213e004d1c1"),
                             Nome = "SW4"
                         },
                         new
                         {
-                            Id = new Guid("2cab4a98-69f7-4f1e-9cd6-2d21ea6b0c68"),
-                            DateCreated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7491),
-                            DateUpdated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7491),
+                            Id = new Guid("00662174-85fa-4f62-b64f-6795706b2e4c"),
+                            DateCreated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5560),
+                            DateUpdated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5560),
                             IsActive = true,
-                            MarcaId = new Guid("4ed86015-3fdd-4132-a08a-6a0f8d77c136"),
+                            MarcaId = new Guid("744d644b-5007-4194-bd27-7213e004d1c1"),
                             Nome = "Etios"
                         },
                         new
                         {
-                            Id = new Guid("f67c0319-0012-4ba2-b444-7d52ecadf14d"),
-                            DateCreated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7492),
-                            DateUpdated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7493),
+                            Id = new Guid("cde9db18-2eb7-44be-8ffc-ca179e95dd6e"),
+                            DateCreated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5561),
+                            DateUpdated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5561),
                             IsActive = true,
-                            MarcaId = new Guid("4ed86015-3fdd-4132-a08a-6a0f8d77c136"),
+                            MarcaId = new Guid("744d644b-5007-4194-bd27-7213e004d1c1"),
                             Nome = "Camry"
                         },
                         new
                         {
-                            Id = new Guid("9277a5ff-d2dc-4bc5-ae60-58b70dc32e3a"),
-                            DateCreated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7494),
-                            DateUpdated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7494),
+                            Id = new Guid("12955a22-601a-40f5-b647-4ad24a53bf35"),
+                            DateCreated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5563),
+                            DateUpdated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5563),
                             IsActive = true,
-                            MarcaId = new Guid("4ed86015-3fdd-4132-a08a-6a0f8d77c136"),
+                            MarcaId = new Guid("744d644b-5007-4194-bd27-7213e004d1c1"),
                             Nome = "RAV4"
                         },
                         new
                         {
-                            Id = new Guid("494b7ef3-f475-4869-81e4-bfa561310196"),
-                            DateCreated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7497),
-                            DateUpdated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7497),
+                            Id = new Guid("86c1f55a-0451-4e34-b7b1-0058f3d46c68"),
+                            DateCreated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5564),
+                            DateUpdated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5564),
                             IsActive = true,
-                            MarcaId = new Guid("4ed86015-3fdd-4132-a08a-6a0f8d77c136"),
+                            MarcaId = new Guid("744d644b-5007-4194-bd27-7213e004d1c1"),
                             Nome = "Supra"
                         },
                         new
                         {
-                            Id = new Guid("af33c664-645c-4b27-8492-e1702ad70bc1"),
-                            DateCreated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7498),
-                            DateUpdated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7498),
+                            Id = new Guid("15a84437-5926-438c-92a1-7349d69a5935"),
+                            DateCreated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5565),
+                            DateUpdated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5566),
                             IsActive = true,
-                            MarcaId = new Guid("4ed86015-3fdd-4132-a08a-6a0f8d77c136"),
+                            MarcaId = new Guid("744d644b-5007-4194-bd27-7213e004d1c1"),
                             Nome = "Yaris"
                         });
                 });
@@ -443,7 +448,7 @@ namespace ADSET.Infra.Migrations
                     b.Property<DateTime>("DateCreated")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(2745));
+                        .HasDefaultValue(new DateTime(2024, 5, 28, 12, 41, 45, 126, DateTimeKind.Local).AddTicks(9424));
 
                     b.Property<DateTime>("DateUpdated")
                         .HasColumnType("datetime2");
@@ -465,81 +470,81 @@ namespace ADSET.Infra.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("73edc3c9-6ada-4471-b5c4-248d05e5c4bc"),
-                            DateCreated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7342),
-                            DateUpdated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7346),
+                            Id = new Guid("230fdb17-59b4-4f16-8864-7ea89fcc3f70"),
+                            DateCreated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5455),
+                            DateUpdated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5459),
                             IsActive = true,
                             Nome = "Ar Condicionado"
                         },
                         new
                         {
-                            Id = new Guid("11797cce-56fd-4817-841a-e77d45650d4b"),
-                            DateCreated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7349),
-                            DateUpdated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7349),
+                            Id = new Guid("ad07cc9c-cf0d-4846-bd3e-6e44d48e9bbe"),
+                            DateCreated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5461),
+                            DateUpdated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5462),
                             IsActive = true,
                             Nome = "Teto Solar"
                         },
                         new
                         {
-                            Id = new Guid("e420df33-5c78-47a8-85cf-35efcb04f6bd"),
-                            DateCreated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7351),
-                            DateUpdated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7351),
+                            Id = new Guid("fa9ec749-497f-489a-b116-b1dafde6293d"),
+                            DateCreated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5463),
+                            DateUpdated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5463),
                             IsActive = true,
                             Nome = "Alarme"
                         },
                         new
                         {
-                            Id = new Guid("c29799c7-6e6c-493b-95b0-79f6b1af967b"),
-                            DateCreated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7361),
-                            DateUpdated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7361),
+                            Id = new Guid("ad97ada6-6eec-4cb5-a4ba-e68e4f7cee1f"),
+                            DateCreated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5464),
+                            DateUpdated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5465),
                             IsActive = true,
                             Nome = "Air Bag"
                         },
                         new
                         {
-                            Id = new Guid("d53c025d-d6fa-4ec6-9c4e-7d175afae0f5"),
-                            DateCreated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7362),
-                            DateUpdated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7362),
+                            Id = new Guid("52ce5c8d-e708-4135-98ae-ffedfb550156"),
+                            DateCreated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5466),
+                            DateUpdated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5466),
                             IsActive = true,
                             Nome = "Som"
                         },
                         new
                         {
-                            Id = new Guid("9445011c-00a2-4d9b-91b8-d3359c3dbc54"),
-                            DateCreated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7365),
-                            DateUpdated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7365),
+                            Id = new Guid("644d9f2c-79bb-47f2-a6a7-b9f10a12d0da"),
+                            DateCreated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5483),
+                            DateUpdated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5483),
                             IsActive = true,
                             Nome = "Trava Elétrica"
                         },
                         new
                         {
-                            Id = new Guid("8e0f30ba-4d01-4bd1-bf21-274cdc8902eb"),
-                            DateCreated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7366),
-                            DateUpdated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7366),
+                            Id = new Guid("a2fa848d-15af-4368-bfe6-3e99ef32608d"),
+                            DateCreated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5484),
+                            DateUpdated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5484),
                             IsActive = true,
                             Nome = "Vidro Elétrico"
                         },
                         new
                         {
-                            Id = new Guid("21624df6-bf8a-418c-bfb9-9d25313f6a0b"),
-                            DateCreated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7367),
-                            DateUpdated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7368),
+                            Id = new Guid("f7f5798d-a2ad-48ba-acb7-80a3df7a986f"),
+                            DateCreated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5485),
+                            DateUpdated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5486),
                             IsActive = true,
                             Nome = "Sensor de Ré"
                         },
                         new
                         {
-                            Id = new Guid("d0ccbcfb-5a52-4590-ad7c-a2bd83348a2d"),
-                            DateCreated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7369),
-                            DateUpdated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7369),
+                            Id = new Guid("0b25b34a-8852-485c-ae49-2592b5d292f7"),
+                            DateCreated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5487),
+                            DateUpdated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5487),
                             IsActive = true,
                             Nome = "Câmera de Ré"
                         },
                         new
                         {
-                            Id = new Guid("c0c42d25-8eae-43c6-a693-04271ac26af6"),
-                            DateCreated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7370),
-                            DateUpdated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7371),
+                            Id = new Guid("7eee7aa2-2e8f-470b-bbac-7fedf479230d"),
+                            DateCreated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5489),
+                            DateUpdated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5489),
                             IsActive = true,
                             Nome = "Banco de Couro"
                         });
@@ -554,7 +559,7 @@ namespace ADSET.Infra.Migrations
                     b.Property<DateTime>("DateCreated")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(6414));
+                        .HasDefaultValue(new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(4368));
 
                     b.Property<DateTime>("DateUpdated")
                         .HasColumnType("datetime2");
@@ -594,7 +599,7 @@ namespace ADSET.Infra.Migrations
                     b.Property<DateTime>("DateCreated")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 5, 22, 17, 46, 9, 98, DateTimeKind.Local).AddTicks(5145));
+                        .HasDefaultValue(new DateTime(2024, 5, 28, 12, 41, 45, 126, DateTimeKind.Local).AddTicks(815));
 
                     b.Property<DateTime>("DateUpdated")
                         .HasColumnType("datetime2");
@@ -641,76 +646,76 @@ namespace ADSET.Infra.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("b481e3aa-cf21-4c52-a10c-d412a376d19c"),
+                            Id = new Guid("185239b8-ad8b-45a8-b81e-446447133084"),
                             Ano = 2015,
                             Cor = "Preto",
-                            DateCreated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7593),
-                            DateUpdated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7593),
+                            DateCreated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5685),
+                            DateUpdated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5686),
                             HaveFoto = false,
                             IsActive = true,
                             Km = 10000,
-                            MarcaId = new Guid("e5013aa0-8e78-403d-a0aa-19cc3678d353"),
-                            ModeloId = new Guid("25204173-5066-4ba1-950e-82397ecf99d9"),
+                            MarcaId = new Guid("a634ecd8-2b13-480e-bdc1-acd3f3c3012a"),
+                            ModeloId = new Guid("049f28d8-2570-43c6-8bba-2e20218a7853"),
                             Placa = "ABC1D34",
                             Preco = 89999m
                         },
                         new
                         {
-                            Id = new Guid("5bea5b84-3f27-47cc-8045-a227583287bf"),
+                            Id = new Guid("e8eb4822-69c1-4755-86a1-ae0ba884ab2a"),
                             Ano = 2011,
                             Cor = "Branco",
-                            DateCreated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7631),
-                            DateUpdated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7631),
+                            DateCreated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5750),
+                            DateUpdated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5751),
                             HaveFoto = false,
                             IsActive = true,
                             Km = 15000,
-                            MarcaId = new Guid("e5013aa0-8e78-403d-a0aa-19cc3678d353"),
-                            ModeloId = new Guid("133ed150-087d-407a-9606-f91e7ca4a677"),
+                            MarcaId = new Guid("a634ecd8-2b13-480e-bdc1-acd3f3c3012a"),
+                            ModeloId = new Guid("afed83be-023a-47df-bf51-a098a86247d0"),
                             Placa = "CBD1D34",
                             Preco = 59999m
                         },
                         new
                         {
-                            Id = new Guid("1c652922-0df7-4f05-891d-0134fbd0dec8"),
+                            Id = new Guid("4c341803-4fcc-4b87-b9ed-4b8e5165350c"),
                             Ano = 2012,
                             Cor = "Prata",
-                            DateCreated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7674),
-                            DateUpdated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7675),
+                            DateCreated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5769),
+                            DateUpdated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5769),
                             HaveFoto = false,
                             IsActive = true,
                             Km = 35000,
-                            MarcaId = new Guid("e5013aa0-8e78-403d-a0aa-19cc3678d353"),
-                            ModeloId = new Guid("0263304b-8d53-4e20-9347-11078b2ae8ac"),
+                            MarcaId = new Guid("a634ecd8-2b13-480e-bdc1-acd3f3c3012a"),
+                            ModeloId = new Guid("e2b007f8-bf64-4638-bb20-0c2a602cdd3c"),
                             Placa = "CNH1D34",
                             Preco = 49999m
                         },
                         new
                         {
-                            Id = new Guid("7f4e2c53-be06-4d17-af32-002f4c05265d"),
+                            Id = new Guid("a71b5f38-cd0d-41ae-b44d-96edc162f1da"),
                             Ano = 2019,
                             Cor = "Vermelho",
-                            DateCreated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7692),
-                            DateUpdated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7692),
+                            DateCreated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5788),
+                            DateUpdated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5788),
                             HaveFoto = false,
                             IsActive = true,
                             Km = 90000,
-                            MarcaId = new Guid("e5013aa0-8e78-403d-a0aa-19cc3678d353"),
-                            ModeloId = new Guid("cae40ea7-3d14-436f-8942-7d91425e4536"),
+                            MarcaId = new Guid("a634ecd8-2b13-480e-bdc1-acd3f3c3012a"),
+                            ModeloId = new Guid("d31f94e9-8c96-422e-8da7-39fd0e271411"),
                             Placa = "CAB1D34",
                             Preco = 99999m
                         },
                         new
                         {
-                            Id = new Guid("1e6b5639-a70f-4b19-8ffa-ba3d21ee154c"),
+                            Id = new Guid("6703548a-44f2-4b34-ac8f-f6d23d7e2d22"),
                             Ano = 2020,
                             Cor = "Azul",
-                            DateCreated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7710),
-                            DateUpdated = new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(7710),
+                            DateCreated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5806),
+                            DateUpdated = new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(5806),
                             HaveFoto = false,
                             IsActive = true,
                             Km = 150000,
-                            MarcaId = new Guid("e5013aa0-8e78-403d-a0aa-19cc3678d353"),
-                            ModeloId = new Guid("b153c00c-a6c7-47f2-81f0-2aa4f8af2184"),
+                            MarcaId = new Guid("a634ecd8-2b13-480e-bdc1-acd3f3c3012a"),
+                            ModeloId = new Guid("16d8b4fa-47bd-4a1d-9fcf-f79a2e50720b"),
                             Placa = "DCA1D34",
                             Preco = 109999m
                         });
@@ -725,7 +730,7 @@ namespace ADSET.Infra.Migrations
                     b.Property<DateTime>("DateCreated")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2024, 5, 22, 17, 46, 9, 99, DateTimeKind.Local).AddTicks(3776));
+                        .HasDefaultValue(new DateTime(2024, 5, 28, 12, 41, 45, 127, DateTimeKind.Local).AddTicks(1176));
 
                     b.Property<DateTime>("DateUpdated")
                         .HasColumnType("datetime2");

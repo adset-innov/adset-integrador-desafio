@@ -9,6 +9,7 @@ namespace ADSET.Domain.Interfaces
         IModeloRepository ModeloRepository { get; }
         IFotoRepository FotoRepository { get; }
         IOpcionalRepository OpcionalRepository { get; }
+        IPacoteRepository PacoteRepository { get; }
 
         Task<bool> CommitAsync();
         void Dispose();

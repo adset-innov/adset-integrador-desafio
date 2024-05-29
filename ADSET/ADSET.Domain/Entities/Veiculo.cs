@@ -46,7 +46,30 @@ namespace ADSET.Domain.Entities
             this.Preco = veiculo.Preco;
             this.HaveFoto = veiculo.HaveFoto;
 
+            this.Marca = null;
+            this.Modelo = null;
+            this.VeiculoOpcionais = null;
+            this.Pacotes = null;
+            this.Fotos = null;
+
             this.DateUpdated = DateTime.Now;
+        }
+
+        public void UpdateHaveFoto(bool haveFoto)
+        {
+            this.HaveFoto = haveFoto;
+
+            this.DateUpdated = DateTime.Now;
+        }
+
+        public List<VeiculoOpcional> ProcessUpdateOpcionais(List<Guid> opcionais)
+        {
+            var vOpcionais = this.VeiculoOpcionais
+                .Where(t => opcionais.Contains(t.Id) == false)
+                .Select(t => { t.Delete(); return t; })
+                .ToList();
+
+            return vOpcionais;
         }
 
         public void ModificarFoto(bool haveFoto)

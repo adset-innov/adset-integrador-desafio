@@ -10,7 +10,10 @@ namespace ADSET.Domain.Interfaces.Services
         Task<bool> DeleteAsync(Guid id);
         Task<Veiculo> GetByIdAsync(Guid id);
         VeiculoPaginatedResponse GetListAsync(FilterPaginationRequest request);
-        Task<Veiculo> UpdateAsync(Veiculo veiculo);
         Task<List<string>> GetAllColors();
+        VeiculoCountResponse GetCount();
+        Task<Veiculo> UpdateAsync(Veiculo veiculo, List<Guid>? opcionais);
+        Task<Veiculo> UpdateHaveFotoAsync(Veiculo veiculo, bool haveFoto);
+        List<Veiculo> GetAllIds(List<Guid> ids);
     }
 }

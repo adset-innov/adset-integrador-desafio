@@ -1,0 +1,148 @@
+﻿@using ADSET.Application.DTOs.Enums
+@using System.Text.Json
+@model EditViewModel;
+
+@{
+    ViewData["Title"] = "Editar Veiculo";
+}
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <form method="post">
+                    <input type="hidden" value="@Model.Veiculo.Id" id="id" name="id" />
+                    <div class="mb-3">
+                        <label for="marca">Marca</label>
+                        <select class="form-select form-select-sm" id="marca" name="marcaId" onchange="selectedMarca(@JsonSerializer.Serialize(Model.Marcas))">
+                            <option>Selecione</option>
+                            @foreach (var item in Model.Marcas)
+                            {
+                                <option value="@item.Id" selected="@item.Selected">@item.Nome</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="modelo">Modelo</label>
+                        <select class="form-select form-select-sm" id="modelo" name="modeloId">
+                            <option>Selecione</option>
+                            @if (Model.Marcas.Any(m => m.Selected))
+                            {
+                                foreach (var modelo in Model.Marcas.Where(m => m.Selected).First().Modelos)
+                                {
+                                    <option value="@modelo.Id" selected="@modelo.Selected">@modelo.Nome</option>
+                                }
+                            }
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="ano">Ano</label>
+                        <select class="form-select form-select-sm" id="ano" name="ano">
+                            @for (int i = 2000; i <= 2024; i++)
+                            {
+                                <option value="@i">@i</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="cor">Cor</label>
+                        <input type="text" class="form-control form-control-sm" id="cor" name="cor" value="@Model.Veiculo.Cor">
+                    </div>
+                    <div class="mb-3">
+                        <label for="placa">Placa</label>
+                        <input type="text" class="form-control form-control-sm" id="placa" name="placa" value="@Model.Veiculo.Placa">
+                    </div>
+                    <div class="mb-3">
+                        <label for="km">Km</label>
+                        <input type="number" class="form-control form-control-sm" id="km" name="km" value="@Model.Veiculo.Km">
+                    </div>
+                    <div class="mb-3">
+                        <label for="preco">Preco</label>
+                        <input type="number" class="form-control form-control-sm" id="preco" name="preco" value="@Model.Veiculo.Preco">
+                    </div>
+                    <div class="mb-3">
+                        <label>Opcionais</label>
+                        <div class="row">
+                            @foreach (var opcional in Model.Opcionais)
+                            {
+                                var check = opcional.Selected ? "checked" : "";
+                                <div class="col-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="@opcional.Id" name="opcionais[]" id="opcional-@opcional.Id" @check>
+                                        <label class="form-check-label" for="opcional-@opcional.Id">@opcional.Nome</label>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <a asp-controller="Home" asp-action="Index" class="btn btn-light">Voltar</a>
+                        </div>
+                        <div class="col-6">
+                            <button type="submit" class="btn btn-success float-end">Editar</button>
+                            <button type="reset" class="btn btn-warning float-end me-3">Limpar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        @{
+            var qtdFoto = Model.Veiculo.CountFoto;
+            var qtdPermitadaSubmit = (15 - qtdFoto);
+        }
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="row">
+                    @if (Model.Veiculo.CountFoto > 0)
+                    {
+                        foreach (var foto in Model.Veiculo.Fotos)
+                        {
+                            <div class="col-2 align-content-center text-center">
+                                <img src="@foto.Caminho" alt="..." style="max-width: 100%; max-height:100%;" class="img-thumbnail">
+                                <a asp-action="DeleteFoto" asp-route-id="@foto.Id" asp-route-veiculoId="@Model.Veiculo.Id" class="btn btn-danger">Remover Foto</a>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+            <div class="col-12 mt-3">
+                @if (qtdFoto < 15)
+                {
+                    <form enctype="multipart/form-data" method="post" action="~/Home/UploadFotos">
+                        <input type="hidden" value="@Model.Veiculo.Id" id="id" name="id" />
+                        <dl>
+                            <dt>
+                                <label>Envie as @qtdPermitadaSubmit fotos do veiculo</label>
+                            </dt>
+                            <dd>
+                                <input type="file" name="files" id="file1" multiple>
+                            </dd>
+                        </dl>
+                        <input class="btn btn-primary" type="submit" value="Upload" onclick="onSendFile(this)" />
+                    </form>
+                
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    function selectedMarca(marca) {
+        let select = $("#marca").val();
+        $("#modelo").empty();
+        $("#modelo").append('<option value="" selected>Selecione</option>')
+        marca.find(m => m.Id === select).Modelos.forEach(function (modelo) {
+            $("#modelo").append('<option value="' + modelo.Id + '">' + modelo.Nome + '</option>')
+        });
+    }
+
+
+    function onSendFile(e) {
+        if (e.files.length > @qtdPermitadaSubmit) {
+            alert("Only @qtdPermitadaSubmit files accepted.");
+            e.preventDefault();
+        }
+    }
+</script>

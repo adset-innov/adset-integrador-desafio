@@ -15,6 +15,7 @@ namespace ADSET.Infra.Data
         public DbSet<Foto> Fotos => Set<Foto>();
         public DbSet<Opcional> Opcionais => Set<Opcional>();
         public DbSet<Pacote> Pacotes => Set<Pacote>();
+        public DbSet<VeiculoOpcional> VeiculoOpcionais => Set<VeiculoOpcional>();
 
         public override int SaveChanges()
         {

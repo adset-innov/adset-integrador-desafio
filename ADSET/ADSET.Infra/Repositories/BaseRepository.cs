@@ -54,14 +54,21 @@ namespace ADSET.Infra.Repositories
         public async Task<T?> GetByIdAsync(Guid id)
         {
             return await _context.Set<T>()
+                .AsNoTracking()
                 .FirstOrDefaultAsync(x => x.IsActive && x.Id == id);
         }
 
         public T Update(T entity)
         {
-            var newEntity = _context.Set<T>().Update(entity);
+            try
+            {
+                var newEntity = _context.Set<T>().Update(entity);
 
-            return newEntity.Entity;
+                return newEntity.Entity;
+            } catch (Exception ex)
+            {
+                throw new Exception("Error: Erro atualizar o veiculo", ex);
+            }
         }
     }
 }

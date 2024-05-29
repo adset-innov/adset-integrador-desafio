@@ -7,5 +7,6 @@ namespace ADSET.Domain.Interfaces.Repositories
         Task<List<Foto>> GetAllByVeiculo(Guid veiculoId);
         int CountByVeiculo(Guid veiculoId);
         void RemoveFoto(Foto foto);
+        Task CreateListAsync(List<Foto> fotos);
     }
 }
