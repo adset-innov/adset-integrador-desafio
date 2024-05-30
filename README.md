@@ -24,7 +24,7 @@ Após terminar seu teste submeta um pull request e aguarde seu feedback.
 - HTML5, CSS, JavaScript, Bootstrap, POO, C#, .NET 4.0+, WebApi, C#, ASP NET, SQL, LINQ, Entity Framework, Code First, Design Responsivo, WebServices *(SOAP)*, APIs Restfull e Windows Services
 
 ### IDE:
- - Visual Studio <b>2013</b>
+ - Visual Studio 2013+
  
 ### Servidor de Banco:
  - Microsoft SQL Server 2012+
