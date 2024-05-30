@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AdSetDesafio.Web")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5c35883a388f0ebd814d4add57619d4bdf1c47e7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
 [assembly: System.Reflection.AssemblyProductAttribute("AdSetDesafio.Web")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AdSetDesafio.Web")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
