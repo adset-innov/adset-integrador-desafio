@@ -1,11 +1,11 @@
 ﻿BEGIN TRAN
 BEGIN TRY
 
-	INSERT INTO [dbo].[Opcional] (Id, Nome) VALUES
-	(1, 'Ar Condicionado'),
-	(2, 'Alarme'),
-	(3, 'Airbag'),
-	(4, 'Freio ABS');
+	INSERT INTO [dbo].[Opcional] (Nome) VALUES
+	('Ar Condicionado'),
+	('Alarme'),
+	('Airbag'),
+	('Freio ABS');
 
     COMMIT
 

@@ -17,7 +17,7 @@ namespace AdSetDesafio.Domain.Common.Entities
 
         public string Placa { get; set; }
 
-        public int? Km { get; set; }
+        public int Km { get; set; }
 
         public string Cor { get; set; }
 
@@ -29,6 +29,6 @@ namespace AdSetDesafio.Domain.Common.Entities
 
         public int? PacoteWebMotors { get; set; }
 
-        public virtual ICollection<FotoVeiculo> FotosVeiculo { get; set; }
+        public List<string> Fotos { get; set; }
     }
 }

@@ -12,11 +12,6 @@ namespace AdSetDesafio.Infrastructure.AutoMapper.Mappings
         public static void MapVeiculo(IProfileExpression profile)
         {
 
-            profile.CreateMap<FotoVeiculo, FotoVeiculoViewModel>()
-                .IgnoreAllNonExisting()
-                .ReverseMap()
-                .IgnoreAllNonExisting();
-
             profile.CreateMap<Veiculo, VeiculoViewModel>()
                 .IgnoreAllNonExisting()
                 .ReverseMap()

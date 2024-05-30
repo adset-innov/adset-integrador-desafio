@@ -1,0 +1,13 @@
+C:\Users\lpc13\Source\Repos\adset-integrador-desafio\adSetDesafio\AdSetDesafio.Infrastructure\bin\Debug\net5.0\AdSetDesafio.Infrastructure.deps.json
+C:\Users\lpc13\Source\Repos\adset-integrador-desafio\adSetDesafio\AdSetDesafio.Infrastructure\bin\Debug\net5.0\AdSetDesafio.Infrastructure.dll
+C:\Users\lpc13\Source\Repos\adset-integrador-desafio\adSetDesafio\AdSetDesafio.Infrastructure\bin\Debug\net5.0\AdSetDesafio.Infrastructure.pdb
+C:\Users\lpc13\Source\Repos\adset-integrador-desafio\adSetDesafio\AdSetDesafio.Infrastructure\obj\Debug\net5.0\AdSetDesafio.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\lpc13\Source\Repos\adset-integrador-desafio\adSetDesafio\AdSetDesafio.Infrastructure\obj\Debug\net5.0\AdSetDesafio.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lpc13\Source\Repos\adset-integrador-desafio\adSetDesafio\AdSetDesafio.Infrastructure\obj\Debug\net5.0\AdSetDesafio.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\lpc13\Source\Repos\adset-integrador-desafio\adSetDesafio\AdSetDesafio.Infrastructure\obj\Debug\net5.0\AdSetDesafio.Infrastructure.AssemblyInfo.cs
+C:\Users\lpc13\Source\Repos\adset-integrador-desafio\adSetDesafio\AdSetDesafio.Infrastructure\obj\Debug\net5.0\AdSetDesafio.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\lpc13\Source\Repos\adset-integrador-desafio\adSetDesafio\AdSetDesafio.Infrastructure\obj\Debug\net5.0\AdSetDesafio.Infrastructure.sourcelink.json
+C:\Users\lpc13\Source\Repos\adset-integrador-desafio\adSetDesafio\AdSetDesafio.Infrastructure\obj\Debug\net5.0\AdSetDesafio.Infrastructure.dll
+C:\Users\lpc13\Source\Repos\adset-integrador-desafio\adSetDesafio\AdSetDesafio.Infrastructure\obj\Debug\net5.0\refint\AdSetDesafio.Infrastructure.dll
+C:\Users\lpc13\Source\Repos\adset-integrador-desafio\adSetDesafio\AdSetDesafio.Infrastructure\obj\Debug\net5.0\AdSetDesafio.Infrastructure.pdb
+C:\Users\lpc13\Source\Repos\adset-integrador-desafio\adSetDesafio\AdSetDesafio.Infrastructure\obj\Debug\net5.0\ref\AdSetDesafio.Infrastructure.dll

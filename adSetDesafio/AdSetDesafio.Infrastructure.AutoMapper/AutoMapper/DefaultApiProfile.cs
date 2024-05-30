@@ -8,7 +8,6 @@ namespace AdSetDesafio.Infrastructure.AutoMapper.AutoMapper
         public DefaultApiProfile()
         {
             MapperVeiculo.MapVeiculo(this);
-            //MapperFotoVeiculo.MapFotoVeiculo(this);
             //MapperOpcional.MapOpcional(this);
             MapperAdaptersXlsx.MapAdaptersXlsx(this);
         }

@@ -8,6 +8,7 @@ using AdSetDesafio.Infrastructure.AutoMapper.IoC;
 using AdSetDesafio.Infrastructure.Sql.IoC;
 using System;
 using System.IO;
+using Microsoft.Extensions.Options;
 
 namespace AdSetDesafio.Web.API
 {
@@ -38,8 +39,10 @@ namespace AdSetDesafio.Web.API
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
-                })
-                .ConfigureServices((_, services) =>
+                }).UseDefaultServiceProvider(options =>
+                {
+                    options.ValidateScopes = false;
+                }).ConfigureServices((_, services) =>
                 {
                     services.AddFeatureManagement();
                     services.AddDefaultMapper();

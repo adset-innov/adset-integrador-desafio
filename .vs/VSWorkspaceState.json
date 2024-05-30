@@ -2,9 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\adSetDesafio",
-    "\\adSetDesafio\\AdSetDesafio.Adapters.XLSX",
-    "\\adSetDesafio\\AdSetDesafio.Adapters.XLSX\\IoC"
+    "\\adSetDesafio\\AdSetDesafio.Domain",
+    "\\adSetDesafio\\AdSetDesafio.Domain.Common",
+    "\\adSetDesafio\\AdSetDesafio.Web"
   ],
-  "SelectedNode": "\\adSetDesafio\\AdSetDesafio.Adapters.XLSX\\IoC\\IoCExtension.cs",
+  "SelectedNode": "\\adSetDesafio\\AdSetDesafio.sln",
   "PreviewInSolutionExplorer": false
 }

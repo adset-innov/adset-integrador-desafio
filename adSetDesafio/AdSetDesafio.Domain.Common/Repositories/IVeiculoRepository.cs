@@ -16,7 +16,7 @@ namespace AdSetDesafio.Domain.Common.Repositories
 
         Task<(List<Veiculo>, int)> GetAllPaginated(Expression<Func<Veiculo, bool>> predicate, Expression<Func<Veiculo, Veiculo>> selector, FiltroPaginacaoDTO filtroPaginacao);
         
-        Task<(List<Veiculo>, int)> GetAllPaginatedAndQueryableAsync(Expression<Func<Veiculo, bool>> search, Expression<Func<Veiculo, bool>> searchKeywords, Expression<Func<Veiculo, bool>> startDate, Expression<Func<Veiculo, bool>> endDate, FiltroPaginacaoConsultarVeiculoDTO filtroPaginacao);
+        Task<(List<Veiculo>, int)> GetAllPaginatedAndQueryableAsync(Expression<Func<Veiculo, bool>> placa, Expression<Func<Veiculo, bool>> marca, Expression<Func<Veiculo, bool>> modelo, Expression<Func<Veiculo, bool>> opcional, Expression<Func<Veiculo, bool>> anoMin, Expression<Func<Veiculo, bool>> anoMax, Expression<Func<Veiculo, bool>> preco, Expression<Func<Veiculo, bool>> fotos, Expression<Func<Veiculo, bool>> cor, FiltroPaginacaoConsultarVeiculoDTO filtroPaginacao);
         
         Task<int> GetCount(Expression<Func<Veiculo, bool>> predicate);
     }

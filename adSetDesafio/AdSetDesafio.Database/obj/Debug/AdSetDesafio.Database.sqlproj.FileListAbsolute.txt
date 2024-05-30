@@ -1,6 +1,10 @@
-C:\Users\lpc13\source\repos\adset-integrador-desafio\adSetDesafio\AdSetDesafio.Database\bin\Debug\AdSetDesafio.Database.dacpac
-C:\Users\lpc13\source\repos\adset-integrador-desafio\adSetDesafio\AdSetDesafio.Database\bin\Debug\AdSetDesafio.Database.dll
-C:\Users\lpc13\source\repos\adset-integrador-desafio\adSetDesafio\AdSetDesafio.Database\bin\Debug\AdSetDesafio.Database.pdb
-C:\Users\lpc13\source\repos\adset-integrador-desafio\adSetDesafio\AdSetDesafio.Database\obj\Debug\AdSetDesafio.Database.sqlproj.AssemblyReference.cache
-C:\Users\lpc13\source\repos\adset-integrador-desafio\adSetDesafio\AdSetDesafio.Database\obj\Debug\AdSetDesafio.Database.dll
-C:\Users\lpc13\source\repos\adset-integrador-desafio\adSetDesafio\AdSetDesafio.Database\obj\Debug\AdSetDesafio.Database.pdb
+C:\Users\lpc13\Source\Repos\adset-integrador-desafio\adSetDesafio\AdSetDesafio.Database\bin\Debug\AdSetDesafio.Database.dacpac
+C:\Users\lpc13\Source\Repos\adset-integrador-desafio\adSetDesafio\AdSetDesafio.Database\bin\Debug\AdSetDesafio.Database.dll
+C:\Users\lpc13\Source\Repos\adset-integrador-desafio\adSetDesafio\AdSetDesafio.Database\bin\Debug\AdSetDesafio.Database.pdb
+C:\Users\lpc13\Source\Repos\adset-integrador-desafio\adSetDesafio\AdSetDesafio.Database\obj\Debug\AdSetDesafio.Database.sqlproj.AssemblyReference.cache
+C:\Users\lpc13\Source\Repos\adset-integrador-desafio\adSetDesafio\AdSetDesafio.Database\obj\Debug\Model.xml
+C:\Users\lpc13\Source\Repos\adset-integrador-desafio\adSetDesafio\AdSetDesafio.Database\obj\Debug\refactor.xml
+C:\Users\lpc13\Source\Repos\adset-integrador-desafio\adSetDesafio\AdSetDesafio.Database\obj\Debug\postdeploy.sql
+C:\Users\lpc13\Source\Repos\adset-integrador-desafio\adSetDesafio\AdSetDesafio.Database\obj\Debug\predeploy.sql
+C:\Users\lpc13\Source\Repos\adset-integrador-desafio\adSetDesafio\AdSetDesafio.Database\obj\Debug\AdSetDesafio.Database.dll
+C:\Users\lpc13\Source\Repos\adset-integrador-desafio\adSetDesafio\AdSetDesafio.Database\obj\Debug\AdSetDesafio.Database.pdb

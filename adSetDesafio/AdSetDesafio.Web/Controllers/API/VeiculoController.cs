@@ -12,6 +12,9 @@ using System.Net.Http;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using AdSetDesafio.Web.Helpers;
+using AdSetDesafio.Web.Models;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Metadata;
+using System.IO;
 
 namespace AdSetDesafio.Web.Controllers.API
 {
@@ -48,15 +51,54 @@ namespace AdSetDesafio.Web.Controllers.API
         }
 
         [HttpPost("[action]")]
-        public async Task<IActionResult> CadastrarNovoVeiculo([FromBody] VeiculoViewModel viewModel, [CallerMemberName] string callerName = "")
+        public async Task<IActionResult> CadastrarNovoVeiculo([FromForm] VeiculoCadastroViewModel viewModel, [CallerMemberName] string callerName = "")
         {
             logger.LogDebug($"Carrega {callerName}");
             RetornoGenericoDTO<bool> retorno = new();
 
             try
             {
+                VeiculoViewModel model = new VeiculoViewModel
+                {
+                    Id = viewModel.Id,
+                    Marca = viewModel.Marca,
+                    Modelo = viewModel.Modelo,
+                    Ano = viewModel.Ano,
+                    Placa = viewModel.Placa,
+                    Km = viewModel.Km,
+                    Cor = viewModel.Cor,
+                    Preco = viewModel.Preco,
+                    Opcional = viewModel.Opcional,
+                    PacoteICarros = viewModel.PacoteICarros,
+                    PacoteWebMotors = viewModel.PacoteWebMotors,
+                    Fotos = new List<string>(),
+                };
+
+                if (viewModel.Fotos != null && viewModel.Fotos.Count > 0)
+                {
+                    var uploadsRootPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "Uploads");
+
+                    if (!Directory.Exists(uploadsRootPath))
+                    {
+                        Directory.CreateDirectory(uploadsRootPath);
+                    }
+
+                    foreach (var foto in viewModel.Fotos)
+                    {
+                        if (foto.Length > 0)
+                        {
+                            var filePath = Path.Combine(uploadsRootPath, foto.FileName);
+                            using (var stream = new FileStream(filePath, FileMode.Create))
+                            {
+                                await foto.CopyToAsync(stream);
+                            }
+                            model.Fotos.Add(filePath);
+                        }
+                    }
+                }
+
                 using var client = new HttpClientUtil<RetornoGenericoDTO<bool>>(remoteServer);
-                retorno = await client.Post($"API/Veiculo/", viewModel);
+                retorno = await client.Post($"API/Veiculo/", model);
             }
             catch (Exception ex)
             {

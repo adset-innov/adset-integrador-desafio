@@ -8,6 +8,12 @@ html {
   }
 }
 
+@media (min-width: 1400px) {
+    .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+        max-width: 100% !important;
+    }
+}
+
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
@@ -26,6 +32,23 @@ body {
     padding: 0;
 }
 
+tr {
+    display: inline-flex;
+    line-height: 14px;
+    width: 967px;
+    margin-bottom: 10px;
+}
+
+table {
+    width: 968px !important;
+}
+
+.table td, .table th {
+    padding: 0 !important;
+    vertical-align: top;
+    border-top: none !important;
+}
+
 .container.conteudo-geral {
     margin: 0;
     padding: 0;
@@ -34,22 +57,78 @@ body {
 
 .container.filtros {
     background-color: #e7e7e7;
-    padding: 5px 5px 50px 120px;
+    padding: 5px 5px 10px 120px;
     max-width: 100% !important;
-    border-bottom: 1px solid #bfbfbf !important;
 }
 
 .campos-texto {
     background-color: #f6f6f6;
     border-radius: 10px;
-    border-color: #bfbfbf;
-    margin: 0px 10px;
+    border: 1px solid #bfbfbf;
+    margin: 0px 5px;
+    padding-left: 8px;
 }
 
+.campos-select {
+    border-radius: 10px 0px 0px 10px;
+    border-color: #bfbfbf;
+    margin: 0px 5px;
+}
+
+select{
+    -webkit-appearance: none;
+    background:#f6f6f6 url("../Images/select-consulta-botao.png") no-repeat center right;
+    width: 100%;
+    padding-left: 8px;
+}
+
+#itemsCount {
+    margin-left: 100px;
+    margin-right: 5px;
+    width: 130px;
+    border-radius: 15px 0px 0px 15px;
+    padding: 5px 20px;
+    border: 1px solid #bfbfbf;
+    -webkit-appearance: none;
+    background: #f6f6f6 url("../Images/select-qtd-exibicao.png") no-repeat center right;
+}
+
+.arrow-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-right: 5px;
+}
+
+.arrow-container.ordenacao{
+    padding-left: 5px;
+}
+
+.arrow {
+    color: white;
+    height: 2px;
+    line-height: 1px; /* Garante que a altura da linha seja igual à altura da seta */
+    margin: 0; /* Remove margens para deixar as setas mais próximas */
+}
+
+.arrow:first-child {
+    margin-bottom: -2px; /* Ajusta o espaçamento entre as setas */
+}
+
+
 .container.paginacao {
-    background-color: #e7e7e7;
+    background-color: white;
     padding: 0px 0px 0px 120px;
     max-width: 100% !important;
+}
+
+.container.filtros-ordenacao {
+    width: 65px;
+    height: 28px;
+    background-color: #3fa42a;
+    position: relative;
+    clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 50%, calc(100% - 20px) 100%, 0 100%);
+    margin: 0px 5px 0px 0px;
 }
 
 .separator {
@@ -86,10 +165,10 @@ body {
 
 .retangulo-cinza-claro {
     background-color: #f6f6f6;
-    height: 80%;
+    height: 100%;
     float: left;
     width: 100px;
-    position: fixed;
+    position: absolute;
     margin: 5px;
 }
 
@@ -98,24 +177,288 @@ body {
 }
 
 .titulo-totalizador {
-    font-size: 19px;
+    font-size: 20px;
 }
 
 .filtros-consulta {
     background-color: white;
     height: 100px;
-    width: 1230px;
+    /*width: 1230px;*/
     margin-left: 0px;
     border: 1px solid #bfbfbf;
     border-radius: 0px 0px 20px 20px;
     display: inline-flex;
 }
 
-.row.col-12.container-consultar {
+.container-consultar {
     background-color: #e7e7e7;
     padding: 5px 5px 50px 5px;
     max-width: 100% !important;
 }
+
+.label-inputs {
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+.limpar-consulta {
+    height: 25px;
+    margin: 45px 20px 0px 40px;
+}
+
+.container-principal.filtros-ordenacao {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: flex-end;
+    width: 100%;
+}
+
+.container.filtros-ordenacao.btn-limpar-ordenacao{
+    display: inline-block;
+    width: 80px;
+    padding: 0px 0px 0px 5px;
+}
+
+.coluna.header-ordenacaoVeiculos {
+    display: inline-flex;
+    align-items: flex-end;
+}
+
+.logo-pacotes{
+    height: 70px;
+    background-color: white;
+    padding: 5px 40px;
+    border-radius: 15px 15px 0px 0px;
+    align-content: center;
+    margin: 0px 5px;
+}
+
+.coluna.header-ordenacaoVeiculos{
+    padding: 0px 10px;
+    border-right: 1px solid #bfbfbf;
+}
+
+.container.listagem-veiculos {
+    margin-left: 120px;
+    margin-bottom: 15px;
+    border-bottom: 1px dotted #bfbfbf;
+    width: 100%;
+}
+
+.listagem-veiculos{
+    margin: 5px 0px 15px 0px;
+    display: grid;
+}
+
+.listagem-veiculos-item {
+    display: inline-flex;
+    margin: 5px 0px
+}
+
+.coluna-exclusao {
+    background-color: #e7e7e7;
+    width: 40px;
+    height: 160px;
+    margin-right: 10px;
+    display: flex;
+    align-content: center;
+    align-items: center;
+}
+
+.icone-exclusao {
+    padding: 62px 13px 62px 13px;
+}
+
+.coluna-dados-veiculo {
+    background-color: #e7e7e7;
+    width: 438px;
+    height: 160px;
+    margin-right: 10px;
+    padding: 10px 0px 0px 10px;
+}
+
+.campo-marcaModeloAno{
+    background-color: white;
+    border-radius: 10px;
+    width: 65%;
+    padding: 8px;
+}
+
+#campo-marcaModeloAno {
+    color: #676464;
+    padding-left: 10px;
+}
+
+.campos-placaKmCor {
+    margin: 8px 0px 0px 0px;
+    display: flex;
+    flex-direction: column;
+    font-size: 13px;
+}
+
+.campos-editarFotosOpcionais {
+    float: right;
+    display: inline-flex;
+    justify-content: center;
+    margin-right: 10px;
+}
+
+.container-botaoEdicaoVeiculo {
+    margin-right: 10px;
+    padding: 5px 0px 20px 0px;
+    background-color: #1583bd;
+    width: 35px;
+    height: 30px;
+    border-radius: 0px 10px 10px 0px;
+}
+
+.botaoEdicaoVeiculo {
+    color: white;
+    padding-left: 7px;
+}
+
+#iconeOpcionais {
+    height: 20px;
+}
+
+.container-campo-preco {
+    width: 100%;
+    display: flex;
+    float: right;
+    flex-direction: row-reverse;
+}
+
+.campo-preco {
+    float: right;
+    background-color: #f6f1f1;
+    clip-path: polygon(0 100%, 100% 100%, 100% 0, 10% 0, 0 100%);
+    width: 40%;
+    padding: 10px 5px 10px 55px;
+    color: #3fa42a;
+    font-size: 18px;
+}
+
+.coluna-pacotes {
+    display: flex;
+    height: 160px;
+}
+
+.coluna-pacotes-icarros {
+    padding: 10px 21px 0px 10px;
+    border-right: 1px solid #e7e7e7;
+    font-size: 13px;
+}
+
+.coluna-pacotes-webmotors {
+    padding: 50px 40px 0px 30px;
+    border-right: 1px solid #e7e7e7;
+    font-size: 13px;
+}
+
+.iconeQtdFotos {
+    color: #676464;
+    font-size: 20px;
+}
+
+.imagem-veiculo-listagem {
+    height: 160px;
+    width: 200px;
+}
+
+.navegacao-paginacao {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.no-border {
+    border: none !important;
+    color: grey;
+    padding: 0px 10px;
+}
+
+.page-link:hover {
+    color: #3fa42a !important;
+    background-color: white !important;
+}
+
+.page-link:active {
+    color: #3fa42a !important;
+    background-color: white !important;
+}
+
+.seta-paginacao {
+    color: grey;
+    background-color: #f6f1f1;
+    border: 1px solid #bfbfbf;
+    margin: 0px 5px;
+    padding: 0px 4px;
+    font-size: 30px;
+    line-height: 12px;
+    padding-bottom: 7px;
+}
+
+#btnCadastrarVeiculo {
+    cursor: pointer;
+}
+
+#consultaPlaca {
+    width: 95%;
+}
+
+#consultaMarca {
+    width: 95%;
+}
+
+#consultaModelo {
+    width: 95%;
+}
+
+#consultaAnoMin {
+    width: 95%;
+}
+
+#consultaAnoMax {
+    border-radius: 0px !important;
+    width: 100%;
+}
+
+#consultaPreco {
+    width: 100%;
+    margin: 0px 10px;
+}
+
+#consultaFoto {
+    width: 100%;
+    margin: 0px 15px;
+}
+
+#consultaOpcional {
+    width: 100%;
+    margin: 0px 20px;
+}
+
+#consultaCor {
+    width: 100%;
+    margin: 0px 25px;
+}
+
+#consultaLimpar {
+    width: 100%;
+}
+
+.red {
+    color: #de0019;
+}
+
+.green {
+    color: #3fa42a;
+}
+
+.pacote-titulo {
+    color: #7c7c7c;
+}
+
     /*
     cinza-escuro-fundo: #e7e7e7;
     cinza-claro-campos: #f6f6f6;#bfbfbf

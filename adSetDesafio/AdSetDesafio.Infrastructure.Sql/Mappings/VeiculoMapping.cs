@@ -22,10 +22,7 @@ namespace AdSetDesafio.Infrastructure.Sql.Mappings
             builder.Property(c => c.IdOpcional);
             builder.Property(c => c.PacoteICarros);
             builder.Property(c => c.PacoteWebMotors);
-
-            //builder.HasOne(d => d.Veiculo)
-            //    .WithMany(p => p.Opcional)
-            //    .HasForeignKey(d => d.IdOpcional);
+            builder.Property(c => c.Fotos);
         }
     }
 }

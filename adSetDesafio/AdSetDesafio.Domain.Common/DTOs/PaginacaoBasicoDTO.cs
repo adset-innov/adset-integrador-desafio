@@ -4,7 +4,7 @@
     {
         public PaginacaoBasicoDTO()
         {
-            QuantidadePorPagina = 100;
+            QuantidadePorPagina = 8;
         }
 
         public int Pagina { get; set; }

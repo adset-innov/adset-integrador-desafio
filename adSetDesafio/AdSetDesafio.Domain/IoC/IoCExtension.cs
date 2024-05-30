@@ -12,7 +12,6 @@ namespace AdSetDesafio.Domain.IoC
 
             //services.AddHttpClient();
             services.AddScoped<IVeiculoService, VeiculoService>();
-            services.AddScoped<IFotoVeiculoService, FotoVeiculoService>();
             services.AddScoped<IOpcionalService, OpcionalService>();
         }
     }

@@ -25,7 +25,6 @@ namespace AdSetDesafio.Infrastructure.Sql.IoC
             services.AddTransient<IUnitOfWorkFactory, UnitOfWorkFactory>();
 
             services.AddScoped<IVeiculoRepository, VeiculoRepository>();
-            services.AddScoped<IFotoVeiculoRepository, FotoVeiculoRepository>();
             services.AddScoped<IOpcionalRepository, OpcionalRepository>();
         }
     }

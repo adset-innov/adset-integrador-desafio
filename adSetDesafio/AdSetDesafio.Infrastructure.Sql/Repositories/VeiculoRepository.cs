@@ -88,51 +88,56 @@ namespace AdSetDesafio.Infrastructure.Sql.Repositories
                 await consulta.CountAsync());
         }
 
-        public async Task<(List<Veiculo>, int)> GetAllPaginatedAndQueryableAsync(Expression<Func<Veiculo, bool>> search, Expression<Func<Veiculo, bool>> searchKeywords, Expression<Func<Veiculo, bool>> startDate, Expression<Func<Veiculo, bool>> endDate, FiltroPaginacaoConsultarVeiculoDTO filtroPaginacao)
+        public async Task<(List<Veiculo>, int)> GetAllPaginatedAndQueryableAsync(Expression<Func<Veiculo, bool>> placa, Expression<Func<Veiculo, bool>> marca, Expression<Func<Veiculo, bool>> modelo, Expression<Func<Veiculo, bool>> opcional, Expression<Func<Veiculo, bool>> anoMin, Expression<Func<Veiculo, bool>> anoMax, Expression<Func<Veiculo, bool>> preco, Expression<Func<Veiculo, bool>> fotos, Expression<Func<Veiculo, bool>> cor, FiltroPaginacaoConsultarVeiculoDTO filtroPaginacao)
         {
             var db = GetDbContext();
 
-            var Veiculos = db
+            var veiculos = db
                 .Veiculos
                 .AsNoTracking();
 
-            //IQueryable<Veiculo> consulta = Veiculos.Include(p => p.VeiculoStatus);
+            IQueryable<Veiculo> consulta = veiculos;
 
-            //if (!string.IsNullOrWhiteSpace(filtroPaginacao.Search))
-            //{
-            //    consulta = consulta.Where(search);
-            //}
+            if (!string.IsNullOrWhiteSpace(filtroPaginacao.Placa))
+                consulta = consulta.Where(placa);
 
-            //if (filtroPaginacao.SearchStatusId != null && filtroPaginacao.SearchStatusId.Any())
-            //{
-            //    consulta = consulta.Where(searchKeywords);
-            //}
+            if (!string.IsNullOrWhiteSpace(filtroPaginacao.Marca))
+                consulta = consulta.Where(marca);
 
-            //if (filtroPaginacao.StartDate != DateTime.MinValue)
-            //{
-            //    consulta = consulta.Where(startDate);
-            //}
+            if (!string.IsNullOrWhiteSpace(filtroPaginacao.Modelo))
+                consulta = consulta.Where(modelo);
 
-            //if (filtroPaginacao.EndDate != DateTime.MinValue)
-            //{
-            //    consulta = consulta.Where(endDate);
-            //}
+            if (!string.IsNullOrWhiteSpace(filtroPaginacao.Opcional))
+                consulta = consulta.Where(opcional);
 
-            //var VeiculoCount = await consulta.CountAsync();
+            if (filtroPaginacao.AnoMin != null)
+                consulta = consulta.Where(anoMin);
 
+            if (filtroPaginacao.AnoMax != null)
+                consulta = consulta.Where(anoMax);
 
-            //if (filtroPaginacao != default)
-            //{
-            //    consulta = consulta
-            //        .Skip((filtroPaginacao.Pagina - 1) * filtroPaginacao.QuantidadePorPagina)
-            //        .Take(filtroPaginacao.QuantidadePorPagina);
-            //}
+            if (filtroPaginacao.Preco != null)
+                consulta = consulta.Where(preco);
 
-            //var listVeiculo = await consulta?
-            //        .OrderByDescending(x => x.DataAtualizacao)
-            //        .ToListAsync();
+            if (filtroPaginacao.Fotos != null)
+                consulta = consulta.Where(fotos);
 
-            return (Veiculos.ToList(), Veiculos.Count());
+            if (!string.IsNullOrWhiteSpace(filtroPaginacao.Cor))
+                consulta = consulta.Where(cor);
+
+            var VeiculoCount = await consulta.CountAsync();
+
+            if (filtroPaginacao != default)
+            {
+                consulta = consulta
+                    .Skip((filtroPaginacao.Pagina - 1) * filtroPaginacao.QuantidadePorPagina)
+                    .Take(filtroPaginacao.QuantidadePorPagina);
+            }
+
+            var listVeiculo = await consulta?
+                    .ToListAsync();
+
+            return (veiculos.ToList(), veiculos.Count());
         }
 
         private IQueryable<Veiculo> GetAllPaginatedDefault(Expression<Func<Veiculo, bool>> predicate, Expression<Func<Veiculo, Veiculo>> selector)
@@ -144,13 +149,13 @@ namespace AdSetDesafio.Infrastructure.Sql.Repositories
                 .Select(selector);
         }
 
-        public async Task SaveAnexo(FotoVeiculo FotosVeiculo)
-        {
-            var uow = GetUnitOfWork();
-            var db = uow.DbContext;
-            await db.FotosVeiculos.AddAsync(FotosVeiculo);
-            await uow.Commit();
-        }
+        //public async Task SaveAnexo(FotoVeiculo FotosVeiculo)
+        //{
+        //    var uow = GetUnitOfWork();
+        //    var db = uow.DbContext;
+        //    await db.FotosVeiculos.AddAsync(FotosVeiculo);
+        //    await uow.Commit();
+        //}
 
         public Task<Veiculo> GetAsync(int id)
         {

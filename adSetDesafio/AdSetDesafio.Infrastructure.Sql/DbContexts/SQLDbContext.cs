@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using AdSetDesafio.Domain.Common.Entities;
 using AdSetDesafio.Infrastructure.Interfaces;
 using AdSetDesafio.Infrastructure.Sql.DbContexts.Config;
+using System.Linq;
 
 namespace AdSetDesafio.Infrastructure.Sql.DbContexts
 {
@@ -16,8 +17,6 @@ namespace AdSetDesafio.Infrastructure.Sql.DbContexts
         public Enum.DbType DbType => Enum.DbType.SqlServer;
         
         public DbSet<Veiculo> Veiculos { get; set; }
-        
-        public DbSet<FotoVeiculo> FotosVeiculos { get; set; }
 
         public DbSet<Opcional> Opcionais { get; set; }
 
@@ -48,6 +47,11 @@ namespace AdSetDesafio.Infrastructure.Sql.DbContexts
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Veiculo>()
+            .Property(v => v.Fotos)
+            .HasConversion(
+                v => string.Join(";", v),
+                v => v.Split(';', StringSplitOptions.RemoveEmptyEntries).ToList());
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(SQLDbContext).Assembly);
             base.OnModelCreating(modelBuilder);
         }

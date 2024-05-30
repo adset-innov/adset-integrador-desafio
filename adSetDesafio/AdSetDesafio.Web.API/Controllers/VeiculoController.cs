@@ -8,11 +8,17 @@ using AdSetDesafio.Domain.Commands.Veiculo;
 using AdSetDesafio.Domain.Common.Entities;
 using AdSetDesafio.Domain.Services.Interfaces;
 using AdSetDesafio.Infrastructure.ViewModel;
+using Microsoft.Extensions.Logging;
+using System.Threading.Tasks;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.IO;
 
 namespace AdSetDesafio.Web.API.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("API/[controller]")]
     public class VeiculoController : ApiController<VeiculoController, IVeiculoService, Veiculo, VeiculoController>
     {
         private readonly IMapper _mapper;
@@ -104,7 +110,7 @@ namespace AdSetDesafio.Web.API.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Post(VeiculoViewModel viewModel) // temp [FromBody] 
+        public async Task<ActionResult> Post(VeiculoViewModel viewModel)
         {
             RetornoGenericoDTO<bool> retorno = new();
 
@@ -173,12 +179,14 @@ namespace AdSetDesafio.Web.API.Controllers
 
             try
             {
-                var validations = viewModel.Validate();
-                if (validations.Any())
+                //var validations = viewModel.Validate();
+                //if (validations.Any())
+                if (true)
                 {
                     retorno.Id = -1;
                     retorno.Item = false;
-                    retorno.Mensagem = ColetarErrosValidacao(validations);
+                    //retorno.Mensagem = ColetarErrosValidacao(validations);
+                    retorno.Mensagem = "";
                     return Resultado(retorno);
                 }
 

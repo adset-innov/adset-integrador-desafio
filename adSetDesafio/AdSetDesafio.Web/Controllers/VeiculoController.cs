@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using AdSetDesafio.Infrastructure.ViewModel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -19,8 +20,6 @@ namespace AdSetDesafio.Web.Controllers
         [Route("[controller]/ConsultarVeiculos/")]
         public IActionResult ConsultarVeiculos()
         {
-
-            //ViewData["DestinatariosEmails"] = new SelectList(new object[] { new { Id = "", Email = "" } }, "Id", "Email");
 
             return View("~/Views/Home/Index.cshtml");
         }

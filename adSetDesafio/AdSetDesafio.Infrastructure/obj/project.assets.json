@@ -1,7 +1,7 @@
 {
   "version": 3,
   "targets": {
-    "net8.0": {
+    "net5.0": {
       "AutoMapper/11.0.0": {
         "type": "package",
         "dependencies": {
@@ -548,12 +548,12 @@
       "Microsoft.Extensions.DependencyInjection.Abstractions/6.0.0": {
         "type": "package",
         "compile": {
-          "lib/net6.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
+          "lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net6.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
+          "lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
             "related": ".xml"
           }
         },
@@ -6673,7 +6673,7 @@
     }
   },
   "projectFileDependencyGroups": {
-    "net8.0": [
+    "net5.0": [
       "AutoMapper >= 11.0.0",
       "Microsoft.AspNetCore.Mvc.ViewFeatures >= 2.2.0",
       "Microsoft.Extensions.DependencyInjection.Abstractions >= 6.0.0"
@@ -6686,11 +6686,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\lpc13\\source\\repos\\adset-integrador-desafio\\adSetDesafio\\AdSetDesafio.Infrastructure\\AdSetDesafio.Infrastructure.csproj",
+      "projectUniqueName": "C:\\Users\\lpc13\\Source\\Repos\\adset-integrador-desafio\\adSetDesafio\\AdSetDesafio.Infrastructure\\AdSetDesafio.Infrastructure.csproj",
       "projectName": "AdSetDesafio.Infrastructure",
-      "projectPath": "C:\\Users\\lpc13\\source\\repos\\adset-integrador-desafio\\adSetDesafio\\AdSetDesafio.Infrastructure\\AdSetDesafio.Infrastructure.csproj",
+      "projectPath": "C:\\Users\\lpc13\\Source\\Repos\\adset-integrador-desafio\\adSetDesafio\\AdSetDesafio.Infrastructure\\AdSetDesafio.Infrastructure.csproj",
       "packagesPath": "C:\\Users\\lpc13\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\lpc13\\source\\repos\\adset-integrador-desafio\\adSetDesafio\\AdSetDesafio.Infrastructure\\obj\\",
+      "outputPath": "C:\\Users\\lpc13\\Source\\Repos\\adset-integrador-desafio\\adSetDesafio\\AdSetDesafio.Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -6701,7 +6701,7 @@
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "net8.0"
+        "net5.0"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -6709,8 +6709,8 @@
         "https://pkgs.dev.azure.com/Solutis/_packaging/SabespNuget/nuget/v3/index.json": {}
       },
       "frameworks": {
-        "net8.0": {
-          "targetAlias": "net8.0",
+        "net5.0": {
+          "targetAlias": "net5.0",
           "projectReferences": {}
         }
       },
@@ -6721,8 +6721,8 @@
       }
     },
     "frameworks": {
-      "net8.0": {
-        "targetAlias": "net8.0",
+      "net5.0": {
+        "targetAlias": "net5.0",
         "dependencies": {
           "AutoMapper": {
             "target": "Package",
@@ -6753,7 +6753,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

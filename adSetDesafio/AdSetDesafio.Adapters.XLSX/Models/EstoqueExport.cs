@@ -1,6 +1,5 @@
 ﻿using AdSetDesafio.Adapters.XLSX.Attributes;
 using System;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 using System.Numerics;
 using System.Reflection;
 using System.Runtime.ConstrainedExecution;

@@ -136,30 +136,68 @@ namespace AdSetDesafio.Domain.Services
         {
             PaginacaoDTO<Veiculo> resultPaginacao = null;
 
-            Expression<Func<Veiculo, bool>> search = p =>
-                p.Marca.Contains(filtroPaginacao.Search);
+            Expression<Func<Veiculo, bool>> placa = p =>
+                p.Placa.Contains(filtroPaginacao.Placa);
 
-            Expression<Func<Veiculo, bool>> searchKeywords;
-            if (filtroPaginacao.SearchStatusId != null && filtroPaginacao.SearchStatusId.Contains(-1))
+            Expression<Func<Veiculo, bool>> marca = p =>
+                p.Marca.Contains(filtroPaginacao.Marca);
+
+            Expression<Func<Veiculo, bool>> modelo = p =>
+                p.Modelo.Contains(filtroPaginacao.Modelo);
+
+            Expression<Func<Veiculo, bool>> opcional = p =>
+                p.IdOpcional.Equals(filtroPaginacao.Opcional);
+
+            Expression<Func<Veiculo, bool>> anoMin = p =>
+                p.Ano >= filtroPaginacao.AnoMin;
+
+            Expression<Func<Veiculo, bool>> anoMax = p =>
+                p.Ano <= filtroPaginacao.AnoMax;
+
+
+            Expression<Func<Veiculo, bool>> preco;
+
+            switch (filtroPaginacao.Preco)
             {
-                searchKeywords = p => filtroPaginacao.SearchStatusId.Contains(p.Id);
+                case 0:
+                    preco = p => p.Preco >= 0;
+                    break;
+                case 1:
+                    preco = p => p.Preco >= 10000 && p.Preco <= 50000;
+                    break;
+                case 2:
+                    preco = p => p.Preco >= 50000 && p.Preco <= 90000;
+                    break;
+                case 3:
+                    preco = p => p.Preco >= 90000;
+                    break;
+                default:
+                    preco = p => p.Preco >= 0;
+                    break;
             }
-            else
+
+            Expression<Func<Veiculo, bool>> fotos;
+
+            switch (filtroPaginacao.Fotos)
             {
-                searchKeywords = p => filtroPaginacao.SearchStatusId.Contains(p.Id);
+                case 0:
+                    fotos = f => f.Fotos.Count() >= 0;
+                    break;
+                case 1:
+                    fotos = f => f.Fotos.Count() > 0;
+                    break;
+                case 2:
+                    fotos = f => f.Fotos.Count() == 0;
+                    break;
+                default:
+                    fotos = f => f.Fotos.Count() >= 0;
+                    break;
             }
 
-            if(filtroPaginacao.StartDate.Date == DateTime.MinValue && filtroPaginacao.EndDate.Date == DateTime.MinValue)
-            {
-                filtroPaginacao.StartDate = DateTime.Now.AddYears(-1);
-                filtroPaginacao.EndDate = DateTime.Now;
-            }
+            Expression<Func<Veiculo, bool>> cor = p =>
+                p.Cor.Contains(filtroPaginacao.Cor);
 
-            Expression<Func<Veiculo, bool>> startDate = p => p.Ano >= filtroPaginacao.StartDate.Date.Year;
-
-            Expression<Func<Veiculo, bool>> endDate = p => p.Ano <= filtroPaginacao.EndDate.Date.Year;
-
-            (List<Veiculo> dados, int total) = await repositorySql.GetAllPaginatedAndQueryableAsync(search, searchKeywords, startDate, endDate, filtroPaginacao);
+            (List<Veiculo> dados, int total) = await repositorySql.GetAllPaginatedAndQueryableAsync(placa, marca, modelo, opcional, anoMin, anoMax, preco, fotos, cor, filtroPaginacao);
 
             resultPaginacao = new PaginacaoDTO<Veiculo>
             {
@@ -174,9 +212,6 @@ namespace AdSetDesafio.Domain.Services
 
         public async Task SaveAsync(Veiculo entity)
         {
-            if (!string.IsNullOrWhiteSpace(entity.Marca))
-                entity.Marca = entity.Marca.Replace("_", "");
-
             entity.Id = await repositorySql.SaveAsync(entity);
         }
 

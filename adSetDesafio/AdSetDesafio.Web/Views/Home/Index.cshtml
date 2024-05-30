@@ -3,7 +3,7 @@
 <div class="container conteudo-geral">
     <div class="retangulo-cinza-claro"></div>
     <div class="container filtros">
-        <div class="row container totalizadores exportar cadastrar salvar" style="padding: 10px 0px 0px 0px;">
+        <div class="container totalizadores exportar cadastrar salvar" style="padding: 10px 0px 0px 0px; display: inline-flex; min-width: 100%; justify-content: space-around;">
             <div class="totalizador">
                 <span class="cinza-claro titulo-totalizador">110 veículos</span>
                 <b style="color: #1583bd;">Total</b>
@@ -23,30 +23,30 @@
                 <img src="~/Images/botao-exportar.png" style="height:40px;" />
             </div>
             <div class="cadastrarVeiculo">
-                <img src="~/Images/cadastrar-veiculo.png" style="height:70px;" />
+                <img src="~/Images/cadastrar-veiculo.png" id="btnCadastrarVeiculo" style="height:70px;" />
             </div>
             <div class="salvarBotao">
                 <img src="~/Images/botao-salvar.png" style="height:70px;" />
             </div>
         </div>
-        <div class="row col-12 container-consultar">
+        <div class="container-consultar">
             <div class="filtros-consulta">
-                <div class="col-1">
+                <div style="width: 8%;">
                     <label class="label-inputs" for="Placa">Placa</label>
-                    <input class="campos-texto" type="text" />
+                    <input class="campos-texto" id="consultaPlaca" type="text"/>
                 </div>
-                <div class="col-1">
+                <div style="width:12%;">
                     <label class="label-inputs" for="Placa">Marca</label>
-                    <input class="campos-texto" type="text" />
+                    <input class="campos-texto" id="consultaMarca" type="text" />
                 </div>
-                <div class="col-2">
+                <div style="width: 20%;">
                     <label class="label-inputs" for="Placa">Modelo</label>
-                    <input class="campos-texto" type="text" />
+                    <input class="campos-texto" id="consultaModelo" type="text" />
                 </div>
-                <div class="col-1">
+                <div style="width: 8%;">
                     <label class="label-inputs" for="AnoMin">Ano Min</label>
-                    <select class="campos-select">
-                        <option value="Todos">Todos</option>
+                    <select class="campos-select" id="consultaAnoMin">
+                        <option value="0" selected="">Todos</option>
                         <option value="2024">2024</option>
                         <option value="2023">2023</option>
                         <option value="2022">2022</option>
@@ -74,10 +74,10 @@
                         <option value="2000">2000</option>
                     </select>
                 </div>
-                <div class="col-1">
+                <div style="width: 7%;">
                     <label class="label-inputs" for="AnoMax">Ano Max</label>
-                    <select class="campos-select">
-                        <option value="Todos">Todos</option>
+                    <select class="campos-select" id="consultaAnoMax">
+                        <option value="0" selected="">Todos</option>
                         <option value="2024">2024</option>
                         <option value="2023">2023</option>
                         <option value="2022">2022</option>
@@ -105,39 +105,264 @@
                         <option value="2000">2000</option>
                     </select>
                 </div>
-                <div class="col-1">
+                <div style="width: 11%;">
                     <label class="label-inputs" for="Preco">Preco</label>
-                    <select class="campos-select">
-                        <option value="0"></option>
+                    <select class="campos-select" id="consultaPreco">
+                        <option value="0" selected="">Todos</option>
                         <option value="1">10mil a 50mil</option>
                         <option value="2">50mil a 90mil</option>
                         <option value="3">90mil ou mais</option>
                     </select>
                 </div>
-                <div class="col-2">
+                <div style="width: 11%;">
                     <label class="label-inputs" for="Fotos">Fotos</label>
-                    <select class="campos-select">
-                        <option value="0"></option>
+                    <select class="campos-select" id="consultaFoto">
+                        <option value="0" selected="">Todos</option>
                         <option value="1">Com fotos</option>
                         <option value="2">Sem Fotos</option>
                     </select>
                 </div>
-                <div class="col-1">
+                <div style="width: 9%;">
                     <label class="label-inputs" for="Opcionais">Opcionais</label>
-                    <input class="campos-texto" type="text" />
+                    <input class="campos-texto" type="text" id="consultaOpcional" />
                 </div>
-                <div class="col-1">
+                <div style="width: 7%;">
                     <label class="label-inputs" for="Cor">Cor</label>
-                    <select class="campos-select">
-                        <option value="0"></option>
+                    <select class="campos-select" id="consultaCor">
+                        <option value="0" selected="">Todos</option>
                         <option value="Branco">Branco</option>
                         <option value="Preto">Preto</option>
                         <option value="Prata">Prata</option>
                     </select>
                 </div>
+                <div style="width: 2%;">
+                    <img class="limpar-consulta" src="~/Images/botao-limpar-consulta.png" id="consultaLimpar"/>
+                </div>
+            </div>
+            <div class="row col-12 botao-buscar" style="width: 10%;display: flex;align-content: center;justify-content: center;align-items: center;flex-direction: column;margin: 0% 45%;">
+                <button class="botao-consulta" id="btnFilterConfirmation" style="background-color: #3fa42a;color: white;border: none;border-radius: 0px 0px 15px 15px;height: 42px;font-size: 120%;"><i class="fa fa-search fa-rotate-90 fa-sm" style=""></i> Buscar</button>
+            </div>
+        </div>
+        <div class="container-principal filtros-ordenacao">
+            <div class="container filtros-ordenacao btn-limpar-ordenacao" style="width: 67px;padding: 0px 0px 0px 5px;">
+                <div style="display: flex; align-items: center; padding-top: 3px;">
+                    <div class="arrow-container">
+                        <i class="fas fa-sort-up arrow"></i>
+                        <i class="fas fa-sort-down arrow"></i>
+                    </div>
+                    <img style="height:20px;" src="/Images/limpar-ordenacao.png">
+                </div>
+            </div>
+            <div class="header-ordenacaoVeiculos">
+                <div class="coluna header-ordenacaoVeiculos">
+                    <div style="display: flex; align-items: center;">
+                        <span>Marca / Modelo</span>
+                        <div class="arrow-container ordenacao">
+                            <i class="fas fa-sort-up arrow" style="color: #7c7c7c;"></i>
+                            <i class="fas fa-sort-down arrow" style="color: #3fa42a;"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="coluna header-ordenacaoVeiculos">
+                    <div style="display: flex; align-items: center;">
+                        <span>Ano</span>
+                        <div class="arrow-container ordenacao">
+                            <i class="fas fa-sort-up arrow" style="color: #7c7c7c;"></i>
+                            <i class="fas fa-sort-down arrow" style="color: #7c7c7c;"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="coluna header-ordenacaoVeiculos">
+                    <div style="display: flex; align-items: center;">
+                        <span>Preço</span>
+                        <div class="arrow-container ordenacao">
+                            <i class="fas fa-sort-up arrow" style="color: #7c7c7c;"></i>
+                            <i class="fas fa-sort-down arrow" style="color: #3fa42a;"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="coluna header-ordenacaoVeiculos">
+                    <div style="display: flex; align-items: center;">
+                        <span>Fotos</span>
+                        <div class="arrow-container ordenacao">
+                            <i class="fas fa-sort-up arrow" style="color: #7c7c7c;"></i>
+                            <i class="fas fa-sort-down arrow" style="color: #7c7c7c;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="display: inline-flex; align-items: flex-end;">
+                <div class="pagination__count" style="display: inline-block;/* width: 50%; */">
+                    <select class="form-select pagination-count__select" id="itemsCount" aria-label="Exibir">
+                        <option value="8" selected="">Exibir 8</option>
+                        <option value="10">Exibir 10</option>
+                        <option value="15">Exibir 15</option>
+                        <option value="20">Exibir 20</option>
+                        <option value="50">Exibir 50</option>
+                        <option value="100">Exibir 100</option>
+                    </select>
+                </div>
+                <div class="logo-pacotes">
+                    <img id="img-iCarros" style="height: 50px" src="~/Images/ICarros.png"/>
+                </div>
+                <div class="logo-pacotes">
+                    <img id="img-webMotors" style="height: 50px" src="~/Images/WebMotors.png" />
+                </div>
             </div>
         </div>
     </div>
+</div>
+<div class="container listagem-veiculos">
+    <div class="listagem-veiculos">
+        <div class="listagem-veiculos-item">
+            @* <div class="coluna-exclusao">
+                <a onclick="window.ExcluirVeiculo()">
+                    <i class="fas fa-trash-alt icone-exclusao" style="color:red;"></i>
+                </a>
+            </div>
+            <div class="coluna-imagem-veiculo">
+                <img class="imagem-veiculo-listagem" src="~/Images/carro0.jpg" />
+            </div>
+            <div class="coluna-dados-veiculo">
+                <div class="campo-marcaModeloAno">
+                    <b id="campo-marcaModeloAno">MARCA MODELO | ANO</b>
+                </div>
+                <div style="display: flex;">
+                    <div class="campos-placaKmCor" style="width: 50%;">
+                        <span id="campo-placa">Placa - </span>
+                        <span id="campo-km">Km - </span>
+                        <span id="campo-cor">Cor - </span>
+                    </div>
+                    <div class="campos-editarFotosOpcionais" style="width: 50%;">
+                        <i class="far fa-edit botaoEdicaoVeiculo"></i>
+                        <div style="display: flex; flex-direction: column; align-items: center;">
+                            <i class="fas fa-camera iconeQtdFotos"></i>
+                            <span class="green">08</span>
+                        </div>
+                        <div style="display: flex; flex-direction: column; align-items: center;">
+                            <img id="iconeOpcionais" src="~/Images/opcionais.png" />
+                            <span class="green">Opcionais</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-campo-preco">
+                    <span class="campo-preco">R$ 138.980,00</span>
+                </div>
+            </div>
+            <div class="coluna-pacotes">
+                <div class="coluna-pacotes-icarros">
+                    <div>
+                        <label class="pacote-titulo">Diamante Feirão</label>
+                        <div>
+                            <input type="checkbox"/> 
+                            <span class="red">010</span><span> - </span><span class="green">008</span>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="pacote-titulo">Diamante</label>
+                        <div>
+                            <input type="checkbox"/> 
+                            <span class="red">030</span><span> - </span><span class="green">025</span>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="pacote-titulo">Platinum</label>
+                        <div>
+                            <input type="checkbox" />
+                            <span class="red">040</span><span> - </span><span class="green">010</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="coluna-pacotes-webmotors">
+                    <div>
+                        <label class="pacote-titulo">Básico</label>
+                        <div>
+                            <input type="checkbox" />
+                            <span class="red">030</span><span> - </span><span class="green">025</span>
+                        </div>
+                    </div>
+                </div>
+            </div> *@
+            <table class="table table-protocolo text-start" id="table">
+                <thead style="display: none;">
+                    <tr>
+                        <th class="text-start table-protocolo__column-first"></th>
+                        <th class="text-start table-protocolo__column">Marca</th>
+                        <th class="text-start table-protocolo__column">Modelo</th>
+                        <th class="text-start table-protocolo__column">Ano</th>
+                        <th class="text-start table-protocolo__column">Placa</th>
+                        <th class="text-start table-protocolo__column">Km</th>
+                        <th class="text-start table-protocolo__column">Cor</th>
+                        <th class="text-start table-protocolo__column">Preço</th>
+                    </tr>
+                </thead>
+                <tbody id="tableVeiculo" class="text-start">
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="navegacao-paginacao">
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            <li class="page-item">
+                <a class="page-link seta-paginacao" href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                    <span class="sr-only">Previous</span>
+                </a>
+            </li>
+            <li class="page-item">
+                <a class="page-link seta-paginacao" href="#" aria-label="Previous">
+                    <span aria-hidden="true">&lsaquo;</span>
+                    <span class="sr-only">Previous</span>
+                </a>
+            </li>
+            <li class="page-item">
+                <a class="page-link no-border" href="#">1</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link no-border" href="#">2</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link no-border" href="#">3</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link no-border" href="#">4</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link no-border" href="#">5</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link no-border" href="#">6</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link no-border" href="#">7</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link no-border" href="#">8</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link no-border" href="#">9</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link no-border" href="#">10</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link seta-paginacao" href="#" aria-label="Next">
+                    <span aria-hidden="true">&rsaquo;</span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </li>
+            <li class="page-item">
+                <a class="page-link seta-paginacao" href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>
+@* <div class="Lista-Veiculos">
     <div class="container paginacao">
         <div class="wrapper">
             <div class="panel panel-default panel-custom panel-protocolo">
@@ -166,16 +391,6 @@
                         <tbody id="tableVeiculo" class="text-start">
                         </tbody>
                     </table>
-                    <div class="pagination__count" style="display: inline-block; width: 50%;">
-                        <select class="form-select pagination-count__select" id="itemsCount" aria-label="Exibir" style="margin-left: 300px; width: 130px; border-radius: 15px 0px 0px 15px; padding: 5px 28px; border: 1px solid #bfbfbf;">
-                            <option value="8" selected="">Exibir 8</option>
-                            <option value="10">Exibir 10</option>
-                            <option value="15">Exibir 15</option>
-                            <option value="20">Exibir 20</option>
-                            <option value="50">Exibir 50</option>
-                            <option value="100">Exibir 100</option>
-                        </select>
-                    </div>
                     <div class="navigation">
                         <div class="pagination__wrapper">
 
@@ -194,4 +409,10 @@
             </div>
         </div>
     </div>
-</div>
+</div> *@
+
+@section Scripts {
+    <script src="~/js/dataTable.js"></script>
+    <script src="~/js/app/ConsultarVeiculo.js?version=1"></script>
+
+}

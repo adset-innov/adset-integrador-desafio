@@ -1,5 +1,9 @@
-using System;
+ï»¿using System;
+using System.Reflection;
 using System.Text;
+using AdSetDesafio.Domain.Common.Repositories;
+using AdSetDesafio.Infrastructure.Sql.Repositories;
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -22,11 +26,14 @@ namespace AdSetDesafio.Web.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.AddMvc()
+                .AddSessionStateTempDataProvider();
+            services.AddSession();
             services.AddControllers();
+            //services.AddSession();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "AdSetDesafio.Web.API", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "ProgramaInovacoes.Web.API", Version = "v1" });
             });
             services.AddCors((b) =>
             {
@@ -38,20 +45,34 @@ namespace AdSetDesafio.Web.API
                         .SetPreflightMaxAge(TimeSpan.FromSeconds(2520));
                 });
             });
+            services.AddScoped(typeof(IVeiculoRepository), typeof(VeiculoRepository));
+            services.AddMediatR(AppDomain.CurrentDomain.GetAssemblies());
+            services.AddMediatR(Assembly.GetExecutingAssembly());
+            services.AddMediatR(typeof(Startup).GetTypeInfo().Assembly);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
 
-            /* EXCLUIR DEPOIS - INÍCIO */
-            app.UseSwagger();
-            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "AdSetDesafio.Web.API v1"));
-            /* EXCLUIR DEPOIS - FIM */
+                app.UseSwagger();
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "AdSetDesafio.Web.API v1"));
+            }
+            else
+            {
+                app.UseExceptionHandler("/Error");
+            }
 
+            app.UseSession();
             app.UseStaticFiles();
             app.UseRouting();
             app.UseCors("policy");
+
+            app.UseAuthentication();
+            //app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
