@@ -1,31 +1,24 @@
-using System.Diagnostics;
+using AdSet.Dominio.Services;
 using Microsoft.AspNetCore.Mvc;
-using AdSet.Web.Models;
-
-namespace AdSet.Web.Controllers;
-
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
+    private readonly IRepositoryService _repositoryService;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(ILogger<HomeController> logger, IRepositoryService a_repositoryService)
     {
         _logger = logger;
+        _repositoryService = a_repositoryService;
     }
 
     public IActionResult Index()
     {
+        _repositoryService.GetAll();
         return View();
     }
 
     public IActionResult Privacy()
     {
         return View();
-    }
-
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    public IActionResult Error()
-    {
-        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
 }

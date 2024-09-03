@@ -1,13 +1,14 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
-
-  <ItemGroup>
-    <ProjectReference Include="..\AdSet.Dados\AdSet.Dados.csproj" />
-  </ItemGroup>
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AdSet.Dados\AdSet.Dados.csproj" />
+    <ProjectReference Include="..\AdSet.Dominio\AdSet.Dominio.csproj" />
+  </ItemGroup>
 
 </Project>

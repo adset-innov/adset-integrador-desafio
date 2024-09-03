@@ -1,17 +1,92 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\ianna\\adset-integrador-desafio\\AdSet.Web\\AdSet.Web.csproj": {}
+    "C:\\Users\\ianna\\adset-integrador-desafio\\AdSet.Web\\AdSet.Web.csproj": {}
   },
   "projects": {
-    "c:\\Users\\ianna\\adset-integrador-desafio\\AdSet.Dados\\AdSet.Dados.csproj": {
+    "C:\\Users\\ianna\\adset-integrador-desafio\\AdSet.Dados\\AdSet.Dados.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\ianna\\adset-integrador-desafio\\AdSet.Dados\\AdSet.Dados.csproj",
+        "projectUniqueName": "C:\\Users\\ianna\\adset-integrador-desafio\\AdSet.Dados\\AdSet.Dados.csproj",
         "projectName": "AdSet.Dados",
-        "projectPath": "c:\\Users\\ianna\\adset-integrador-desafio\\AdSet.Dados\\AdSet.Dados.csproj",
+        "projectPath": "C:\\Users\\ianna\\adset-integrador-desafio\\AdSet.Dados\\AdSet.Dados.csproj",
         "packagesPath": "C:\\Users\\ianna\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\ianna\\adset-integrador-desafio\\AdSet.Dados\\obj\\",
+        "outputPath": "C:\\Users\\ianna\\adset-integrador-desafio\\AdSet.Dados\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\ianna\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\Users\\ianna\\adset-integrador-desafio\\AdSet.Dominio\\AdSet.Dominio.csproj": {
+                "projectPath": "C:\\Users\\ianna\\adset-integrador-desafio\\AdSet.Dominio\\AdSet.Dominio.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.Design": {
+              "target": "Package",
+              "version": "[8.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[8.0.8, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\ianna\\adset-integrador-desafio\\AdSet.Dominio\\AdSet.Dominio.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\ianna\\adset-integrador-desafio\\AdSet.Dominio\\AdSet.Dominio.csproj",
+        "projectName": "AdSet.Dominio",
+        "projectPath": "C:\\Users\\ianna\\adset-integrador-desafio\\AdSet.Dominio\\AdSet.Dominio.csproj",
+        "packagesPath": "C:\\Users\\ianna\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ianna\\adset-integrador-desafio\\AdSet.Dominio\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ianna\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -65,14 +140,14 @@
         }
       }
     },
-    "c:\\Users\\ianna\\adset-integrador-desafio\\AdSet.Web\\AdSet.Web.csproj": {
+    "C:\\Users\\ianna\\adset-integrador-desafio\\AdSet.Web\\AdSet.Web.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\ianna\\adset-integrador-desafio\\AdSet.Web\\AdSet.Web.csproj",
+        "projectUniqueName": "C:\\Users\\ianna\\adset-integrador-desafio\\AdSet.Web\\AdSet.Web.csproj",
         "projectName": "AdSet.Web",
-        "projectPath": "c:\\Users\\ianna\\adset-integrador-desafio\\AdSet.Web\\AdSet.Web.csproj",
+        "projectPath": "C:\\Users\\ianna\\adset-integrador-desafio\\AdSet.Web\\AdSet.Web.csproj",
         "packagesPath": "C:\\Users\\ianna\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\ianna\\adset-integrador-desafio\\AdSet.Web\\obj\\",
+        "outputPath": "C:\\Users\\ianna\\adset-integrador-desafio\\AdSet.Web\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ianna\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -90,8 +165,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "c:\\Users\\ianna\\adset-integrador-desafio\\AdSet.Dados\\AdSet.Dados.csproj": {
-                "projectPath": "c:\\Users\\ianna\\adset-integrador-desafio\\AdSet.Dados\\AdSet.Dados.csproj"
+              "C:\\Users\\ianna\\adset-integrador-desafio\\AdSet.Dados\\AdSet.Dados.csproj": {
+                "projectPath": "C:\\Users\\ianna\\adset-integrador-desafio\\AdSet.Dados\\AdSet.Dados.csproj"
+              },
+              "C:\\Users\\ianna\\adset-integrador-desafio\\AdSet.Dominio\\AdSet.Dominio.csproj": {
+                "projectPath": "C:\\Users\\ianna\\adset-integrador-desafio\\AdSet.Dominio\\AdSet.Dominio.csproj"
               }
             }
           }
