@@ -10,3 +10,15 @@ C:\Users\ianna\adset-integrador-desafio\AdSet.Dominio\obj\Debug\net8.0\AdSet.Dom
 C:\Users\ianna\adset-integrador-desafio\AdSet.Dominio\obj\Debug\net8.0\refint\AdSet.Dominio.dll
 C:\Users\ianna\adset-integrador-desafio\AdSet.Dominio\obj\Debug\net8.0\AdSet.Dominio.pdb
 C:\Users\ianna\adset-integrador-desafio\AdSet.Dominio\obj\Debug\net8.0\ref\AdSet.Dominio.dll
+C:\Users\ian.nascimento\source\Projetos\AdSet.Dominio\bin\Debug\net8.0\AdSet.Dominio.deps.json
+C:\Users\ian.nascimento\source\Projetos\AdSet.Dominio\bin\Debug\net8.0\AdSet.Dominio.dll
+C:\Users\ian.nascimento\source\Projetos\AdSet.Dominio\bin\Debug\net8.0\AdSet.Dominio.pdb
+C:\Users\ian.nascimento\source\Projetos\AdSet.Dominio\obj\Debug\net8.0\AdSet.Dominio.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ian.nascimento\source\Projetos\AdSet.Dominio\obj\Debug\net8.0\AdSet.Dominio.AssemblyInfoInputs.cache
+C:\Users\ian.nascimento\source\Projetos\AdSet.Dominio\obj\Debug\net8.0\AdSet.Dominio.AssemblyInfo.cs
+C:\Users\ian.nascimento\source\Projetos\AdSet.Dominio\obj\Debug\net8.0\AdSet.Dominio.csproj.CoreCompileInputs.cache
+C:\Users\ian.nascimento\source\Projetos\AdSet.Dominio\obj\Debug\net8.0\AdSet.Dominio.sourcelink.json
+C:\Users\ian.nascimento\source\Projetos\AdSet.Dominio\obj\Debug\net8.0\AdSet.Dominio.dll
+C:\Users\ian.nascimento\source\Projetos\AdSet.Dominio\obj\Debug\net8.0\refint\AdSet.Dominio.dll
+C:\Users\ian.nascimento\source\Projetos\AdSet.Dominio\obj\Debug\net8.0\AdSet.Dominio.pdb
+C:\Users\ian.nascimento\source\Projetos\AdSet.Dominio\obj\Debug\net8.0\ref\AdSet.Dominio.dll

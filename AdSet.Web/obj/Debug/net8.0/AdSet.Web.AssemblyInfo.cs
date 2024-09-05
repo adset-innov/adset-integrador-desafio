@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AdSet.Web")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+33ad3fc9f89263d6ea0424c093e79badb5e43466")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+799a3c679b004396fc717a16b6f28503368e2f33")]
 [assembly: System.Reflection.AssemblyProductAttribute("AdSet.Web")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AdSet.Web")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -8,19 +8,19 @@
     "net8.0": []
   },
   "packageFolders": {
-    "C:\\Users\\ianna\\.nuget\\packages\\": {}
+    "C:\\Users\\ian.nascimento\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ianna\\adset-integrador-desafio\\AdSet.Dominio\\AdSet.Dominio.csproj",
+      "projectUniqueName": "C:\\Users\\ian.nascimento\\source\\Projetos\\AdSet.Dominio\\AdSet.Dominio.csproj",
       "projectName": "AdSet.Dominio",
-      "projectPath": "C:\\Users\\ianna\\adset-integrador-desafio\\AdSet.Dominio\\AdSet.Dominio.csproj",
-      "packagesPath": "C:\\Users\\ianna\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ianna\\adset-integrador-desafio\\AdSet.Dominio\\obj\\",
+      "projectPath": "C:\\Users\\ian.nascimento\\source\\Projetos\\AdSet.Dominio\\AdSet.Dominio.csproj",
+      "packagesPath": "C:\\Users\\ian.nascimento\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ian.nascimento\\source\\Projetos\\AdSet.Dominio\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\ianna\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ian.nascimento\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

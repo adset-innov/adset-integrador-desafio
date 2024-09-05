@@ -440,7 +440,7 @@
           "Mono.TextTemplating": "2.2.1"
         },
         "compile": {
-          "lib/net8.0/Microsoft.EntityFrameworkCore.Design.dll": {
+          "lib/net8.0/_._": {
             "related": ".xml"
           }
         },
@@ -450,7 +450,7 @@
           }
         },
         "build": {
-          "build/net8.0/_._": {}
+          "build/net8.0/Microsoft.EntityFrameworkCore.Design.props": {}
         }
       },
       "Microsoft.EntityFrameworkCore.Relational/8.0.8": {
@@ -1497,6 +1497,7 @@
         "dependencies": {
           "AdSet.Dominio": "1.0.0",
           "Microsoft.EntityFrameworkCore.Design": "8.0.8",
+          "Microsoft.EntityFrameworkCore.Relational": "8.0.8",
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.8"
         },
         "compile": {
@@ -4098,23 +4099,24 @@
   "projectFileDependencyGroups": {
     "net8.0": [
       "AdSet.Dados >= 1.0.0",
-      "AdSet.Dominio >= 1.0.0"
+      "AdSet.Dominio >= 1.0.0",
+      "Microsoft.EntityFrameworkCore.Design >= 8.0.8"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ianna\\.nuget\\packages\\": {}
+    "C:\\Users\\ian.nascimento\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ianna\\adset-integrador-desafio\\AdSet.Web\\AdSet.Web.csproj",
+      "projectUniqueName": "C:\\Users\\ian.nascimento\\source\\Projetos\\AdSet.Web\\AdSet.Web.csproj",
       "projectName": "AdSet.Web",
-      "projectPath": "C:\\Users\\ianna\\adset-integrador-desafio\\AdSet.Web\\AdSet.Web.csproj",
-      "packagesPath": "C:\\Users\\ianna\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ianna\\adset-integrador-desafio\\AdSet.Web\\obj\\",
+      "projectPath": "C:\\Users\\ian.nascimento\\source\\Projetos\\AdSet.Web\\AdSet.Web.csproj",
+      "packagesPath": "C:\\Users\\ian.nascimento\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ian.nascimento\\source\\Projetos\\AdSet.Web\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\ianna\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ian.nascimento\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4129,11 +4131,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\ianna\\adset-integrador-desafio\\AdSet.Dados\\AdSet.Dados.csproj": {
-              "projectPath": "C:\\Users\\ianna\\adset-integrador-desafio\\AdSet.Dados\\AdSet.Dados.csproj"
+            "C:\\Users\\ian.nascimento\\source\\Projetos\\AdSet.Dados\\AdSet.Dados.csproj": {
+              "projectPath": "C:\\Users\\ian.nascimento\\source\\Projetos\\AdSet.Dados\\AdSet.Dados.csproj"
             },
-            "C:\\Users\\ianna\\adset-integrador-desafio\\AdSet.Dominio\\AdSet.Dominio.csproj": {
-              "projectPath": "C:\\Users\\ianna\\adset-integrador-desafio\\AdSet.Dominio\\AdSet.Dominio.csproj"
+            "C:\\Users\\ian.nascimento\\source\\Projetos\\AdSet.Dominio\\AdSet.Dominio.csproj": {
+              "projectPath": "C:\\Users\\ian.nascimento\\source\\Projetos\\AdSet.Dominio\\AdSet.Dominio.csproj"
             }
           }
         }
@@ -4152,6 +4154,14 @@
     "frameworks": {
       "net8.0": {
         "targetAlias": "net8.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Design": {
+            "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+            "suppressParent": "All",
+            "target": "Package",
+            "version": "[8.0.8, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",

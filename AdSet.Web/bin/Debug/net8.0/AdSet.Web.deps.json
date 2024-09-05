@@ -9,7 +9,8 @@
       "AdSet.Web/1.0.0": {
         "dependencies": {
           "AdSet.Dados": "1.0.0",
-          "AdSet.Dominio": "1.0.0"
+          "AdSet.Dominio": "1.0.0",
+          "Microsoft.EntityFrameworkCore.Design": "8.0.8"
         },
         "runtime": {
           "AdSet.Web.dll": {}
@@ -855,6 +856,7 @@
         "dependencies": {
           "AdSet.Dominio": "1.0.0",
           "Microsoft.EntityFrameworkCore.Design": "8.0.8",
+          "Microsoft.EntityFrameworkCore.Relational": "8.0.8",
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.8"
         },
         "runtime": {
