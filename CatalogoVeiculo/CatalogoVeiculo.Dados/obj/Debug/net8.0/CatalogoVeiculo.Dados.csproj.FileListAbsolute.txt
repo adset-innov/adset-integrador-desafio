@@ -1,0 +1,15 @@
+C:\Users\ian.nascimento\ADset\CatalogoVeiculo\CatalogoVeiculo.Dados\bin\Debug\net8.0\CatalogoVeiculo.Dados.deps.json
+C:\Users\ian.nascimento\ADset\CatalogoVeiculo\CatalogoVeiculo.Dados\bin\Debug\net8.0\CatalogoVeiculo.Dados.runtimeconfig.json
+C:\Users\ian.nascimento\ADset\CatalogoVeiculo\CatalogoVeiculo.Dados\bin\Debug\net8.0\CatalogoVeiculo.Dados.dll
+C:\Users\ian.nascimento\ADset\CatalogoVeiculo\CatalogoVeiculo.Dados\bin\Debug\net8.0\CatalogoVeiculo.Dados.pdb
+C:\Users\ian.nascimento\ADset\CatalogoVeiculo\CatalogoVeiculo.Dados\obj\Debug\net8.0\CatalogoVeiculo.Dados.csproj.AssemblyReference.cache
+C:\Users\ian.nascimento\ADset\CatalogoVeiculo\CatalogoVeiculo.Dados\obj\Debug\net8.0\CatalogoVeiculo.Dados.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ian.nascimento\ADset\CatalogoVeiculo\CatalogoVeiculo.Dados\obj\Debug\net8.0\CatalogoVeiculo.Dados.AssemblyInfoInputs.cache
+C:\Users\ian.nascimento\ADset\CatalogoVeiculo\CatalogoVeiculo.Dados\obj\Debug\net8.0\CatalogoVeiculo.Dados.AssemblyInfo.cs
+C:\Users\ian.nascimento\ADset\CatalogoVeiculo\CatalogoVeiculo.Dados\obj\Debug\net8.0\CatalogoVeiculo.Dados.csproj.CoreCompileInputs.cache
+C:\Users\ian.nascimento\ADset\CatalogoVeiculo\CatalogoVeiculo.Dados\obj\Debug\net8.0\CatalogoVeiculo.Dados.sourcelink.json
+C:\Users\ian.nascimento\ADset\CatalogoVeiculo\CatalogoVeiculo.Dados\obj\Debug\net8.0\CatalogoVeiculo.Dados.dll
+C:\Users\ian.nascimento\ADset\CatalogoVeiculo\CatalogoVeiculo.Dados\obj\Debug\net8.0\refint\CatalogoVeiculo.Dados.dll
+C:\Users\ian.nascimento\ADset\CatalogoVeiculo\CatalogoVeiculo.Dados\obj\Debug\net8.0\CatalogoVeiculo.Dados.pdb
+C:\Users\ian.nascimento\ADset\CatalogoVeiculo\CatalogoVeiculo.Dados\obj\Debug\net8.0\CatalogoVeiculo.Dados.genruntimeconfig.cache
+C:\Users\ian.nascimento\ADset\CatalogoVeiculo\CatalogoVeiculo.Dados\obj\Debug\net8.0\ref\CatalogoVeiculo.Dados.dll

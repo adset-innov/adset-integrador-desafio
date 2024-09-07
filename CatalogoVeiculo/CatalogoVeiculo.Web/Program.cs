@@ -1,7 +1,13 @@
+using CatalogoVeiculo.Dados.Data;
+using CatalogoVeiculo.Dados.Services;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<DataContext>(opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddTransient<IRepositoryService, RepositoryService>();
 
 var app = builder.Build();
 
