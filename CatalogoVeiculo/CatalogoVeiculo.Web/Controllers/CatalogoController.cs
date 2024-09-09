@@ -18,7 +18,7 @@ namespace CatalogoVeiculo.Web.Controllers
         {
             var l_repository = _repositoryService.ObterTodosVeiculos();
             return View();
-        }
+        }     
 
         // GET: CatalogoController/Details/5
         public ActionResult Details(int id)

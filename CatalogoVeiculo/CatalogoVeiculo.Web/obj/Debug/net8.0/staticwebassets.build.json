@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "kv5YFUX1F7UrtGD4708O46lvOiD+IQYKBY6j037ffdY=",
+  "Hash": "rtI81CmswHOs7s1iIJbxv8ckxpk9/gOAAx5ebC/MojE=",
   "Source": "CatalogoVeiculo.Web",
   "BasePath": "_content/CatalogoVeiculo.Web",
   "Mode": "Default",
@@ -53,6 +53,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\ian.nascimento\\ADset\\CatalogoVeiculo\\CatalogoVeiculo.Web\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\CatalogoVeiculo.Web.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\ian.nascimento\\ADset\\CatalogoVeiculo\\CatalogoVeiculo.Web\\wwwroot\\adset-integrador.png",
+      "SourceId": "CatalogoVeiculo.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ian.nascimento\\ADset\\CatalogoVeiculo\\CatalogoVeiculo.Web\\wwwroot\\",
+      "BasePath": "_content/CatalogoVeiculo.Web",
+      "RelativePath": "adset-integrador.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\adset-integrador.png"
     },
     {
       "Identity": "C:\\Users\\ian.nascimento\\ADset\\CatalogoVeiculo\\CatalogoVeiculo.Web\\wwwroot\\css\\site.css",

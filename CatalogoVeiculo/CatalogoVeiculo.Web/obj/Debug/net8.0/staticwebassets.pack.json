@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\CatalogoVeiculo.Web.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\ian.nascimento\\ADset\\CatalogoVeiculo\\CatalogoVeiculo.Web\\wwwroot\\adset-integrador.png",
+      "PackagePath": "staticwebassets\\adset-integrador.png"
+    },
+    {
       "Id": "C:\\Users\\ian.nascimento\\ADset\\CatalogoVeiculo\\CatalogoVeiculo.Web\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
