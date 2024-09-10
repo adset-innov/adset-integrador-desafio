@@ -105,9 +105,12 @@
             <label class="lblOpcionais" for="lblOpcionais">Opcionais</label>
             <select class="ddlOpcionais" id="ddlOpcionais">
                 <option value="">Todos</option>
-                @foreach (var l_Opcional in ViewBag.Opcionais)
+                @if (ViewBag.Opcionais != null)
                 {
-                    <option value="@l_Opcional.Id">@l_Opcional.Descricao</option>
+                    @foreach (var l_Opcional in ViewBag.Opcionais)
+                    {
+                        <option value="@l_Opcional.Id">@l_Opcional.Descricao</option>
+                    }
                 }
             </select>
         </div>
