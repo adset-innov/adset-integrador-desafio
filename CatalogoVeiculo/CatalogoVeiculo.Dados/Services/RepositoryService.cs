@@ -7,6 +7,7 @@ namespace CatalogoVeiculo.Dados.Services
     public interface IRepositoryService
     {
         IEnumerable<Veiculo> ObterTodosVeiculos();
+        IEnumerable<Opcional> ObterTodosOpcionais();
     }
     public class RepositoryService : IRepositoryService
     {
@@ -23,8 +24,15 @@ namespace CatalogoVeiculo.Dados.Services
                                 .Include(x=>x.Opcionais)
                                 .Include(x=>x.Fotos)
                                 .ToList();
-
             return l_retorno;            
+        }
+
+        public IEnumerable<Opcional> ObterTodosOpcionais()
+        {
+            var l_retorno = _context.Set<Opcional>()
+                                .AsNoTracking()                            
+                                .ToList();
+            return l_retorno;
         }
     }
 }

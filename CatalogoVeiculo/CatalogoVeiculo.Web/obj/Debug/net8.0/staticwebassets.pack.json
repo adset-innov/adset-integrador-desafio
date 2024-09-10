@@ -17,6 +17,50 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\ian.nascimento\\ADset\\CatalogoVeiculo\\CatalogoVeiculo.Web\\wwwroot\\images\\botaocadastrarveiculo.png",
+      "PackagePath": "staticwebassets\\images\\botaocadastrarveiculo.png"
+    },
+    {
+      "Id": "C:\\Users\\ian.nascimento\\ADset\\CatalogoVeiculo\\CatalogoVeiculo.Web\\wwwroot\\images\\botaoeditar.png",
+      "PackagePath": "staticwebassets\\images\\botaoeditar.png"
+    },
+    {
+      "Id": "C:\\Users\\ian.nascimento\\ADset\\CatalogoVeiculo\\CatalogoVeiculo.Web\\wwwroot\\images\\botaoexcell.png",
+      "PackagePath": "staticwebassets\\images\\botaoexcell.png"
+    },
+    {
+      "Id": "C:\\Users\\ian.nascimento\\ADset\\CatalogoVeiculo\\CatalogoVeiculo.Web\\wwwroot\\images\\botaopesquisar.png",
+      "PackagePath": "staticwebassets\\images\\botaopesquisar.png"
+    },
+    {
+      "Id": "C:\\Users\\ian.nascimento\\ADset\\CatalogoVeiculo\\CatalogoVeiculo.Web\\wwwroot\\images\\botaosalvar.png",
+      "PackagePath": "staticwebassets\\images\\botaosalvar.png"
+    },
+    {
+      "Id": "C:\\Users\\ian.nascimento\\ADset\\CatalogoVeiculo\\CatalogoVeiculo.Web\\wwwroot\\images\\botaosortear.png",
+      "PackagePath": "staticwebassets\\images\\botaosortear.png"
+    },
+    {
+      "Id": "C:\\Users\\ian.nascimento\\ADset\\CatalogoVeiculo\\CatalogoVeiculo.Web\\wwwroot\\images\\iconecamera.png",
+      "PackagePath": "staticwebassets\\images\\iconecamera.png"
+    },
+    {
+      "Id": "C:\\Users\\ian.nascimento\\ADset\\CatalogoVeiculo\\CatalogoVeiculo.Web\\wwwroot\\images\\iconecarro.png",
+      "PackagePath": "staticwebassets\\images\\iconecarro.png"
+    },
+    {
+      "Id": "C:\\Users\\ian.nascimento\\ADset\\CatalogoVeiculo\\CatalogoVeiculo.Web\\wwwroot\\images\\iconeicarros.png",
+      "PackagePath": "staticwebassets\\images\\iconeicarros.png"
+    },
+    {
+      "Id": "C:\\Users\\ian.nascimento\\ADset\\CatalogoVeiculo\\CatalogoVeiculo.Web\\wwwroot\\images\\iconewebmotors.png",
+      "PackagePath": "staticwebassets\\images\\iconewebmotors.png"
+    },
+    {
+      "Id": "C:\\Users\\ian.nascimento\\ADset\\CatalogoVeiculo\\CatalogoVeiculo.Web\\wwwroot\\images\\lixeira.png",
+      "PackagePath": "staticwebassets\\images\\lixeira.png"
+    },
+    {
       "Id": "C:\\Users\\ian.nascimento\\ADset\\CatalogoVeiculo\\CatalogoVeiculo.Web\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

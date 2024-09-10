@@ -8,15 +8,19 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/CatalogoVeiculo.Web.styles.css" asp-append-version="true" />
 </head>
-<body>
-    @await Html.PartialAsync("~/Views/Shared/_MenuBar.cshtml")
-    @await Html.PartialAsync("~/Views/Shared/_Filtro.cshtml")
+<body>   
+    <div class="container-fluid">
+        <nav class="navbar navbar-light bg-light">
+            <a class="navbar-brand">
+                <img src="~/adset-integrador.png" class="img-fluid" alt="" />
+            </a>
+        </nav>
+    </div>
     <div class="container">
-        <main role="main" class="pb-3">
+        <main role="main" class="pb-3 bg-light">
             @RenderBody()
         </main>
     </div>
-
     <footer>
         <div class="container-fluid border-top footer text-muted">
             &copy; 2024 - CatalogoVeiculo

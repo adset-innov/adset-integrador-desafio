@@ -1,10 +1,207 @@
-﻿@model CatalogoViewModel;
+﻿@using CatalogoVeiculo.Dados.Entities
+@model IEnumerable<CatalogoViewModel>;
 
 @{
     ViewData["Title"] = "Catálogo Page";
+    int l_TotalVeiculos = Model.Count();
+    int l_TotalVeiculosComFoto = Model.Select(x => x.Fotos).Sum(x => Convert.ToInt32(x.Count));
+    int l_TotalVeiculosSemFoto = l_TotalVeiculos - l_TotalVeiculosComFoto;
 }
-<div class="container">
-    <h1>Aqui ficará a tela do item</h1>
 
+<div class="container">
+    <div class="row bg-light">
+        <div class="col-sm">
+            <div class="divVeiculoTotal">
+                <label class="lblQuantidadeVeiculoTotal">@l_TotalVeiculos veículos</label>
+                <br />
+                <label class="lblQuantidadeVeiculoTotal2">Total</label>
+            </div>
+        </div>
+        <div class="col-sm">
+            <div class="divVeiculoTotalComFoto">
+                <label class="lblQuantidadeVeiculoComFoto">@l_TotalVeiculosComFoto.ToString() veículos</label>
+                <br />
+                <label class="lblQuantidadeVeiculoComFoto2" style="color:green">com fotos</label>
+            </div>
+        </div>
+        <div class="col-sm">
+            <div class="divVeiculoTotalSemFoto">
+                <label class="lblQuantidadeVeiculoSemFoto">@l_TotalVeiculosSemFoto.ToString() veículos</label>
+                <br />
+                <label class="lblQuantidadeVeiculoSemFoto2" style="color:red">sem fotos</label>
+            </div>
+        </div>
+        <div class="col-sm">
+            <div class="divExcell">
+                <label class="lblExcell">Exportar Estoque</label>
+                <br />
+                <button id="btnExcell" style="border:none;"><img src="~/images/botaoexcell.png" /></button>
+            </div>
+        </div>
+        <div class="col-sm">
+            <div class="divCadastraVeiculo">
+                <button id="btnCadastrarVeiculo" style="border:none;"><img src="~/images/botaocadastrarveiculo.png" /></button>
+            </div>
+        </div>
+        <div class="col-sm">
+            <div class="divSalvar">
+                <button id="btnSalvar" style="border:none;"><img src="~/images/botaosalvar.png" /></button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row bg-light">
+        <div class="col-sm m-1 rounded">
+            <label class="lblPlaca">Placa</label>
+            <input class="txtPlaca" type="text" id="txtPlaca">
+        </div>
+        <div class="col-sm m-1 rounded">
+            <label class="lblMarca">Marca</label>
+            <input class="txtMarca" type="text" id="txtMarca">
+        </div>
+        <div class="col-sm m-1 rounded">
+            <label class="lblModelo">Modelo</label>
+            <input class="txtModelo" type="text" id="txtModelo">
+        </div>
+        <div class="col-sm m-1 rounded">
+            <label class="lblAnoInicial">Ano Mín.</label>
+            <select class="ddlAnoInicial" id="ddlAnoInicial">
+                <option value="">Todos</option>
+                @for (int l_AnoInicial = 2000; l_AnoInicial <= 2024; l_AnoInicial++)
+                {
+                    <option value="@l_AnoInicial">@l_AnoInicial</option>
+                }
+            </select>
+        </div>
+        <div class="col-sm m-1 rounded">
+            <label class="lblAnoFinal">Ano Máx.</label>
+            <select class="ddlAnoFinal" id="ddlAnoFinal">
+                <option value="">Todos</option>
+                @for (int l_AnoFinal = 2000; l_AnoFinal <= 2024; l_AnoFinal++)
+                {
+                    <option value="@l_AnoFinal">@l_AnoFinal</option>
+                }
+            </select>
+        </div>
+        <div class="col-sm m-1 rounded">
+            <label class="lblPreco">Preço</label>
+            <select class="ddlPreco" id="ddlPreco">
+                <option value="">Todos</option>
+                <option value="1">10mil - 50mil</option>
+                <option value="2">50mil - 90mil</option>
+                <option value="3"> > 90mil </option>
+            </select>
+        </div>
+        <div class="col-sm m-1 rounded">
+            <label class="lblFoto" for="lblFoto">Fotos</label>
+            <select class="ddlFoto" id="ddlFoto">
+                <option value="">Todos</option>
+                <option value="1">Sim</option>
+                <option value="0">Não</option>
+            </select>
+        </div>
+        <div class="col-sm m-1 rounded">
+            <label class="lblOpcionais" for="lblOpcionais">Opcionais</label>
+            <select class="ddlOpcionais" id="ddlOpcionais">
+                <option value="">Todos</option>
+                @foreach (var l_Opcional in ViewBag.Opcionais)
+                {
+                    <option value="@l_Opcional.Id">@l_Opcional.Descricao</option>
+                }
+            </select>
+        </div>
+        <div class="col-sm m-1 rounded">
+            <label class="lblFiltroCor" for="lblFiltroCor">Cor</label>
+            <select class="ddlFiltroCor" id="ddlFiltroCor">
+                <option value="">Todos</option>
+                <option value="Preto">Preto</option>
+                <option value="Branco">Branco</option>
+                <option value="Prata">Prata</option>
+                <option value="Vermelho">Vermelho</option>
+            </select>
+        </div>
+        <form asp-controller="Catalogo" asp-action="Index" method="get">
+            <div class="d-flex justify-content-center">
+                <button id="btnPesquisar" type="submit" class="btnPesquisar border-0">
+                    <img src="~/images/botaopesquisar.png">
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+<div id="divTabela" style="display:none;">
+
+    @foreach (var l_Veiculo in Model)
+    {
+        <div class="d-flex">
+            <div class="p-2">
+                <a href="#">
+                    <img src="~/images/lixeira.png" title="Excluir" />
+                </a>
+            </div>
+            <div class="m-1 p-2">
+                <div data-placa="@l_Veiculo.Placa"
+                     data-modelo="@l_Veiculo.Modelo"
+                     data-marca="@l_Veiculo.Marca"
+                     data-ano="@l_Veiculo.Ano"
+                     data-preco="@l_Veiculo.Preco"
+                     data-foto="@l_Veiculo.Fotos"
+                     data-cor="@l_Veiculo.Cor"
+                     data-opcional="@l_Veiculo.Opcionais">
+
+                    <div class="d-flex align-items-center p-2">
+
+                        <div>
+                            <p><span> @l_Veiculo.Marca - @l_Veiculo.Modelo - @l_Veiculo.Ano </span></p>
+                            <p>Placa - <span>@l_Veiculo.Placa</span></p>
+                            <p>Km - <span>@l_Veiculo.Km</span></p>
+                            <p>Cor - <span>@l_Veiculo.Cor</span></p>
+                        </div>
+
+                        <div class="ml-auto p-2">
+                            <div>R$ @l_Veiculo.Preco</div>
+                            <div>
+                                <div>
+                                    <a asp-controller="" asp-action="" asp-route-id="">
+                                        <img src="~/images/botaoeditar.png" title="Editar veículo" />
+                                    </a>
+                                </div>
+                                <div>
+                                    <div>
+                                        <img src="~/images/iconecamera.png" title="Fotos" />
+                                    </div>
+                                    <div>
+                                        @l_Veiculo.Fotos.Count()
+                                    </div>
+                                </div>
+                                <div>
+                                    <div>
+                                        <img src="~/images/iconecarro.png" title="Opcionais" />
+                                    </div>
+                                    <div>
+                                        @l_Veiculo.Opcionais.Count()
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+                </div>
+            </div>
+        </div>
+    }
 </div>
 
+@section scripts {
+
+    <script>
+
+        $("#btnPesquisar").on("click", function (event) {
+            $("#divTabela").show();
+            // Prevent form submission
+            event.preventDefault();
+        });
+
+    </script>
+}

@@ -1,4 +1,5 @@
 ﻿using CatalogoVeiculo.Dados.Services;
+using CatalogoVeiculo.Web.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,10 +16,39 @@ namespace CatalogoVeiculo.Web.Controllers
         }
         // GET: CatalogoController
         public ActionResult Index()
+        
         {
-            var l_repository = _repositoryService.ObterTodosVeiculos();
-            return View();
-        }     
+            var l_Veiculos = _repositoryService.ObterTodosVeiculos();
+            var l_Opcionais = _repositoryService.ObterTodosOpcionais();
+
+            var l_Model = new List<CatalogoViewModel>();
+
+            if (l_Veiculos.Count() > 0)
+            {
+                foreach (var item in l_Veiculos)
+                {
+                    l_Model.Add(new CatalogoViewModel { 
+                        Marca = item.Marca,
+                        Modelo = item.Modelo,
+                        Ano = item.Ano,
+                        Placa = item.Placa,
+                        Cor = item.Cor,
+                        Preco = item.Preco,
+                        Km = item.Km,
+                        Opcionais = item.Opcionais,
+                        Fotos = item.Fotos
+                    });
+                }
+                
+                ViewBag.Opcionais = l_Opcionais ?? null;
+
+                return View(l_Model);
+            }
+            else
+            {
+                return View(l_Model);
+            }
+        }
 
         // GET: CatalogoController/Details/5
         public ActionResult Details(int id)
